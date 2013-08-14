@@ -164,6 +164,15 @@
   <ItemGroup>
     <None Include="Iconos\png\stock_text_justify.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Iconos\png\gtk-home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Iconos\png\mail-send-receive.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Iconos\png\gtk-leave-fullscreen.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

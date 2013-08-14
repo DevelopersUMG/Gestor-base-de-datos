@@ -73,6 +73,26 @@ namespace SBD___CCS.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap gtk_home {
+            get {
+                object obj = ResourceManager.GetObject("gtk-home", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap gtk_leave_fullscreen {
+            get {
+                object obj = ResourceManager.GetObject("gtk-leave-fullscreen", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap gtk_media_play_ltr_3_256x256x32 {
             get {
                 object obj = ResourceManager.GetObject("gtk-media-play-ltr_3_256x256x32", resourceCulture);
@@ -86,6 +106,16 @@ namespace SBD___CCS.Properties {
         internal static System.Drawing.Bitmap gtk_quit {
             get {
                 object obj = ResourceManager.GetObject("gtk-quit", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap mail_send_receive {
+            get {
+                object obj = ResourceManager.GetObject("mail-send-receive", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

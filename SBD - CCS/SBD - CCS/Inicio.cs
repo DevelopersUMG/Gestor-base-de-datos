@@ -127,14 +127,31 @@ namespace SBD___CCS
             }
             else if (dialogResult == DialogResult.No)
             {
-                //d
+            
             }
         
         }
+        public void IniciarGBD()
+        {
+            this.lbl_BD.Visible = true;
+            this.cmb_BD.Visible = true;
+            this.btn_SELECCIONARBD.Visible = false;
+           lista_multi.Items.Clear();
+           RefrescarListamulti();
+        }
+
+        public void RefrescarListamulti() {
+
+
+            lista_multi.Items.Add("Proveedores");
+            lista_multi.Items.Add("Clientes");
+            lista_multi.Items.Add("Productos");
+        }
+
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-          //  ESTADO();
+          
         }
 
         private void btn_NUEVATABLA_Click(object sender, EventArgs e)
@@ -178,8 +195,12 @@ namespace SBD___CCS
             ELIMINAR();
         }
 
-       
+        private void btn_SELECCIONARBD_Click(object sender, EventArgs e)
+        {
+            IniciarGBD();
+        }
 
+       
       
 
        

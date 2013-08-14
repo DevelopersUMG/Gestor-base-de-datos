@@ -31,6 +31,10 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Inicio));
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripSplitButton1 = new System.Windows.Forms.ToolStripSplitButton();
+            this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.desconectarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.archivoToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -43,12 +47,12 @@
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStrip2 = new System.Windows.Forms.ToolStrip();
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
-            this.lista_multi = new System.Windows.Forms.ListBox();
-            this.btn_ACTUALIZARBD = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.btn_SELECCIONARBD = new System.Windows.Forms.Button();
             this.btn_INICIOBD = new System.Windows.Forms.Button();
+            this.btn_ACTUALIZARBD = new System.Windows.Forms.Button();
+            this.btn_SELECCIONARBD = new System.Windows.Forms.Button();
+            this.lista_multi = new System.Windows.Forms.ListBox();
+            this.lbl_BD = new System.Windows.Forms.Label();
+            this.cmb_BD = new System.Windows.Forms.ComboBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.txt_RESULTADOS = new System.Windows.Forms.TextBox();
@@ -56,7 +60,10 @@
             this.txt_ERRORES = new System.Windows.Forms.TextBox();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.button12 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.toolStrip4 = new System.Windows.Forms.ToolStrip();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.btn_EXAMINAR = new System.Windows.Forms.Button();
@@ -65,15 +72,11 @@
             this.btn_NUEVATABLA = new System.Windows.Forms.Button();
             this.lbl_MSJERROR = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.button12 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.pct_SIGNAL = new System.Windows.Forms.PictureBox();
-            this.toolStripSplitButton1 = new System.Windows.Forms.ToolStripSplitButton();
-            this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.desconectarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.acercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.manualesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
@@ -101,11 +104,49 @@
             this.toolStrip1.TabIndex = 2;
             this.toolStrip1.Text = "toolStrip1";
             // 
+            // toolStripSplitButton1
+            // 
+            this.toolStripSplitButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripSplitButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.archivoToolStripMenuItem,
+            this.desconectarToolStripMenuItem});
+            this.toolStripSplitButton1.Image = global::SBD___CCS.Properties.Resources.xfsm_logout;
+            this.toolStripSplitButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripSplitButton1.Name = "toolStripSplitButton1";
+            this.toolStripSplitButton1.Size = new System.Drawing.Size(44, 20);
+            this.toolStripSplitButton1.Text = "Sesion";
+            this.toolStripSplitButton1.ButtonClick += new System.EventHandler(this.toolStripSplitButton1_ButtonClick);
+            // 
+            // archivoToolStripMenuItem
+            // 
+            this.archivoToolStripMenuItem.Image = global::SBD___CCS.Properties.Resources.stock_refresh;
+            this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
+            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.archivoToolStripMenuItem.Text = "Status";
+            // 
+            // desconectarToolStripMenuItem
+            // 
+            this.desconectarToolStripMenuItem.Image = global::SBD___CCS.Properties.Resources.xfce_system_exit;
+            this.desconectarToolStripMenuItem.Name = "desconectarToolStripMenuItem";
+            this.desconectarToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
+            this.desconectarToolStripMenuItem.Text = "Desconectar";
+            this.desconectarToolStripMenuItem.Click += new System.EventHandler(this.desconectarToolStripMenuItem_Click);
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = global::SBD___CCS.Properties.Resources.openofficeorg3_oasis_database;
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(44, 20);
+            this.toolStripButton1.Text = "Nueva Base de Datos";
+            // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.archivoToolStripMenuItem1,
-            this.querysToolStripMenuItem});
+            this.querysToolStripMenuItem,
+            this.ayudaToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(963, 24);
@@ -124,13 +165,13 @@
             // salirToolStripMenuItem1
             // 
             this.salirToolStripMenuItem1.Name = "salirToolStripMenuItem1";
-            this.salirToolStripMenuItem1.Size = new System.Drawing.Size(104, 22);
+            this.salirToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.salirToolStripMenuItem1.Text = "Salir";
             // 
             // violarToolStripMenuItem
             // 
             this.violarToolStripMenuItem.Name = "violarToolStripMenuItem";
-            this.violarToolStripMenuItem.Size = new System.Drawing.Size(104, 22);
+            this.violarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.violarToolStripMenuItem.Text = "Violar";
             // 
             // querysToolStripMenuItem
@@ -146,7 +187,7 @@
             // insertarToolStripMenuItem
             // 
             this.insertarToolStripMenuItem.Name = "insertarToolStripMenuItem";
-            this.insertarToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.insertarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.insertarToolStripMenuItem.Text = "Insertar";
             // 
             // crearToolStripMenuItem
@@ -154,7 +195,7 @@
             this.crearToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.tablaToolStripMenuItem});
             this.crearToolStripMenuItem.Name = "crearToolStripMenuItem";
-            this.crearToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.crearToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.crearToolStripMenuItem.Text = "Crear";
             // 
             // tablaToolStripMenuItem
@@ -166,7 +207,7 @@
             // modificarToolStripMenuItem
             // 
             this.modificarToolStripMenuItem.Name = "modificarToolStripMenuItem";
-            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(125, 22);
+            this.modificarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.modificarToolStripMenuItem.Text = "Modificar";
             this.modificarToolStripMenuItem.Click += new System.EventHandler(this.modificarToolStripMenuItem_Click);
             // 
@@ -194,18 +235,52 @@
             // 
             // toolStripContainer1.ContentPanel
             // 
-            this.toolStripContainer1.ContentPanel.Controls.Add(this.lista_multi);
-            this.toolStripContainer1.ContentPanel.Controls.Add(this.btn_ACTUALIZARBD);
-            this.toolStripContainer1.ContentPanel.Controls.Add(this.label1);
-            this.toolStripContainer1.ContentPanel.Controls.Add(this.comboBox1);
-            this.toolStripContainer1.ContentPanel.Controls.Add(this.btn_SELECCIONARBD);
             this.toolStripContainer1.ContentPanel.Controls.Add(this.btn_INICIOBD);
+            this.toolStripContainer1.ContentPanel.Controls.Add(this.btn_ACTUALIZARBD);
+            this.toolStripContainer1.ContentPanel.Controls.Add(this.btn_SELECCIONARBD);
+            this.toolStripContainer1.ContentPanel.Controls.Add(this.lista_multi);
+            this.toolStripContainer1.ContentPanel.Controls.Add(this.lbl_BD);
+            this.toolStripContainer1.ContentPanel.Controls.Add(this.cmb_BD);
             this.toolStripContainer1.ContentPanel.Size = new System.Drawing.Size(121, 445);
             this.toolStripContainer1.Location = new System.Drawing.Point(12, 44);
             this.toolStripContainer1.Name = "toolStripContainer1";
             this.toolStripContainer1.Size = new System.Drawing.Size(121, 470);
             this.toolStripContainer1.TabIndex = 13;
             this.toolStripContainer1.Text = "toolStripContainer1";
+            // 
+            // btn_INICIOBD
+            // 
+            this.btn_INICIOBD.BackgroundImage = global::SBD___CCS.Properties.Resources.gtk_home;
+            this.btn_INICIOBD.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_INICIOBD.Location = new System.Drawing.Point(6, 50);
+            this.btn_INICIOBD.Name = "btn_INICIOBD";
+            this.btn_INICIOBD.Size = new System.Drawing.Size(35, 35);
+            this.btn_INICIOBD.TabIndex = 24;
+            this.btn_INICIOBD.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btn_INICIOBD.UseVisualStyleBackColor = true;
+            // 
+            // btn_ACTUALIZARBD
+            // 
+            this.btn_ACTUALIZARBD.BackgroundImage = global::SBD___CCS.Properties.Resources.mail_send_receive;
+            this.btn_ACTUALIZARBD.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_ACTUALIZARBD.Location = new System.Drawing.Point(42, 50);
+            this.btn_ACTUALIZARBD.Name = "btn_ACTUALIZARBD";
+            this.btn_ACTUALIZARBD.Size = new System.Drawing.Size(35, 35);
+            this.btn_ACTUALIZARBD.TabIndex = 23;
+            this.btn_ACTUALIZARBD.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btn_ACTUALIZARBD.UseVisualStyleBackColor = true;
+            // 
+            // btn_SELECCIONARBD
+            // 
+            this.btn_SELECCIONARBD.BackgroundImage = global::SBD___CCS.Properties.Resources.gtk_leave_fullscreen;
+            this.btn_SELECCIONARBD.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btn_SELECCIONARBD.Location = new System.Drawing.Point(83, 50);
+            this.btn_SELECCIONARBD.Name = "btn_SELECCIONARBD";
+            this.btn_SELECCIONARBD.Size = new System.Drawing.Size(35, 35);
+            this.btn_SELECCIONARBD.TabIndex = 22;
+            this.btn_SELECCIONARBD.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.btn_SELECCIONARBD.UseVisualStyleBackColor = true;
+            this.btn_SELECCIONARBD.Click += new System.EventHandler(this.btn_SELECCIONARBD_Click);
             // 
             // lista_multi
             // 
@@ -220,56 +295,29 @@
             this.lista_multi.Size = new System.Drawing.Size(106, 342);
             this.lista_multi.TabIndex = 6;
             // 
-            // btn_ACTUALIZARBD
+            // lbl_BD
             // 
-            this.btn_ACTUALIZARBD.Location = new System.Drawing.Point(38, 56);
-            this.btn_ACTUALIZARBD.Name = "btn_ACTUALIZARBD";
-            this.btn_ACTUALIZARBD.Size = new System.Drawing.Size(25, 23);
-            this.btn_ACTUALIZARBD.TabIndex = 5;
-            this.btn_ACTUALIZARBD.Text = "button3";
-            this.btn_ACTUALIZARBD.UseVisualStyleBackColor = true;
+            this.lbl_BD.AutoSize = true;
+            this.lbl_BD.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_BD.Location = new System.Drawing.Point(3, 13);
+            this.lbl_BD.Name = "lbl_BD";
+            this.lbl_BD.Size = new System.Drawing.Size(96, 13);
+            this.lbl_BD.TabIndex = 4;
+            this.lbl_BD.Text = "Bases de Datos";
+            this.lbl_BD.Visible = false;
             // 
-            // label1
+            // cmb_BD
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(96, 13);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Bases de Datos";
-            this.label1.Visible = false;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.cmb_BD.FormattingEnabled = true;
+            this.cmb_BD.Items.AddRange(new object[] {
             "mysql",
             "Prueba",
             "ADST-BD"});
-            this.comboBox1.Location = new System.Drawing.Point(3, 29);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(115, 21);
-            this.comboBox1.TabIndex = 3;
-            this.comboBox1.Visible = false;
-            // 
-            // btn_SELECCIONARBD
-            // 
-            this.btn_SELECCIONARBD.Location = new System.Drawing.Point(69, 56);
-            this.btn_SELECCIONARBD.Name = "btn_SELECCIONARBD";
-            this.btn_SELECCIONARBD.Size = new System.Drawing.Size(25, 23);
-            this.btn_SELECCIONARBD.TabIndex = 2;
-            this.btn_SELECCIONARBD.Text = "button2";
-            this.btn_SELECCIONARBD.UseVisualStyleBackColor = true;
-            // 
-            // btn_INICIOBD
-            // 
-            this.btn_INICIOBD.Location = new System.Drawing.Point(6, 56);
-            this.btn_INICIOBD.Name = "btn_INICIOBD";
-            this.btn_INICIOBD.Size = new System.Drawing.Size(26, 23);
-            this.btn_INICIOBD.TabIndex = 0;
-            this.btn_INICIOBD.Text = "button1";
-            this.btn_INICIOBD.UseVisualStyleBackColor = true;
+            this.cmb_BD.Location = new System.Drawing.Point(3, 29);
+            this.cmb_BD.Name = "cmb_BD";
+            this.cmb_BD.Size = new System.Drawing.Size(115, 21);
+            this.cmb_BD.TabIndex = 3;
+            this.cmb_BD.Visible = false;
             // 
             // tabControl1
             // 
@@ -348,6 +396,17 @@
             this.tabPage3.TabIndex = 0;
             this.tabPage3.Text = "SQL";
             // 
+            // button12
+            // 
+            this.button12.BackgroundImage = global::SBD___CCS.Properties.Resources.gtk_quit;
+            this.button12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button12.Location = new System.Drawing.Point(88, 3);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(35, 35);
+            this.button12.TabIndex = 21;
+            this.button12.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.button12.UseVisualStyleBackColor = true;
+            // 
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -357,6 +416,27 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(719, 284);
             this.textBox1.TabIndex = 2;
+            // 
+            // button5
+            // 
+            this.button5.BackgroundImage = global::SBD___CCS.Properties.Resources.document_save_3_256x256x32;
+            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button5.Location = new System.Drawing.Point(6, 3);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(35, 35);
+            this.button5.TabIndex = 3;
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.BackgroundImage = global::SBD___CCS.Properties.Resources.gtk_media_play_ltr_3_256x256x32;
+            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button4.Location = new System.Drawing.Point(47, 3);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(35, 35);
+            this.button4.TabIndex = 1;
+            this.button4.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.button4.UseVisualStyleBackColor = true;
             // 
             // toolStrip4
             // 
@@ -436,38 +516,6 @@
             this.timer1.Interval = 10000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // button12
-            // 
-            this.button12.BackgroundImage = global::SBD___CCS.Properties.Resources.gtk_quit;
-            this.button12.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button12.Location = new System.Drawing.Point(88, 3);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(35, 35);
-            this.button12.TabIndex = 21;
-            this.button12.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.button12.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            this.button5.BackgroundImage = global::SBD___CCS.Properties.Resources.document_save_3_256x256x32;
-            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button5.Location = new System.Drawing.Point(6, 3);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(35, 35);
-            this.button5.TabIndex = 3;
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // button4
-            // 
-            this.button4.BackgroundImage = global::SBD___CCS.Properties.Resources.gtk_media_play_ltr_3_256x256x32;
-            this.button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.button4.Location = new System.Drawing.Point(47, 3);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(35, 35);
-            this.button4.TabIndex = 1;
-            this.button4.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
-            this.button4.UseVisualStyleBackColor = true;
-            // 
             // pct_SIGNAL
             // 
             this.pct_SIGNAL.Image = global::SBD___CCS.Properties.Resources.nosignal_3_256x256x32;
@@ -478,42 +526,26 @@
             this.pct_SIGNAL.TabIndex = 20;
             this.pct_SIGNAL.TabStop = false;
             // 
-            // toolStripSplitButton1
+            // ayudaToolStripMenuItem
             // 
-            this.toolStripSplitButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripSplitButton1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.archivoToolStripMenuItem,
-            this.desconectarToolStripMenuItem});
-            this.toolStripSplitButton1.Image = global::SBD___CCS.Properties.Resources.xfsm_logout;
-            this.toolStripSplitButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripSplitButton1.Name = "toolStripSplitButton1";
-            this.toolStripSplitButton1.Size = new System.Drawing.Size(44, 20);
-            this.toolStripSplitButton1.Text = "Sesion";
-            this.toolStripSplitButton1.ButtonClick += new System.EventHandler(this.toolStripSplitButton1_ButtonClick);
+            this.ayudaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.acercaDeToolStripMenuItem,
+            this.manualesToolStripMenuItem});
+            this.ayudaToolStripMenuItem.Name = "ayudaToolStripMenuItem";
+            this.ayudaToolStripMenuItem.Size = new System.Drawing.Size(53, 20);
+            this.ayudaToolStripMenuItem.Text = "Ayuda";
             // 
-            // archivoToolStripMenuItem
+            // acercaDeToolStripMenuItem
             // 
-            this.archivoToolStripMenuItem.Image = global::SBD___CCS.Properties.Resources.stock_refresh;
-            this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
-            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
-            this.archivoToolStripMenuItem.Text = "Status";
+            this.acercaDeToolStripMenuItem.Name = "acercaDeToolStripMenuItem";
+            this.acercaDeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.acercaDeToolStripMenuItem.Text = "Acerca de";
             // 
-            // desconectarToolStripMenuItem
+            // manualesToolStripMenuItem
             // 
-            this.desconectarToolStripMenuItem.Image = global::SBD___CCS.Properties.Resources.xfce_system_exit;
-            this.desconectarToolStripMenuItem.Name = "desconectarToolStripMenuItem";
-            this.desconectarToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
-            this.desconectarToolStripMenuItem.Text = "Desconectar";
-            this.desconectarToolStripMenuItem.Click += new System.EventHandler(this.desconectarToolStripMenuItem_Click);
-            // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = global::SBD___CCS.Properties.Resources.openofficeorg3_oasis_database;
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(44, 20);
-            this.toolStripButton1.Text = "Nueva Base de Datos";
+            this.manualesToolStripMenuItem.Name = "manualesToolStripMenuItem";
+            this.manualesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.manualesToolStripMenuItem.Text = "Manuales";
             // 
             // Inicio
             // 
@@ -576,15 +608,12 @@
         private System.Windows.Forms.ToolStrip toolStrip2;
         private System.Windows.Forms.ToolStripContainer toolStripContainer1;
         private System.Windows.Forms.BindingSource bindingSource1;
-        private System.Windows.Forms.Button btn_INICIOBD;
-        private System.Windows.Forms.Button btn_SELECCIONARBD;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label lbl_BD;
+        private System.Windows.Forms.ComboBox cmb_BD;
         private System.Windows.Forms.PictureBox pct_SIGNAL;
-        private System.Windows.Forms.Button btn_ACTUALIZARBD;
         private System.Windows.Forms.ListBox lista_multi;
         private System.Windows.Forms.ToolStripMenuItem querysToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem insertarToolStripMenuItem;
@@ -607,6 +636,12 @@
         private System.Windows.Forms.Label lbl_MSJERROR;
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.Button btn_INICIOBD;
+        private System.Windows.Forms.Button btn_ACTUALIZARBD;
+        private System.Windows.Forms.Button btn_SELECCIONARBD;
+        private System.Windows.Forms.ToolStripMenuItem ayudaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem acercaDeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem manualesToolStripMenuItem;
     }
 }
 
