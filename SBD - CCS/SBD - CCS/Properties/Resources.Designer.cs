@@ -83,6 +83,16 @@ namespace SBD___CCS.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap gtk_quit {
+            get {
+                object obj = ResourceManager.GetObject("gtk-quit", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap nm_signal_100_3_256x256x32 {
             get {
                 object obj = ResourceManager.GetObject("nm-signal-100_3_256x256x32", resourceCulture);
@@ -96,6 +106,56 @@ namespace SBD___CCS.Properties {
         internal static System.Drawing.Bitmap nosignal_3_256x256x32 {
             get {
                 object obj = ResourceManager.GetObject("nosignal_3_256x256x32", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap openofficeorg3_oasis_database {
+            get {
+                object obj = ResourceManager.GetObject("openofficeorg3-oasis-database", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap stock_refresh {
+            get {
+                object obj = ResourceManager.GetObject("stock-refresh", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap stock_text_justify {
+            get {
+                object obj = ResourceManager.GetObject("stock_text_justify", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap xfce_system_exit {
+            get {
+                object obj = ResourceManager.GetObject("xfce-system-exit", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap xfsm_logout {
+            get {
+                object obj = ResourceManager.GetObject("xfsm-logout", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

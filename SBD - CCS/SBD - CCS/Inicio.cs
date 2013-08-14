@@ -17,7 +17,7 @@ namespace SBD___CCS
 {
     public partial class Inicio : Form
     {
-       // public String BD = "";
+       
         public String HO = "";
         public String US = "";
         public String CO = "";
@@ -27,7 +27,7 @@ namespace SBD___CCS
                 CO=y;
                 HO = z;
             InitializeComponent();
-            listBox1.SetSelected(0, true);// inicioseleccionando algo
+            lista_multi.SetSelected(0, true);// inicioseleccionando algo
             timer1.Start();
         }
 
@@ -35,13 +35,11 @@ namespace SBD___CCS
 
         private void button1_Click(object sender, EventArgs e)
         {
-            //string nombre = textBox1.Text;
-            // CrearBDX x = new CrearBDX();
-            //x.CrearBD(textBox1.Text);
+          
             conectartodo();
         }
 
-        // Declaramos las variables:
+      
 
 
         MySqlConnection conec = new MySqlConnection();
@@ -57,12 +55,7 @@ namespace SBD___CCS
                 connectionString = "Server=127.0.0.1; Database=bd_4taluna;Uid=root; Pwd=";
                 conec.ConnectionString = connectionString;
                 conec.Open();
-                /* CadenaDeConexion = "Server=localhost;"
-                                + "Port=3307;"
-                                + "Database=mysql_ifxperu;"
-                                + "Uid=root;"
-                                + "Password=";*/
-                // Conectar();
+             
                 Console.WriteLine("Conectado");
             }
             catch (MySqlException ex)
@@ -77,45 +70,18 @@ namespace SBD___CCS
 
         private void modificarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SQLgrafico x = new SQLgrafico();
+            TB_Examinar x = new TB_Examinar();
             x.Show();
         }
 
-        private void button6_Click(object sender, EventArgs e)
-        {
-            MODIFICAR();
-         
-        }
 
 
+        public void ESTADO() {
 
-
-        public void MODIFICAR()
-        {
-            String Casa = listBox1.SelectedItem.ToString();
-            if (Casa != "")
-            {
-
-                SQLgrafico x = new SQLgrafico();
-                x.Asignar(Casa);
-                x.Show();
-            }
-            else
-            {
-                lbl_MSJERROR.Text = ("Seleccione una tabla");
-
-
-
-            }
-        
-       }
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
             Rutear x = new Rutear();
             try
             {
-                connectionString = "Server="+HO+"; Database=;Uid="+US+"; Pwd="+CO+"";
+                connectionString = "Server=" + HO + "; Database=;Uid=" + US + "; Pwd=" + CO + "";
                 conec.ConnectionString = connectionString;
                 conec.Open();
                 pct_SIGNAL.Image = Image.FromFile(x.RUTA("conect", ".png", "IMG"));
@@ -128,21 +94,97 @@ namespace SBD___CCS
             }
         }
 
-        private void button7_Click(object sender, EventArgs e)
+        public void MODIFICAR()
         {
-            
-  //beta jajajaj :D       //FormACerrar newform = (FormACerrar)Application.OpenForms["Form…
-//newform.Close();
+            String Tabla = lista_multi.SelectedItem.ToString();
+            if (Tabla != "")
+            {
+
+                TB_Examinar x = new TB_Examinar();
+                x.Asignar(Tabla);
+                x.Show();
+            }
+            else
+            {
+                lbl_MSJERROR.Text = ("Seleccione una tabla");
+
+
+
+            }
+        
+       }
+        public void ELIMINAR() {
+            String Tabla = lista_multi.SelectedItem.ToString();
+            DialogResult dialogResult = MessageBox.Show("Desea eliminar la tabla: " + Tabla + " de la base de datos?", "Eliminar Tabla", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+
+
+
+                lista_multi.Items.Remove(Tabla);
+
+
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+                //d
+            }
+        
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+          //  ESTADO();
+        }
+
+        private void btn_NUEVATABLA_Click(object sender, EventArgs e)
+        {
+            TB_Crear x = new TB_Crear();
+            x.Show();
+          
+        }
+
+        private void btn_RELACIONES_Click(object sender, EventArgs e)
+        {
+            TB_Relacion x = new TB_Relacion();
+            x.Show();
         }
 
         private void Inicio_Load(object sender, EventArgs e)
         {
+            
+            lbl_MSJERROR.Text=("Coneccion a: "+HO+" con: "+US);
+        }
+
+        private void toolStripSplitButton1_ButtonClick(object sender, EventArgs e)
+        {
 
         }
-        
 
+        private void desconectarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Login x = new Login();
+            x.Show();
+        }
 
+        private void btn_EXAMINAR_Click(object sender, EventArgs e)
+        {
+            MODIFICAR();
+        }
 
+        private void btn_ELIMINAR_Click(object sender, EventArgs e)
+        {
+            ELIMINAR();
+        }
+
+       
+
+      
+
+       
+
+   
 
 
 

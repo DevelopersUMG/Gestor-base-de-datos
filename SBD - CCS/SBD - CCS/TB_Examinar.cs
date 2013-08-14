@@ -9,9 +9,9 @@ using System.Windows.Forms;
 
 namespace SBD___CCS
 {
-    public partial class SQLgrafico : Form
+    public partial class TB_Examinar : Form
     {
-        public SQLgrafico()
+        public TB_Examinar()
         {
             InitializeComponent();
         }
@@ -29,5 +29,23 @@ namespace SBD___CCS
 
             lbl_TM.Text = ("Tabla: " + x);
         }
+
+        private void btn_CANCELAR_Click(object sender, EventArgs e)
+        {
+
+            this.Hide();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_MODIFICAR_Click(object sender, EventArgs e)
+        {
+
+        }
+
+       
     }
 }

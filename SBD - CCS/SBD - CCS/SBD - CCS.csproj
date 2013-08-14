@@ -56,6 +56,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="TB_Crear.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TB_Crear.Designer.cs">
+      <DependentUpon>TB_Crear.cs</DependentUpon>
+    </Compile>
     <Compile Include="Inicio.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,12 +76,21 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SQLgrafico.cs">
+    <Compile Include="TB_Relacion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SQLgrafico.Designer.cs">
-      <DependentUpon>SQLgrafico.cs</DependentUpon>
+    <Compile Include="TB_Relacion.Designer.cs">
+      <DependentUpon>TB_Relacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="TB_Examinar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TB_Examinar.Designer.cs">
+      <DependentUpon>TB_Examinar.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="TB_Crear.resx">
+      <DependentUpon>TB_Crear.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Inicio.resx">
       <DependentUpon>Inicio.cs</DependentUpon>
     </EmbeddedResource>
@@ -92,8 +107,11 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="SQLgrafico.resx">
-      <DependentUpon>SQLgrafico.cs</DependentUpon>
+    <EmbeddedResource Include="TB_Relacion.resx">
+      <DependentUpon>TB_Relacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TB_Examinar.resx">
+      <DependentUpon>TB_Examinar.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
@@ -127,6 +145,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Iconos\png\nosignal_3_256x256x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Iconos\png\gtk-quit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Iconos\png\xfsm-logout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Iconos\png\stock-refresh.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Iconos\png\xfce-system-exit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Iconos\png\openofficeorg3-oasis-database.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Iconos\png\stock_text_justify.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

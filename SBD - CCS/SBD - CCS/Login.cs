@@ -19,8 +19,9 @@ namespace SBD___CCS
         private void btn_INGRESAR_Click(object sender, EventArgs e)
         {
             Inicio x = new Inicio(txt_USUARIO.Text,txt_CONTRA.Text,txt_HOST.Text);
-            this.Hide();
             x.Show();
+            this.Hide();
+            
            
             
         }
