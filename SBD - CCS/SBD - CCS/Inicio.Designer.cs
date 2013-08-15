@@ -166,13 +166,13 @@
             // 
             this.salirToolStripMenuItem1.Name = "salirToolStripMenuItem1";
             this.salirToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
-            this.salirToolStripMenuItem1.Text = "Salir";
+            this.salirToolStripMenuItem1.Text = "Abrir";
             // 
             // violarToolStripMenuItem
             // 
             this.violarToolStripMenuItem.Name = "violarToolStripMenuItem";
             this.violarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.violarToolStripMenuItem.Text = "Violar";
+            this.violarToolStripMenuItem.Text = "Salir";
             // 
             // querysToolStripMenuItem
             // 

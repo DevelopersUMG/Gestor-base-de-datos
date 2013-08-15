@@ -146,6 +146,8 @@ namespace SBD___CCS
             lista_multi.Items.Add("Proveedores");
             lista_multi.Items.Add("Clientes");
             lista_multi.Items.Add("Productos");
+
+            lista_multi.SetSelected(0, true);//Posicionar en el primer elemento
         }
 
 
