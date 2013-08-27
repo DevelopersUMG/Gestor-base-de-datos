@@ -28,196 +28,179 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.lst_A = new System.Windows.Forms.ListBox();
-            this.btn_BA = new System.Windows.Forms.Button();
-            this.btn_AB = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.txt_QUERY = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cmb_A = new System.Windows.Forms.ComboBox();
-            this.cmb_B = new System.Windows.Forms.ComboBox();
-            this.lst_B = new System.Windows.Forms.ListBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lbl_A = new System.Windows.Forms.Label();
-            this.lbl_B = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btn_SELECCIONARA = new System.Windows.Forms.Button();
-            this.btn_SELECCIONARB = new System.Windows.Forms.Button();
-            this.groupBox1.SuspendLayout();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TB_Relacion));
+            this.lt_A = new System.Windows.Forms.ListBox();
+            this.bt_BA = new System.Windows.Forms.Button();
+            this.bt_AB = new System.Windows.Forms.Button();
+            this.bt_Ejecutar = new System.Windows.Forms.Button();
+            this.tb_Query = new System.Windows.Forms.TextBox();
+            this.lb_Query = new System.Windows.Forms.Label();
+            this.cb_A = new System.Windows.Forms.ComboBox();
+            this.cb_B = new System.Windows.Forms.ComboBox();
+            this.lt_B = new System.Windows.Forms.ListBox();
+            this.lb_Informacion = new System.Windows.Forms.Label();
+            this.lb_A = new System.Windows.Forms.Label();
+            this.lb_B = new System.Windows.Forms.Label();
+            this.gb_Crear = new System.Windows.Forms.GroupBox();
+            this.gb_Crear.SuspendLayout();
             this.SuspendLayout();
             // 
-            // lst_A
+            // lt_A
             // 
-            this.lst_A.FormattingEnabled = true;
-            this.lst_A.Items.AddRange(new object[] {
-            "ID_Producto"});
-            this.lst_A.Location = new System.Drawing.Point(15, 53);
-            this.lst_A.Name = "lst_A";
-            this.lst_A.Size = new System.Drawing.Size(163, 108);
-            this.lst_A.TabIndex = 0;
+            this.lt_A.Enabled = false;
+            this.lt_A.FormattingEnabled = true;
+            this.lt_A.Items.AddRange(new object[] {
+            "Seleccione una tabla..."});
+            this.lt_A.Location = new System.Drawing.Point(15, 53);
+            this.lt_A.Name = "lt_A";
+            this.lt_A.Size = new System.Drawing.Size(163, 108);
+            this.lt_A.TabIndex = 0;
             // 
-            // btn_BA
+            // bt_BA
             // 
-            this.btn_BA.Location = new System.Drawing.Point(184, 82);
-            this.btn_BA.Name = "btn_BA";
-            this.btn_BA.Size = new System.Drawing.Size(47, 23);
-            this.btn_BA.TabIndex = 5;
-            this.btn_BA.Text = "<<";
-            this.btn_BA.UseVisualStyleBackColor = true;
-            this.btn_BA.Click += new System.EventHandler(this.btn_BA_Click);
+            this.bt_BA.Location = new System.Drawing.Point(184, 82);
+            this.bt_BA.Name = "bt_BA";
+            this.bt_BA.Size = new System.Drawing.Size(47, 23);
+            this.bt_BA.TabIndex = 5;
+            this.bt_BA.Text = "<<";
+            this.bt_BA.UseVisualStyleBackColor = true;
+            this.bt_BA.Click += new System.EventHandler(this.btn_BA_Click);
             // 
-            // btn_AB
+            // bt_AB
             // 
-            this.btn_AB.Location = new System.Drawing.Point(184, 53);
-            this.btn_AB.Name = "btn_AB";
-            this.btn_AB.Size = new System.Drawing.Size(47, 23);
-            this.btn_AB.TabIndex = 6;
-            this.btn_AB.Text = ">>";
-            this.btn_AB.UseVisualStyleBackColor = true;
-            this.btn_AB.Click += new System.EventHandler(this.btn_AB_Click);
+            this.bt_AB.Location = new System.Drawing.Point(184, 53);
+            this.bt_AB.Name = "bt_AB";
+            this.bt_AB.Size = new System.Drawing.Size(47, 23);
+            this.bt_AB.TabIndex = 6;
+            this.bt_AB.Text = ">>";
+            this.bt_AB.UseVisualStyleBackColor = true;
+            this.bt_AB.Click += new System.EventHandler(this.btn_AB_Click);
             // 
-            // button3
+            // bt_Ejecutar
             // 
-            this.button3.Location = new System.Drawing.Point(348, 543);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 7;
-            this.button3.Text = "Ejecutar";
-            this.button3.UseVisualStyleBackColor = true;
+            this.bt_Ejecutar.Location = new System.Drawing.Point(337, 300);
+            this.bt_Ejecutar.Name = "bt_Ejecutar";
+            this.bt_Ejecutar.Size = new System.Drawing.Size(75, 23);
+            this.bt_Ejecutar.TabIndex = 7;
+            this.bt_Ejecutar.Text = "Ejecutar";
+            this.bt_Ejecutar.UseVisualStyleBackColor = true;
             // 
-            // txt_QUERY
+            // tb_Query
             // 
-            this.txt_QUERY.Location = new System.Drawing.Point(27, 210);
-            this.txt_QUERY.Multiline = true;
-            this.txt_QUERY.Name = "txt_QUERY";
-            this.txt_QUERY.Size = new System.Drawing.Size(382, 84);
-            this.txt_QUERY.TabIndex = 8;
+            this.tb_Query.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_Query.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.tb_Query.Location = new System.Drawing.Point(27, 210);
+            this.tb_Query.Multiline = true;
+            this.tb_Query.Name = "tb_Query";
+            this.tb_Query.Size = new System.Drawing.Size(382, 84);
+            this.tb_Query.TabIndex = 8;
             // 
-            // label1
+            // lb_Query
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(24, 194);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 13);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "Query:";
+            this.lb_Query.AutoSize = true;
+            this.lb_Query.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_Query.Location = new System.Drawing.Point(24, 194);
+            this.lb_Query.Name = "lb_Query";
+            this.lb_Query.Size = new System.Drawing.Size(44, 13);
+            this.lb_Query.TabIndex = 9;
+            this.lb_Query.Text = "Query:";
             // 
-            // cmb_A
+            // cb_A
             // 
-            this.cmb_A.FormattingEnabled = true;
-            this.cmb_A.Items.AddRange(new object[] {
+            this.cb_A.FormattingEnabled = true;
+            this.cb_A.Items.AddRange(new object[] {
             "Clientes",
             "Proveedores",
             "Productos"});
-            this.cmb_A.Location = new System.Drawing.Point(15, 26);
-            this.cmb_A.Name = "cmb_A";
-            this.cmb_A.Size = new System.Drawing.Size(120, 21);
-            this.cmb_A.TabIndex = 10;
+            this.cb_A.Location = new System.Drawing.Point(15, 26);
+            this.cb_A.Name = "cb_A";
+            this.cb_A.Size = new System.Drawing.Size(163, 21);
+            this.cb_A.TabIndex = 10;
+            this.cb_A.SelectedIndexChanged += new System.EventHandler(this.cmb_A_SelectedIndexChanged);
             // 
-            // cmb_B
+            // cb_B
             // 
-            this.cmb_B.FormattingEnabled = true;
-            this.cmb_B.Items.AddRange(new object[] {
+            this.cb_B.FormattingEnabled = true;
+            this.cb_B.Items.AddRange(new object[] {
             "Clientes",
             "Proveedores",
             "Productos"});
-            this.cmb_B.Location = new System.Drawing.Point(237, 28);
-            this.cmb_B.Name = "cmb_B";
-            this.cmb_B.Size = new System.Drawing.Size(120, 21);
-            this.cmb_B.TabIndex = 14;
+            this.cb_B.Location = new System.Drawing.Point(237, 28);
+            this.cb_B.Name = "cb_B";
+            this.cb_B.Size = new System.Drawing.Size(163, 21);
+            this.cb_B.TabIndex = 14;
+            this.cb_B.SelectedIndexChanged += new System.EventHandler(this.cmb_B_SelectedIndexChanged_1);
             // 
-            // lst_B
+            // lt_B
             // 
-            this.lst_B.FormattingEnabled = true;
-            this.lst_B.Items.AddRange(new object[] {
-            "ID_Cliente"});
-            this.lst_B.Location = new System.Drawing.Point(237, 53);
-            this.lst_B.Name = "lst_B";
-            this.lst_B.Size = new System.Drawing.Size(163, 108);
-            this.lst_B.TabIndex = 13;
+            this.lt_B.Enabled = false;
+            this.lt_B.FormattingEnabled = true;
+            this.lt_B.Items.AddRange(new object[] {
+            "Seleccione una tabla..."});
+            this.lt_B.Location = new System.Drawing.Point(237, 53);
+            this.lt_B.Name = "lt_B";
+            this.lt_B.Size = new System.Drawing.Size(163, 108);
+            this.lt_B.TabIndex = 13;
             // 
-            // label2
+            // lb_Informacion
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(203, 148);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(13, 13);
-            this.label2.TabIndex = 16;
-            this.label2.Text = "a";
+            this.lb_Informacion.AutoSize = true;
+            this.lb_Informacion.Location = new System.Drawing.Point(203, 148);
+            this.lb_Informacion.Name = "lb_Informacion";
+            this.lb_Informacion.Size = new System.Drawing.Size(13, 13);
+            this.lb_Informacion.TabIndex = 16;
+            this.lb_Informacion.Text = "a";
             // 
-            // lbl_A
+            // lb_A
             // 
-            this.lbl_A.AutoSize = true;
-            this.lbl_A.Location = new System.Drawing.Point(184, 148);
-            this.lbl_A.Name = "lbl_A";
-            this.lbl_A.Size = new System.Drawing.Size(0, 13);
-            this.lbl_A.TabIndex = 17;
+            this.lb_A.AutoSize = true;
+            this.lb_A.Location = new System.Drawing.Point(184, 148);
+            this.lb_A.Name = "lb_A";
+            this.lb_A.Size = new System.Drawing.Size(0, 13);
+            this.lb_A.TabIndex = 17;
             // 
-            // lbl_B
+            // lb_B
             // 
-            this.lbl_B.AutoSize = true;
-            this.lbl_B.Location = new System.Drawing.Point(222, 148);
-            this.lbl_B.Name = "lbl_B";
-            this.lbl_B.Size = new System.Drawing.Size(0, 13);
-            this.lbl_B.TabIndex = 18;
+            this.lb_B.AutoSize = true;
+            this.lb_B.Location = new System.Drawing.Point(222, 148);
+            this.lb_B.Name = "lb_B";
+            this.lb_B.Size = new System.Drawing.Size(0, 13);
+            this.lb_B.TabIndex = 18;
             // 
-            // groupBox1
+            // gb_Crear
             // 
-            this.groupBox1.Controls.Add(this.btn_SELECCIONARB);
-            this.groupBox1.Controls.Add(this.btn_SELECCIONARA);
-            this.groupBox1.Controls.Add(this.cmb_A);
-            this.groupBox1.Controls.Add(this.lbl_B);
-            this.groupBox1.Controls.Add(this.lst_A);
-            this.groupBox1.Controls.Add(this.lbl_A);
-            this.groupBox1.Controls.Add(this.btn_BA);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.btn_AB);
-            this.groupBox1.Controls.Add(this.cmb_B);
-            this.groupBox1.Controls.Add(this.lst_B);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(410, 178);
-            this.groupBox1.TabIndex = 19;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Crear Relacion";
-            // 
-            // btn_SELECCIONARA
-            // 
-            this.btn_SELECCIONARA.BackgroundImage = global::SBD___CCS.Properties.Resources.document_save_3_256x256x32;
-            this.btn_SELECCIONARA.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_SELECCIONARA.Location = new System.Drawing.Point(141, 12);
-            this.btn_SELECCIONARA.Name = "btn_SELECCIONARA";
-            this.btn_SELECCIONARA.Size = new System.Drawing.Size(35, 35);
-            this.btn_SELECCIONARA.TabIndex = 19;
-            this.btn_SELECCIONARA.UseVisualStyleBackColor = true;
-            this.btn_SELECCIONARA.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // btn_SELECCIONARB
-            // 
-            this.btn_SELECCIONARB.BackgroundImage = global::SBD___CCS.Properties.Resources.document_save_3_256x256x32;
-            this.btn_SELECCIONARB.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btn_SELECCIONARB.Location = new System.Drawing.Point(365, 14);
-            this.btn_SELECCIONARB.Name = "btn_SELECCIONARB";
-            this.btn_SELECCIONARB.Size = new System.Drawing.Size(35, 35);
-            this.btn_SELECCIONARB.TabIndex = 20;
-            this.btn_SELECCIONARB.UseVisualStyleBackColor = true;
+            this.gb_Crear.Controls.Add(this.cb_A);
+            this.gb_Crear.Controls.Add(this.lb_B);
+            this.gb_Crear.Controls.Add(this.lt_A);
+            this.gb_Crear.Controls.Add(this.lb_A);
+            this.gb_Crear.Controls.Add(this.bt_BA);
+            this.gb_Crear.Controls.Add(this.lb_Informacion);
+            this.gb_Crear.Controls.Add(this.bt_AB);
+            this.gb_Crear.Controls.Add(this.cb_B);
+            this.gb_Crear.Controls.Add(this.lt_B);
+            this.gb_Crear.Location = new System.Drawing.Point(12, 12);
+            this.gb_Crear.Name = "gb_Crear";
+            this.gb_Crear.Size = new System.Drawing.Size(410, 178);
+            this.gb_Crear.TabIndex = 19;
+            this.gb_Crear.TabStop = false;
+            this.gb_Crear.Text = "Crear Relacion";
             // 
             // TB_Relacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(433, 304);
-            this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.txt_QUERY);
-            this.Controls.Add(this.button3);
+            this.ClientSize = new System.Drawing.Size(428, 331);
+            this.Controls.Add(this.gb_Crear);
+            this.Controls.Add(this.lb_Query);
+            this.Controls.Add(this.tb_Query);
+            this.Controls.Add(this.bt_Ejecutar);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "TB_Relacion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Relacionar";
             this.Load += new System.EventHandler(this.TB_Relacion_Load);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.gb_Crear.ResumeLayout(false);
+            this.gb_Crear.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -225,20 +208,18 @@
 
         #endregion
 
-        private System.Windows.Forms.ListBox lst_A;
-        private System.Windows.Forms.Button btn_BA;
-        private System.Windows.Forms.Button btn_AB;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.TextBox txt_QUERY;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cmb_A;
-        private System.Windows.Forms.ComboBox cmb_B;
-        private System.Windows.Forms.ListBox lst_B;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label lbl_A;
-        private System.Windows.Forms.Label lbl_B;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button btn_SELECCIONARB;
-        private System.Windows.Forms.Button btn_SELECCIONARA;
+        private System.Windows.Forms.ListBox lt_A;
+        private System.Windows.Forms.Button bt_BA;
+        private System.Windows.Forms.Button bt_AB;
+        private System.Windows.Forms.Button bt_Ejecutar;
+        private System.Windows.Forms.TextBox tb_Query;
+        private System.Windows.Forms.Label lb_Query;
+        private System.Windows.Forms.ComboBox cb_A;
+        private System.Windows.Forms.ComboBox cb_B;
+        private System.Windows.Forms.ListBox lt_B;
+        private System.Windows.Forms.Label lb_Informacion;
+        private System.Windows.Forms.Label lb_A;
+        private System.Windows.Forms.Label lb_B;
+        private System.Windows.Forms.GroupBox gb_Crear;
     }
 }

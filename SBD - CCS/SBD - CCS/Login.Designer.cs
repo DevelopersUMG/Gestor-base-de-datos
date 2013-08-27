@@ -29,88 +29,90 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
-            this.txt_USUARIO = new System.Windows.Forms.TextBox();
-            this.txt_CONTRA = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.btn_INGRESAR = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txt_HOST = new System.Windows.Forms.TextBox();
+            this.tb_Usuario = new System.Windows.Forms.TextBox();
+            this.tb_Contrasena = new System.Windows.Forms.TextBox();
+            this.lb_Usuario = new System.Windows.Forms.Label();
+            this.lb_Contrasena = new System.Windows.Forms.Label();
+            this.lb_Host = new System.Windows.Forms.Label();
+            this.tb_Host = new System.Windows.Forms.TextBox();
+            this.bt_Ingresar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // txt_USUARIO
+            // tb_Usuario
             // 
-            this.txt_USUARIO.Location = new System.Drawing.Point(132, 29);
-            this.txt_USUARIO.Name = "txt_USUARIO";
-            this.txt_USUARIO.Size = new System.Drawing.Size(100, 20);
-            this.txt_USUARIO.TabIndex = 0;
+            this.tb_Usuario.Location = new System.Drawing.Point(132, 29);
+            this.tb_Usuario.Name = "tb_Usuario";
+            this.tb_Usuario.Size = new System.Drawing.Size(100, 20);
+            this.tb_Usuario.TabIndex = 0;
+            this.tb_Usuario.Text = "root";
             // 
-            // txt_CONTRA
+            // tb_Contrasena
             // 
-            this.txt_CONTRA.Location = new System.Drawing.Point(132, 56);
-            this.txt_CONTRA.Name = "txt_CONTRA";
-            this.txt_CONTRA.Size = new System.Drawing.Size(100, 20);
-            this.txt_CONTRA.TabIndex = 1;
+            this.tb_Contrasena.Location = new System.Drawing.Point(132, 56);
+            this.tb_Contrasena.Name = "tb_Contrasena";
+            this.tb_Contrasena.Size = new System.Drawing.Size(100, 20);
+            this.tb_Contrasena.TabIndex = 1;
             // 
-            // label1
+            // lb_Usuario
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(44, 36);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 13);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Usuario";
+            this.lb_Usuario.AutoSize = true;
+            this.lb_Usuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_Usuario.Location = new System.Drawing.Point(44, 36);
+            this.lb_Usuario.Name = "lb_Usuario";
+            this.lb_Usuario.Size = new System.Drawing.Size(50, 13);
+            this.lb_Usuario.TabIndex = 2;
+            this.lb_Usuario.Text = "Usuario";
             // 
-            // label2
+            // lb_Contrasena
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(44, 63);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(71, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Contraseña";
+            this.lb_Contrasena.AutoSize = true;
+            this.lb_Contrasena.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_Contrasena.Location = new System.Drawing.Point(44, 63);
+            this.lb_Contrasena.Name = "lb_Contrasena";
+            this.lb_Contrasena.Size = new System.Drawing.Size(71, 13);
+            this.lb_Contrasena.TabIndex = 3;
+            this.lb_Contrasena.Text = "Contraseña";
             // 
-            // btn_INGRESAR
+            // lb_Host
             // 
-            this.btn_INGRESAR.Location = new System.Drawing.Point(157, 117);
-            this.btn_INGRESAR.Name = "btn_INGRESAR";
-            this.btn_INGRESAR.Size = new System.Drawing.Size(75, 23);
-            this.btn_INGRESAR.TabIndex = 5;
-            this.btn_INGRESAR.Text = "Ingresar";
-            this.btn_INGRESAR.UseVisualStyleBackColor = true;
-            this.btn_INGRESAR.Click += new System.EventHandler(this.btn_INGRESAR_Click);
+            this.lb_Host.AutoSize = true;
+            this.lb_Host.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_Host.Location = new System.Drawing.Point(44, 89);
+            this.lb_Host.Name = "lb_Host";
+            this.lb_Host.Size = new System.Drawing.Size(33, 13);
+            this.lb_Host.TabIndex = 7;
+            this.lb_Host.Text = "Host";
             // 
-            // label3
+            // tb_Host
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(44, 89);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(33, 13);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Host";
+            this.tb_Host.Location = new System.Drawing.Point(132, 82);
+            this.tb_Host.Name = "tb_Host";
+            this.tb_Host.Size = new System.Drawing.Size(100, 20);
+            this.tb_Host.TabIndex = 6;
+            this.tb_Host.Text = "127.0.0.1";
             // 
-            // txt_HOST
+            // bt_Ingresar
             // 
-            this.txt_HOST.Location = new System.Drawing.Point(132, 82);
-            this.txt_HOST.Name = "txt_HOST";
-            this.txt_HOST.Size = new System.Drawing.Size(100, 20);
-            this.txt_HOST.TabIndex = 6;
+            this.bt_Ingresar.Location = new System.Drawing.Point(157, 108);
+            this.bt_Ingresar.Name = "bt_Ingresar";
+            this.bt_Ingresar.Size = new System.Drawing.Size(75, 23);
+            this.bt_Ingresar.TabIndex = 8;
+            this.bt_Ingresar.Text = "Ingresar";
+            this.bt_Ingresar.UseVisualStyleBackColor = true;
+            this.bt_Ingresar.Click += new System.EventHandler(this.btn_INGRESAR_Click);
             // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(282, 169);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.txt_HOST);
-            this.Controls.Add(this.btn_INGRESAR);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.txt_CONTRA);
-            this.Controls.Add(this.txt_USUARIO);
+            this.Controls.Add(this.bt_Ingresar);
+            this.Controls.Add(this.lb_Host);
+            this.Controls.Add(this.tb_Host);
+            this.Controls.Add(this.lb_Contrasena);
+            this.Controls.Add(this.lb_Usuario);
+            this.Controls.Add(this.tb_Contrasena);
+            this.Controls.Add(this.tb_Usuario);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -125,12 +127,12 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox txt_USUARIO;
-        private System.Windows.Forms.TextBox txt_CONTRA;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btn_INGRESAR;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txt_HOST;
+        private System.Windows.Forms.TextBox tb_Usuario;
+        private System.Windows.Forms.TextBox tb_Contrasena;
+        private System.Windows.Forms.Label lb_Usuario;
+        private System.Windows.Forms.Label lb_Contrasena;
+        private System.Windows.Forms.Label lb_Host;
+        private System.Windows.Forms.TextBox tb_Host;
+        private System.Windows.Forms.Button bt_Ingresar;
     }
 }

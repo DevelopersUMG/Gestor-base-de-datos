@@ -17,197 +17,181 @@ namespace SBD___CCS
 {
     public partial class Inicio : Form
     {
-       
-        public String HO = "";
-        public String US = "";
-        public String CO = "";
-        public Inicio(string x,string y,string z)
+
+        public String stHost = "";
+        public String stBase_de_datos = "";
+        public String stUsuario = "";
+        public String stContrasena = "";
+
+
+
+        ConexionSQL CSQL = new ConexionSQL();
+
+
+        public Inicio(string stx, string sty, string stz)
         {
-            US = x;
-                CO=y;
-                HO = z;
+            stUsuario = stx;
+            stContrasena = sty;
+            stHost = stz;
+
             InitializeComponent();
-            lista_multi.SetSelected(0, true);// inicioseleccionando algo
-            timer1.Start();
+            lt_Multi_funcion.SetSelected(0, true);
+            tm_Estado_BD.Start();
         }
-
-
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-          
-            conectartodo();
-        }
-
-      
-
-
-        MySqlConnection conec = new MySqlConnection();
-        String connectionString;
-
-        public void conectartodo()
-        {
-
-
-
-            try
-            {
-                connectionString = "Server=127.0.0.1; Database=bd_4taluna;Uid=root; Pwd=";
-                conec.ConnectionString = connectionString;
-                conec.Open();
-             
-                Console.WriteLine("Conectado");
-            }
-            catch (MySqlException ex)
-            {
-                MessageBox.Show("Error de conexion");
-            }
-
-        }
-
-
-
 
         private void modificarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            TB_Examinar x = new TB_Examinar();
-            x.Show();
+            TB_Examinar obX = new TB_Examinar();
+            obX.Show();
         }
-
-
-
-        public void ESTADO() {
-
-            Rutear x = new Rutear();
-            try
-            {
-                connectionString = "Server=" + HO + "; Database=;Uid=" + US + "; Pwd=" + CO + "";
-                conec.ConnectionString = connectionString;
-                conec.Open();
-                pct_SIGNAL.Image = Image.FromFile(x.RUTA("conect", ".png", "IMG"));
-                conec.Close();
-            }
-            catch (MySqlException ex)
-            {
-                pct_SIGNAL.Image = Image.FromFile(x.RUTA("noconect", ".png", "IMG"));
-                conec.Close();
-            }
-        }
-
-        public void MODIFICAR()
-        {
-            String Tabla = lista_multi.SelectedItem.ToString();
-            if (Tabla != "")
-            {
-
-                TB_Examinar x = new TB_Examinar();
-                x.Asignar(Tabla);
-                x.Show();
-            }
-            else
-            {
-                lbl_MSJERROR.Text = ("Seleccione una tabla");
-
-
-
-            }
-        
-       }
-        public void ELIMINAR() {
-            String Tabla = lista_multi.SelectedItem.ToString();
-            DialogResult dialogResult = MessageBox.Show("Desea eliminar la tabla: " + Tabla + " de la base de datos?", "Eliminar Tabla", MessageBoxButtons.YesNo);
-            if (dialogResult == DialogResult.Yes)
-            {
-
-
-
-                lista_multi.Items.Remove(Tabla);
-
-
-            }
-            else if (dialogResult == DialogResult.No)
-            {
-            
-            }
-        
-        }
-        public void IniciarGBD()
-        {
-            this.lbl_BD.Visible = true;
-            this.cmb_BD.Visible = true;
-            this.btn_SELECCIONARBD.Visible = false;
-           lista_multi.Items.Clear();
-           RefrescarListamulti();
-        }
-
-        public void RefrescarListamulti() {
-
-
-            lista_multi.Items.Add("Proveedores");
-            lista_multi.Items.Add("Clientes");
-            lista_multi.Items.Add("Productos");
-
-            lista_multi.SetSelected(0, true);//Posicionar en el primer elemento
-        }
-
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-          
+            VerificarEstado();
         }
 
         private void btn_NUEVATABLA_Click(object sender, EventArgs e)
         {
-            TB_Crear x = new TB_Crear();
-            x.Show();
-          
+            TB_Crear obX = new TB_Crear();
+            obX.Show();
         }
 
         private void btn_RELACIONES_Click(object sender, EventArgs e)
         {
-            TB_Relacion x = new TB_Relacion();
-            x.Show();
+            TB_Relacion obX = new TB_Relacion(stHost, stBase_de_datos, stUsuario, stContrasena);
+            obX.Show();
         }
 
         private void Inicio_Load(object sender, EventArgs e)
         {
-            
-            lbl_MSJERROR.Text=("Coneccion a: "+HO+" con: "+US);
-        }
-
-        private void toolStripSplitButton1_ButtonClick(object sender, EventArgs e)
-        {
-
+            lb_Mensaje_error.Text = ("Coneccion a: " + stHost + " con: " + stUsuario);
         }
 
         private void desconectarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Login x = new Login();
-            x.Show();
+            Login obX = new Login();
+            obX.Show();
         }
 
         private void btn_EXAMINAR_Click(object sender, EventArgs e)
         {
-            MODIFICAR();
+            ExaminarTabla();
         }
 
         private void btn_ELIMINAR_Click(object sender, EventArgs e)
         {
-            ELIMINAR();
+            EliminarTabla();
+        }
+
+
+        private void btn_EJECUTAR_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void btn_SELECCIONARBD_Click(object sender, EventArgs e)
         {
-            IniciarGBD();
+
         }
 
-       
-      
+        private void lista_multi_DoubleClick(object sender, EventArgs e)
+        {
 
-       
+        }
 
-   
+        private void btn_INICIOBD_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cb_BD_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+
+
+
+        /***************************************************************
+        NOMBRE:             VerificarEstado
+        FECHA:              21-08-2013 
+        CREADOR:            Enrique Magnani
+        DESCRIPCIÓN         Verificar el estado actual de la BD y lo despliega en la barra inferior
+        DETALLE:            Proceso ejecutado por un hijo
+        MODIFICACIÓN:       25-08-2013
+        ***************************************************************/
+        public void VerificarEstado()
+        {
+            Rutear obX = new Rutear();
+            try
+            {
+                CSQL.CONECTAR(stHost, stBase_de_datos, stUsuario, stContrasena);
+                CSQL.conectarSQL.Open();
+                pb_Estado.Image = Image.FromFile(obX.RUTA("yc", ".png", "IMG"));
+                tm_Estado_BD.Interval = (1000);
+                CSQL.conectarSQL.Close();
+            }
+            catch (MySqlException ex)
+            {
+                pb_Estado.Image = Image.FromFile(obX.RUTA("nc", ".png", "IMG"));
+                tm_Estado_BD.Interval = (5000);
+                CSQL.conectarSQL.Close();
+            }
+        }
+
+
+        public void ExaminarTabla()
+        {
+            String Tabla = lt_Multi_funcion.SelectedItem.ToString();
+            if (Tabla != "")
+            {
+
+                TB_Examinar obX = new TB_Examinar();
+                obX.Asignar(Tabla);
+                obX.Show();
+            }
+            else
+            {
+                lb_Mensaje_error.Text = ("Seleccione una tabla");
+
+
+
+            }
+
+        }
+
+        /***************************************************************
+        NOMBRE:             EliminarTabla
+        FECHA:              17-08-2013 
+        CREADOR:            Enrique Magnani
+        DESCRIPCIÓN         Realiza la manipulacion de consola en SQL directamente
+        DETALLE:            Trabaja por Parametros
+        MODIFICACIÓN:       
+        ***************************************************************/
+        public void EliminarTabla()
+        {
+            string stTabla = lt_Multi_funcion.SelectedItem.ToString();
+            DialogResult dialogResult = MessageBox.Show("Desea eliminar la tabla: " + stTabla + " de la base de datos?", "Eliminar Tabla", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+
+
+
+                lt_Multi_funcion.Items.Remove(stTabla);
+
+
+            }
+            else if (dialogResult == DialogResult.No)
+            {
+
+            }
+
+        }
+
+
+
+
 
 
 
