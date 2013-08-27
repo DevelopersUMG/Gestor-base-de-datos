@@ -1,0 +1,53 @@
+C:\Users\i3nRiq\documents\visual studio 2010\Projects\SBD - CCS\SBD - CCS\bin\Debug\SBD - CCS.exe
+C:\Users\i3nRiq\documents\visual studio 2010\Projects\SBD - CCS\SBD - CCS\bin\Debug\SBD - CCS.pdb
+C:\Users\i3nRiq\documents\visual studio 2010\Projects\SBD - CCS\SBD - CCS\bin\Debug\CrearBDSQLITE.dll
+C:\Users\i3nRiq\documents\visual studio 2010\Projects\SBD - CCS\SBD - CCS\bin\Debug\MySql.Data.dll
+C:\Users\i3nRiq\documents\visual studio 2010\Projects\SBD - CCS\SBD - CCS\bin\Debug\CrearBDSQLITE.pdb
+C:\Users\i3nRiq\documents\visual studio 2010\Projects\SBD - CCS\SBD - CCS\obj\x86\Debug\SBD - CCS.csprojResolveAssemblyReference.cache
+C:\Users\i3nRiq\documents\visual studio 2010\Projects\SBD - CCS\SBD - CCS\obj\x86\Debug\SBD___CCS.Login.resources
+C:\Users\i3nRiq\documents\visual studio 2010\Projects\SBD - CCS\SBD - CCS\obj\x86\Debug\SBD___CCS.Properties.Resources.resources
+C:\Users\i3nRiq\documents\visual studio 2010\Projects\SBD - CCS\SBD - CCS\obj\x86\Debug\SBD - CCS.csproj.GenerateResource.Cache
+C:\Users\i3nRiq\documents\visual studio 2010\Projects\SBD - CCS\SBD - CCS\obj\x86\Debug\SBD - CCS.exe
+C:\Users\i3nRiq\documents\visual studio 2010\Projects\SBD - CCS\SBD - CCS\obj\x86\Debug\SBD - CCS.pdb
+C:\Users\i3nRiq\documents\visual studio 2010\Projects\SBD - CCS\SBD - CCS\obj\x86\Debug\SBD___CCS.Inicio.resources
+C:\Users\i3nRiq\Documents\Visual Studio 2010\Projects\SBD - CCS\SBD - CCS\obj\x86\Debug\SBD___CCS.SQLgrafico.resources
+C:\Users\i3nRiq\Documents\Visual Studio 2010\Projects\SBD - CCS\SBD - CCS\bin\Debug\ArchivoRuta.dll
+C:\Users\i3nRiq\Documents\Visual Studio 2010\Projects\SBD - CCS\SBD - CCS\bin\Debug\ArchivoRuta.pdb
+C:\Users\i3nRiq\Documents\GitHub\Gestor-base-de-datos\SBD - CCS\SBD - CCS\obj\x86\Debug\SBD - CCS.exe
+C:\Users\i3nRiq\Documents\GitHub\Gestor-base-de-datos\SBD - CCS\SBD - CCS\obj\x86\Debug\SBD - CCS.pdb
+C:\Users\i3nRiq\Documents\GitHub\Gestor-base-de-datos\SBD - CCS\SBD - CCS\obj\x86\Debug\SBD - CCS.csprojResolveAssemblyReference.cache
+C:\Users\i3nRiq\Documents\GitHub\Gestor-base-de-datos\SBD - CCS\SBD - CCS\obj\x86\Debug\SBD___CCS.Inicio.resources
+C:\Users\i3nRiq\Documents\GitHub\Gestor-base-de-datos\SBD - CCS\SBD - CCS\obj\x86\Debug\SBD___CCS.Login.resources
+C:\Users\i3nRiq\Documents\GitHub\Gestor-base-de-datos\SBD - CCS\SBD - CCS\obj\x86\Debug\SBD___CCS.Properties.Resources.resources
+C:\Users\i3nRiq\Documents\GitHub\Gestor-base-de-datos\SBD - CCS\SBD - CCS\obj\x86\Debug\SBD - CCS.csproj.GenerateResource.Cache
+C:\Users\i3nRiq\Documents\GitHub\Gestor-base-de-datos\SBD - CCS\SBD - CCS\bin\Debug\SBD - CCS.exe
+C:\Users\i3nRiq\Documents\GitHub\Gestor-base-de-datos\SBD - CCS\SBD - CCS\bin\Debug\SBD - CCS.pdb
+C:\Users\i3nRiq\Documents\GitHub\Gestor-base-de-datos\SBD - CCS\SBD - CCS\bin\Debug\ArchivoRuta.dll
+C:\Users\i3nRiq\Documents\GitHub\Gestor-base-de-datos\SBD - CCS\SBD - CCS\bin\Debug\CrearBDSQLITE.dll
+C:\Users\i3nRiq\Documents\GitHub\Gestor-base-de-datos\SBD - CCS\SBD - CCS\bin\Debug\MySql.Data.dll
+C:\Users\i3nRiq\Documents\GitHub\Gestor-base-de-datos\SBD - CCS\SBD - CCS\bin\Debug\ArchivoRuta.pdb
+C:\Users\i3nRiq\Documents\GitHub\Gestor-base-de-datos\SBD - CCS\SBD - CCS\bin\Debug\CrearBDSQLITE.pdb
+C:\Users\i3nRiq\Documents\GitHub\Gestor-base-de-datos\SBD - CCS\SBD - CCS\obj\x86\Debug\SBD___CCS.TB_Relacion.resources
+C:\Users\i3nRiq\Documents\GitHub\Gestor-base-de-datos\SBD - CCS\SBD - CCS\obj\x86\Debug\SBD___CCS.TB_Crear.resources
+C:\Users\i3nRiq\Documents\GitHub\Gestor-base-de-datos\SBD - CCS\SBD - CCS\obj\x86\Debug\SBD___CCS.TB_Examinar.resources
+C:\Users\i3nRiq\Documents\Visual Studio 2010\Projects\Gestor-base-de-datos\SBD - CCS\SBD - CCS\obj\x86\Debug\SBD - CCS.exe
+C:\Users\i3nRiq\Documents\Visual Studio 2010\Projects\Gestor-base-de-datos\SBD - CCS\SBD - CCS\obj\x86\Debug\SBD - CCS.pdb
+C:\Users\i3nRiq\Documents\Visual Studio 2010\Projects\Gestor-base-de-datos\SBD - CCS\SBD - CCS\obj\x86\Debug\SBD - CCS.csprojResolveAssemblyReference.cache
+C:\Users\i3nRiq\Documents\Visual Studio 2010\Projects\Gestor-base-de-datos\SBD - CCS\SBD - CCS\obj\x86\Debug\SBD___CCS.TB_Crear.resources
+C:\Users\i3nRiq\Documents\Visual Studio 2010\Projects\Gestor-base-de-datos\SBD - CCS\SBD - CCS\obj\x86\Debug\SBD___CCS.Inicio.resources
+C:\Users\i3nRiq\Documents\Visual Studio 2010\Projects\Gestor-base-de-datos\SBD - CCS\SBD - CCS\obj\x86\Debug\SBD___CCS.Login.resources
+C:\Users\i3nRiq\Documents\Visual Studio 2010\Projects\Gestor-base-de-datos\SBD - CCS\SBD - CCS\obj\x86\Debug\SBD___CCS.Properties.Resources.resources
+C:\Users\i3nRiq\Documents\Visual Studio 2010\Projects\Gestor-base-de-datos\SBD - CCS\SBD - CCS\obj\x86\Debug\SBD___CCS.TB_Relacion.resources
+C:\Users\i3nRiq\Documents\Visual Studio 2010\Projects\Gestor-base-de-datos\SBD - CCS\SBD - CCS\obj\x86\Debug\SBD___CCS.TB_Examinar.resources
+C:\Users\i3nRiq\Documents\Visual Studio 2010\Projects\Gestor-base-de-datos\SBD - CCS\SBD - CCS\obj\x86\Debug\SBD - CCS.csproj.GenerateResource.Cache
+C:\Users\i3nRiq\Documents\Visual Studio 2010\Projects\Gestor-base-de-datos\SBD - CCS\SBD - CCS\bin\Debug\SBD - CCS.exe
+C:\Users\i3nRiq\Documents\Visual Studio 2010\Projects\Gestor-base-de-datos\SBD - CCS\SBD - CCS\bin\Debug\SBD - CCS.pdb
+C:\Users\i3nRiq\Documents\Visual Studio 2010\Projects\Gestor-base-de-datos\SBD - CCS\SBD - CCS\bin\Debug\ArchivoRuta.dll
+C:\Users\i3nRiq\Documents\Visual Studio 2010\Projects\Gestor-base-de-datos\SBD - CCS\SBD - CCS\bin\Debug\CrearBDSQLITE.dll
+C:\Users\i3nRiq\Documents\Visual Studio 2010\Projects\Gestor-base-de-datos\SBD - CCS\SBD - CCS\bin\Debug\MySql.Data.dll
+C:\Users\i3nRiq\Documents\Visual Studio 2010\Projects\Gestor-base-de-datos\SBD - CCS\SBD - CCS\bin\Debug\ArchivoRuta.pdb
+C:\Users\i3nRiq\Documents\Visual Studio 2010\Projects\Gestor-base-de-datos\SBD - CCS\SBD - CCS\bin\Debug\CrearBDSQLITE.pdb
+C:\Users\i3nRiq\Documents\Visual Studio 2010\Projects\Gestor-base-de-datos\GBD - CCS\SBD - CCS\obj\x86\Debug\SBD - CCS.exe
+C:\Users\i3nRiq\Documents\Visual Studio 2010\Projects\Gestor-base-de-datos\GBD - CCS\SBD - CCS\obj\x86\Debug\SBD - CCS.pdb
+C:\Users\Zayda\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\SBD - CCS\obj\x86\Debug\SBD - CCS.exe
+C:\Users\Zayda\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\SBD - CCS\obj\x86\Debug\SBD - CCS.pdb
