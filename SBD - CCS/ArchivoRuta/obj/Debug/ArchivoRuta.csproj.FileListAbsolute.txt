@@ -1,4 +1,0 @@
-C:\Users\i3nRiq\Documents\Visual Studio 2010\Projects\SBD - CCS\ArchivoRuta\bin\Debug\ArchivoRuta.dll
-C:\Users\i3nRiq\Documents\Visual Studio 2010\Projects\SBD - CCS\ArchivoRuta\bin\Debug\ArchivoRuta.pdb
-C:\Users\i3nRiq\Documents\Visual Studio 2010\Projects\SBD - CCS\ArchivoRuta\obj\Debug\ArchivoRuta.dll
-C:\Users\i3nRiq\Documents\Visual Studio 2010\Projects\SBD - CCS\ArchivoRuta\obj\Debug\ArchivoRuta.pdb
