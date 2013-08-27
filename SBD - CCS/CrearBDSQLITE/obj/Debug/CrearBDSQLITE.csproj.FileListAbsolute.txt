@@ -3,3 +3,13 @@ C:\Users\i3nRiq\documents\visual studio 2010\Projects\SBD - CCS\CrearBDSQLITE\bi
 C:\Users\i3nRiq\documents\visual studio 2010\Projects\SBD - CCS\CrearBDSQLITE\obj\Debug\CrearBDSQLITE.csprojResolveAssemblyReference.cache
 C:\Users\i3nRiq\documents\visual studio 2010\Projects\SBD - CCS\CrearBDSQLITE\obj\Debug\CrearBDSQLITE.dll
 C:\Users\i3nRiq\documents\visual studio 2010\Projects\SBD - CCS\CrearBDSQLITE\obj\Debug\CrearBDSQLITE.pdb
+C:\Users\i3nRiq\Documents\GitHub\Gestor-base-de-datos\SBD - CCS\CrearBDSQLITE\bin\Debug\CrearBDSQLITE.dll
+C:\Users\i3nRiq\Documents\GitHub\Gestor-base-de-datos\SBD - CCS\CrearBDSQLITE\bin\Debug\CrearBDSQLITE.pdb
+C:\Users\i3nRiq\Documents\GitHub\Gestor-base-de-datos\SBD - CCS\CrearBDSQLITE\obj\Debug\CrearBDSQLITE.csprojResolveAssemblyReference.cache
+C:\Users\i3nRiq\Documents\GitHub\Gestor-base-de-datos\SBD - CCS\CrearBDSQLITE\obj\Debug\CrearBDSQLITE.dll
+C:\Users\i3nRiq\Documents\GitHub\Gestor-base-de-datos\SBD - CCS\CrearBDSQLITE\obj\Debug\CrearBDSQLITE.pdb
+C:\Users\i3nRiq\Documents\Visual Studio 2010\Projects\Gestor-base-de-datos\SBD - CCS\CrearBDSQLITE\bin\Debug\CrearBDSQLITE.dll
+C:\Users\i3nRiq\Documents\Visual Studio 2010\Projects\Gestor-base-de-datos\SBD - CCS\CrearBDSQLITE\bin\Debug\CrearBDSQLITE.pdb
+C:\Users\i3nRiq\Documents\Visual Studio 2010\Projects\Gestor-base-de-datos\SBD - CCS\CrearBDSQLITE\obj\Debug\CrearBDSQLITE.csprojResolveAssemblyReference.cache
+C:\Users\i3nRiq\Documents\Visual Studio 2010\Projects\Gestor-base-de-datos\SBD - CCS\CrearBDSQLITE\obj\Debug\CrearBDSQLITE.dll
+C:\Users\i3nRiq\Documents\Visual Studio 2010\Projects\Gestor-base-de-datos\SBD - CCS\CrearBDSQLITE\obj\Debug\CrearBDSQLITE.pdb

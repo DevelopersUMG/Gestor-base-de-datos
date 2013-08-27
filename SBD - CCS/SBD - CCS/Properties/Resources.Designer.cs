@@ -123,6 +123,16 @@ namespace SBD___CCS.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap nc {
+            get {
+                object obj = ResourceManager.GetObject("nc", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap nm_signal_100_3_256x256x32 {
             get {
                 object obj = ResourceManager.GetObject("nm-signal-100_3_256x256x32", resourceCulture);
