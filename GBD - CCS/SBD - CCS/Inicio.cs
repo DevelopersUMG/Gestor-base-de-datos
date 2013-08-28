@@ -92,7 +92,8 @@ namespace SBD___CCS
 
         private void btn_EJECUTAR_Click(object sender, EventArgs e)
         {
-
+            tb_Resultados.Text = ("");
+            EjecutarConsolaSQL(tb_Consola_query.Text);
         }
 
         private void btn_SELECCIONARBD_Click(object sender, EventArgs e)
@@ -357,7 +358,90 @@ namespace SBD___CCS
         }
 
 
+        /***************************************************************
+         NOMBRE:             EjecutarConsolaSQL
+         FECHA:		         25-08-2013
+         CREADOR:     	     Mario Godoy
+         DESCRIPCIÓN         Realiza la manipulacion de consola en SQL directamente
+         DETALLE:            Trabaja por Parametros
+         MODIFICACIÓN:       
+         ***************************************************************/
+        public void EjecutarConsolaSQL(string cadena)
+        {
 
+
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.CommandText = cadena;
+                string[] vector = cadena.Split(' ');
+
+                CSQL.CONECTAR(stHost, stBase_de_datos, stUsuario, stContrasena);
+                CSQL.conectarSQL.Open();
+                cmd.Connection = CSQL.conectarSQL;
+
+                if ((vector[0] == "select") || (vector[0] == "show"))
+                {
+
+                    MySqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        string select = "";
+                        for (int i = 0; i < reader.FieldCount; i++)
+                        {
+                            select = select + (reader.GetString(i)) + "\t";
+                        }
+
+                        tb_Resultados.AppendText(select + "\n");
+                    }
+
+                }
+
+
+
+                if ((vector[0] == "insert"))
+                {
+                    tb_Resultados.Text = ("Insercion realizada con exito");
+                    cmd.ExecuteNonQuery();
+                }
+                if ((vector[0] == "alter"))
+                {
+                    tb_Resultados.Text = ("modificacion realizada con exito");
+                    cmd.ExecuteNonQuery();
+                }
+                if ((vector[0] == "create"))
+                {
+                    tb_Resultados.Text = ("Tabla creada con exito");
+                    cmd.ExecuteNonQuery();
+                }
+
+                if ((vector[0] == "delete"))
+                {
+                    tb_Resultados.Text = ("Eliminacion realizada con exito");
+                    cmd.ExecuteNonQuery();
+                }
+                if ((vector[0] == "update"))
+                {
+                    tb_Resultados.Text = ("modificacion realizada con exito");
+                    cmd.ExecuteNonQuery();
+                }
+
+                if ((vector[0] == "drop"))
+                {
+                    tb_Resultados.Text = ("Eliminacion realizada con exito");
+                    cmd.ExecuteNonQuery();
+                }
+
+                CSQL.conectarSQL.Close();
+
+            }
+            catch (MySqlException ex)
+            {
+                tb_Resultados.Text = ("Error de sintaxis" + "\n" + ex);
+                CSQL.conectarSQL.Close();
+            }
+        }
 
 
     }
