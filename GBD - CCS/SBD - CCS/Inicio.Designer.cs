@@ -29,6 +29,9 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Inicio));
             this.ts_BD = new System.Windows.Forms.ToolStrip();
             this.ts_Sesion = new System.Windows.Forms.ToolStripSplitButton();
@@ -73,10 +76,12 @@
             this.bt_Eliminar_tabla = new System.Windows.Forms.Button();
             this.bt_Relacionar_tabla = new System.Windows.Forms.Button();
             this.bt_Nueva_tabla = new System.Windows.Forms.Button();
+            this.tb_DML = new System.Windows.Forms.TabPage();
+            this.lbTituloTabla = new System.Windows.Forms.Label();
+            this.dgTabla = new System.Windows.Forms.DataGridView();
             this.lb_Mensaje_error = new System.Windows.Forms.Label();
             this.tm_Estado_BD = new System.Windows.Forms.Timer(this.components);
             this.pb_Estado = new System.Windows.Forms.PictureBox();
-            this.tb_DML = new System.Windows.Forms.TabPage();
             this.ts_BD.SuspendLayout();
             this.ms_Principal.SuspendLayout();
             this.tc_Panel_BD.ContentPanel.SuspendLayout();
@@ -87,6 +92,8 @@
             this.ta_Consola_SQL.SuspendLayout();
             this.tb_SQL.SuspendLayout();
             this.tp_DDL.SuspendLayout();
+            this.tb_DML.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgTabla)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Estado)).BeginInit();
             this.SuspendLayout();
             // 
@@ -163,13 +170,13 @@
             // ts_Abrir
             // 
             this.ts_Abrir.Name = "ts_Abrir";
-            this.ts_Abrir.Size = new System.Drawing.Size(152, 22);
+            this.ts_Abrir.Size = new System.Drawing.Size(100, 22);
             this.ts_Abrir.Text = "Abrir";
             // 
             // ts_Salir
             // 
             this.ts_Salir.Name = "ts_Salir";
-            this.ts_Salir.Size = new System.Drawing.Size(152, 22);
+            this.ts_Salir.Size = new System.Drawing.Size(100, 22);
             this.ts_Salir.Text = "Salir";
             // 
             // ts_Query
@@ -185,7 +192,7 @@
             // ts_Insertar
             // 
             this.ts_Insertar.Name = "ts_Insertar";
-            this.ts_Insertar.Size = new System.Drawing.Size(152, 22);
+            this.ts_Insertar.Size = new System.Drawing.Size(125, 22);
             this.ts_Insertar.Text = "Insertar";
             // 
             // ts_Crear
@@ -193,7 +200,7 @@
             this.ts_Crear.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ts_Nueva_tabla});
             this.ts_Crear.Name = "ts_Crear";
-            this.ts_Crear.Size = new System.Drawing.Size(152, 22);
+            this.ts_Crear.Size = new System.Drawing.Size(125, 22);
             this.ts_Crear.Text = "Crear";
             // 
             // ts_Nueva_tabla
@@ -205,7 +212,7 @@
             // ts_Modificar
             // 
             this.ts_Modificar.Name = "ts_Modificar";
-            this.ts_Modificar.Size = new System.Drawing.Size(152, 22);
+            this.ts_Modificar.Size = new System.Drawing.Size(125, 22);
             this.ts_Modificar.Text = "Modificar";
             this.ts_Modificar.Click += new System.EventHandler(this.modificarToolStripMenuItem_Click);
             // 
@@ -221,13 +228,13 @@
             // ts_Acercade
             // 
             this.ts_Acercade.Name = "ts_Acercade";
-            this.ts_Acercade.Size = new System.Drawing.Size(152, 22);
+            this.ts_Acercade.Size = new System.Drawing.Size(126, 22);
             this.ts_Acercade.Text = "Acerca de";
             // 
             // ts_Manuales
             // 
             this.ts_Manuales.Name = "ts_Manuales";
-            this.ts_Manuales.Size = new System.Drawing.Size(152, 22);
+            this.ts_Manuales.Size = new System.Drawing.Size(126, 22);
             this.ts_Manuales.Text = "Manuales";
             // 
             // ss_Barra_inferior
@@ -304,6 +311,7 @@
             // 
             // lt_Multi_funcion
             // 
+            this.lt_Multi_funcion.Enabled = false;
             this.lt_Multi_funcion.FormattingEnabled = true;
             this.lt_Multi_funcion.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.lt_Multi_funcion.Items.AddRange(new object[] {
@@ -312,6 +320,7 @@
             this.lt_Multi_funcion.Name = "lt_Multi_funcion";
             this.lt_Multi_funcion.Size = new System.Drawing.Size(106, 342);
             this.lt_Multi_funcion.TabIndex = 6;
+            this.lt_Multi_funcion.SelectedIndexChanged += new System.EventHandler(this.lt_Multi_funcion_SelectedIndexChanged);
             this.lt_Multi_funcion.DoubleClick += new System.EventHandler(this.lista_multi_DoubleClick);
             // 
             // lb_BD
@@ -336,6 +345,7 @@
             this.cb_BD.TabIndex = 3;
             this.cb_BD.Visible = false;
             this.cb_BD.SelectedIndexChanged += new System.EventHandler(this.cb_BD_SelectedIndexChanged);
+            this.cb_BD.SelectedValueChanged += new System.EventHandler(this.cb_BD_SelectedValueChanged);
             // 
             // ta_Panel_inferior
             // 
@@ -522,6 +532,69 @@
             this.bt_Nueva_tabla.UseVisualStyleBackColor = true;
             this.bt_Nueva_tabla.Click += new System.EventHandler(this.btn_NUEVATABLA_Click);
             // 
+            // tb_DML
+            // 
+            this.tb_DML.BackColor = System.Drawing.Color.SkyBlue;
+            this.tb_DML.Controls.Add(this.lbTituloTabla);
+            this.tb_DML.Controls.Add(this.dgTabla);
+            this.tb_DML.Location = new System.Drawing.Point(23, 4);
+            this.tb_DML.Name = "tb_DML";
+            this.tb_DML.Padding = new System.Windows.Forms.Padding(3);
+            this.tb_DML.Size = new System.Drawing.Size(728, 334);
+            this.tb_DML.TabIndex = 2;
+            this.tb_DML.Text = "DML";
+            // 
+            // lbTituloTabla
+            // 
+            this.lbTituloTabla.AutoSize = true;
+            this.lbTituloTabla.Font = new System.Drawing.Font("Trebuchet MS", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTituloTabla.ForeColor = System.Drawing.Color.SlateGray;
+            this.lbTituloTabla.Location = new System.Drawing.Point(286, 22);
+            this.lbTituloTabla.Name = "lbTituloTabla";
+            this.lbTituloTabla.Size = new System.Drawing.Size(156, 20);
+            this.lbTituloTabla.TabIndex = 5;
+            this.lbTituloTabla.Text = "Contenido de tabla x";
+            this.lbTituloTabla.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // dgTabla
+            // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgTabla.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgTabla.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgTabla.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgTabla.Location = new System.Drawing.Point(29, 47);
+            this.dgTabla.Name = "dgTabla";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgTabla.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgTabla.RowHeadersWidth = 50;
+            this.dgTabla.Size = new System.Drawing.Size(670, 266);
+            this.dgTabla.TabIndex = 4;
+            this.dgTabla.CancelRowEdit += new System.Windows.Forms.QuestionEventHandler(this.dgTabla_CancelRowEdit);
+            this.dgTabla.CellBeginEdit += new System.Windows.Forms.DataGridViewCellCancelEventHandler(this.dgTabla_CellBeginEdit);
+            this.dgTabla.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgTabla_CellEnter);
+            this.dgTabla.RowLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgTabla_RowLeave);
+            this.dgTabla.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgTabla_RowsAdded);
+            this.dgTabla.UserDeletingRow += new System.Windows.Forms.DataGridViewRowCancelEventHandler(this.dgTabla_UserDeletingRow_1);
+            // 
             // lb_Mensaje_error
             // 
             this.lb_Mensaje_error.BackColor = System.Drawing.Color.Gray;
@@ -545,16 +618,6 @@
             this.pb_Estado.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pb_Estado.TabIndex = 20;
             this.pb_Estado.TabStop = false;
-            // 
-            // tb_DML
-            // 
-            this.tb_DML.Location = new System.Drawing.Point(23, 4);
-            this.tb_DML.Name = "tb_DML";
-            this.tb_DML.Padding = new System.Windows.Forms.Padding(3);
-            this.tb_DML.Size = new System.Drawing.Size(728, 334);
-            this.tb_DML.TabIndex = 2;
-            this.tb_DML.Text = "DML";
-            this.tb_DML.UseVisualStyleBackColor = true;
             // 
             // Inicio
             // 
@@ -595,6 +658,9 @@
             this.tb_SQL.ResumeLayout(false);
             this.tb_SQL.PerformLayout();
             this.tp_DDL.ResumeLayout(false);
+            this.tb_DML.ResumeLayout(false);
+            this.tb_DML.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgTabla)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Estado)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -650,6 +716,8 @@
         private System.Windows.Forms.ToolStripMenuItem ts_Acercade;
         private System.Windows.Forms.ToolStripMenuItem ts_Manuales;
         private System.Windows.Forms.TabPage tb_DML;
+        private System.Windows.Forms.Label lbTituloTabla;
+        private System.Windows.Forms.DataGridView dgTabla;
     }
 }
 
