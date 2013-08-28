@@ -51,3 +51,5 @@ C:\Users\i3nRiq\Documents\Visual Studio 2010\Projects\Gestor-base-de-datos\GBD -
 C:\Users\i3nRiq\Documents\Visual Studio 2010\Projects\Gestor-base-de-datos\GBD - CCS\SBD - CCS\obj\x86\Debug\SBD - CCS.pdb
 C:\Users\Zayda\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\SBD - CCS\obj\x86\Debug\SBD - CCS.exe
 C:\Users\Zayda\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\SBD - CCS\obj\x86\Debug\SBD - CCS.pdb
+C:\Users\i3nRiq\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\SBD - CCS\obj\x86\Debug\SBD - CCS.exe
+C:\Users\i3nRiq\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\SBD - CCS\obj\x86\Debug\SBD - CCS.pdb
