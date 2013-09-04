@@ -86,3 +86,19 @@ C:\Users\win\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\SBD - CCS\bin\Debug
 C:\Users\win\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\SBD - CCS\bin\Debug\MySql.Data.dll
 C:\Users\win\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\SBD - CCS\bin\Debug\ArchivoRuta.pdb
 C:\Users\win\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\SBD - CCS\bin\Debug\CrearBDSQLITE.pdb
+C:\Users\Zayda\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\SBD - CCS\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Zayda\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\SBD - CCS\obj\x86\Debug\SBD___CCS.TB_Crear.resources
+C:\Users\Zayda\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\SBD - CCS\obj\x86\Debug\SBD___CCS.Inicio.resources
+C:\Users\Zayda\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\SBD - CCS\obj\x86\Debug\SBD___CCS.Login.resources
+C:\Users\Zayda\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\SBD - CCS\obj\x86\Debug\SBD___CCS.Properties.Resources.resources
+C:\Users\Zayda\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\SBD - CCS\obj\x86\Debug\SBD___CCS.TB_Relacion.resources
+C:\Users\Zayda\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\SBD - CCS\obj\x86\Debug\SBD___CCS.TB_Examinar.resources
+C:\Users\Zayda\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\SBD - CCS\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\Zayda\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\SBD - CCS\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\Zayda\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\SBD - CCS\bin\Debug\SBD - CCS.exe
+C:\Users\Zayda\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\SBD - CCS\bin\Debug\SBD - CCS.pdb
+C:\Users\Zayda\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\SBD - CCS\bin\Debug\ArchivoRuta.dll
+C:\Users\Zayda\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\SBD - CCS\bin\Debug\CrearBDSQLITE.dll
+C:\Users\Zayda\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\SBD - CCS\bin\Debug\MySql.Data.dll
+C:\Users\Zayda\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\SBD - CCS\bin\Debug\ArchivoRuta.pdb
+C:\Users\Zayda\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\SBD - CCS\bin\Debug\CrearBDSQLITE.pdb

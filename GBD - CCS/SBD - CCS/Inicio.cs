@@ -42,7 +42,7 @@ namespace SBD___CCS
             InitializeComponent();
             lt_Multi_funcion.SetSelected(0, true);
             tm_Estado_BD.Start();
-         //   CargarBasesDeDatos(0);
+            CargarBasesDeDatos();
         }
 
 
@@ -226,23 +226,14 @@ Modificación:   implementación inicial
             IniciarGestor();
         }
 
-        private void lista_multi_DoubleClick(object sender, EventArgs e)
-        {
-            IniciarGestor();
-        }
-
         private void btn_INICIOBD_Click(object sender, EventArgs e)
         {
-            this.lb_BD.Visible = false;
-            this.cb_BD.Visible = false;
-            this.bt_Seleccionar_BD.Visible = true;
-            inControl_tabla_multi = 0;
-            CargarBasesDeDatos(0);
+            CargarBasesDeDatos();
         }
 
         private void cb_BD_SelectedIndexChanged(object sender, EventArgs e)
         {
-          //stBase_de_datos = cb_BD.Text;
+         // stBase_de_datos = cb_BD.Text;
          // CargarTablas();
 
 
@@ -261,6 +252,7 @@ Modificación:   implementación inicial
         ***************************************************************/
         public void VerificarEstado()
         {
+            CSQL.conectarSQL.Close();
             Rutear obX = new Rutear();
             try
             {
@@ -335,7 +327,7 @@ Modificación:   implementación inicial
         DETALLE:            Verifica que componente se desea actualizar. multiusos
         MODIFICACIÓN:       
         ***************************************************************/
-        public void CargarBasesDeDatos(int inC)
+        public void CargarBasesDeDatos()
         {
 
             string stCadena = "show databases;";
@@ -350,29 +342,18 @@ Modificación:   implementación inicial
                 cmd.Connection = CSQL.conectarSQL;
 
                 MySqlDataReader reader = cmd.ExecuteReader();
-                if (inC == 0)
-                {
-                    lt_Multi_funcion.Items.Clear();
-                }
-                if (inC == 1)
-                {
+
                     cb_BD.Items.Clear();
-                }
+                
 
                 while (reader.Read())
                 {
-                    if (inC == 0)
-                    {
-                        lt_Multi_funcion.Items.Add(reader.GetString(0));
-                    }
-                    if (inC == 1)
-                    {
+
                         cb_BD.Items.Add(reader.GetString(0));
-                    }
+                   
                     inControl_b = 1;
                 }
-                if (inC == 0)
-                {
+               
                     if (inControl_b == 1)
                     {
                         lt_Multi_funcion.SetSelected(0, true);
@@ -382,7 +363,7 @@ Modificación:   implementación inicial
                         lt_Multi_funcion.Items.Add("No existen Bases de Datos");
                         inControl_b = 0;
                     }
-                }
+                
 
             }
 
@@ -464,24 +445,21 @@ Modificación:   implementación inicial
         ***************************************************************/
         public void IniciarGestor()
         {
-            if ((inControl_tabla_multi == 0) && (inControl_b == 1))
-            {
+            //if ((inControl_tabla_multi == 0) && (inControl_b == 1))
+            //{
 
                 String stValor_tabla = lt_Multi_funcion.SelectedItem.ToString();
                 stBase_de_datos = ""; stBase_de_datos = stBase_de_datos + stValor_tabla;
                 inControl_tabla_multi = 1;
-                this.lb_BD.Visible = true;
-                this.cb_BD.Visible = true;
-                this.bt_Seleccionar_BD.Visible = false;
                 lt_Multi_funcion.Items.Clear();
-                CargarBasesDeDatos(1);
+                CargarBasesDeDatos();
                 CargarTablas();
-            }
-            if (inControl_tabla_multi == 1)// Es una tabla
-            {
+            //}
+            //if (inControl_tabla_multi == 1)// Es una tabla
+            //{
 
 
-            }
+            //}
         }
 
 
@@ -572,15 +550,19 @@ Modificación:   implementación inicial
 
         private void cb_BD_SelectedValueChanged(object sender, EventArgs e)
         {
+            CSQL.conectarSQL.Close();
             if (cb_BD.Visible)
             {
                 CSQL.txConexGlobal = "Server=" + stHost +";Database=" + this.cb_BD.Text + ";Uid=" +stUsuario+";Port=3306";
 
                 CSQL.mostrar("Show tables");
+              
                 lt_Multi_funcion.DataSource = CSQL.ds.Tables[0].DefaultView;
 
                 lt_Multi_funcion.ValueMember = CSQL.ds.Tables[0].Columns[0].ColumnName;
+                
                 lt_Multi_funcion.Enabled = true;
+              // CargarTablas();
             }
         }
 
@@ -601,22 +583,26 @@ Modificación:   implementación inicial
     * 
    //--------------------------------------*/
 
+        public void LlenarDatagrid(string stSQL)
+        {
+                       // CSQL.mostrar(stSQL); //enviar consulta a clase común
+              //  dgTabla.DataSource = CSQL.ds.Tables[0]; //llenar datagrid
 
+              //  this.ta_Consola_SQL.SelectedIndex = 2;  //cambiar a DML JP
+              //  this.lbTituloTabla.Text = "Contenido de tabla " + lt_Multi_funcion.Text; //colocar nombre de tabla en título JP
+              //  this.dgTabla.AutoResizeColumns(); //coloca el tamaño adecuado para lectura
+        }
         private void lt_Multi_funcion_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            
             if (cb_BD.Visible && lt_Multi_funcion.Enabled)
             {
+                //lt_Multi_funcion.SetSelected(0, true);
                 CSQL.txConexGlobal = "Server="+stHost +";Database=" + this.cb_BD.Text + ";Uid=" + stUsuario +";Port=3306"; //string de conexion
 
                 string stSQL = "Select * from " + lt_Multi_funcion.Text; //string de consulta
-
-                CSQL.mostrar(stSQL); //enviar consulta a clase común
-                dgTabla.DataSource = CSQL.ds.Tables[0]; //llenar datagrid
-
-                this.ta_Consola_SQL.SelectedIndex = 2;  //cambiar a DML JP
-                this.lbTituloTabla.Text = "Contenido de tabla " + lt_Multi_funcion.Text; //colocar nombre de tabla en título JP
-                this.dgTabla.AutoResizeColumns(); //coloca el tamaño adecuado para lectura
+                Console.WriteLine("SQL: "+stSQL);
+                LlenarDatagrid(stSQL);
             }
 
         }
@@ -702,6 +688,8 @@ Modificación:   implementación inicial
             if (this.dgTabla.IsCurrentRowDirty)
                 this.dgTabla.NotifyCurrentCellDirty(true);
         }
+
+  
 
   
 

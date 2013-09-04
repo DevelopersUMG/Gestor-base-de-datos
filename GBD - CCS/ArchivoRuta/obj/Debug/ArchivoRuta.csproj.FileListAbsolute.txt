@@ -10,3 +10,8 @@ C:\Users\i3nRiq\Documents\Visual Studio 2010\Projects\Gestor-base-de-datos\SBD -
 C:\Users\i3nRiq\Documents\Visual Studio 2010\Projects\Gestor-base-de-datos\SBD - CCS\ArchivoRuta\bin\Debug\ArchivoRuta.pdb
 C:\Users\i3nRiq\Documents\Visual Studio 2010\Projects\Gestor-base-de-datos\SBD - CCS\ArchivoRuta\obj\Debug\ArchivoRuta.dll
 C:\Users\i3nRiq\Documents\Visual Studio 2010\Projects\Gestor-base-de-datos\SBD - CCS\ArchivoRuta\obj\Debug\ArchivoRuta.pdb
+C:\Users\Zayda\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\ArchivoRuta\bin\Debug\ArchivoRuta.dll
+C:\Users\Zayda\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\ArchivoRuta\bin\Debug\ArchivoRuta.pdb
+C:\Users\Zayda\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\ArchivoRuta\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Zayda\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\ArchivoRuta\obj\Debug\ArchivoRuta.dll
+C:\Users\Zayda\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\ArchivoRuta\obj\Debug\ArchivoRuta.pdb

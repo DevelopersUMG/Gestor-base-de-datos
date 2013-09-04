@@ -321,7 +321,7 @@
             this.lt_Multi_funcion.Size = new System.Drawing.Size(106, 342);
             this.lt_Multi_funcion.TabIndex = 6;
             this.lt_Multi_funcion.SelectedIndexChanged += new System.EventHandler(this.lt_Multi_funcion_SelectedIndexChanged);
-            this.lt_Multi_funcion.DoubleClick += new System.EventHandler(this.lista_multi_DoubleClick);
+     
             // 
             // lb_BD
             // 
