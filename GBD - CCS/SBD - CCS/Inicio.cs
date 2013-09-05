@@ -98,7 +98,7 @@ Modificación:   implementación inicial
 
                     // dgDatos.txConexGlobal = "Server=localhost;Database=" + this.cmb_BD.Text + ";Uid=root;Port=3306";
 
-                    CSQL.mostrar(stSQLins1 + " " + stSQLins2);
+                    CSQL.mostrar(stSQLins1 + " " + stSQLins2, stHost, stBase_de_datos, stUsuario, stContrasena);
                     RegresarFormatoFila();
                     break;
 
@@ -118,7 +118,7 @@ Modificación:   implementación inicial
 
                     // dgDatos.txConexGlobal = "Server=localhost;Database=" + this.cmb_BD.Text + ";Uid=root;Port=3306";
 
-                    CSQL.mostrar(stSQLins1);
+                    CSQL.mostrar(stSQLins1, stHost, stBase_de_datos, stUsuario, stContrasena);
 
                     RegresarFormatoFila();
 
@@ -127,7 +127,7 @@ Modificación:   implementación inicial
                 case 3:
                     stSQLins1 = "delete from " + lt_Multi_funcion.Text + " where " + dgTabla.Columns[0].HeaderText + " = '" + dgTabla.CurrentRow.Cells[0].Value + "'"; ;
                     MessageBox.Show(stSQLins1);
-                    CSQL.mostrar(stSQLins1);
+                    CSQL.mostrar(stSQLins1, stHost, stBase_de_datos, stUsuario, stContrasena);
                     RegresarFormatoFila();
                     break;
 
@@ -173,7 +173,7 @@ Modificación:   implementación inicial
 
             try
             {
-                CSQL.mostrar("show databases");
+                CSQL.mostrar("show databases", stHost, stBase_de_datos, stUsuario, stContrasena);
                 cb_BD.DataSource = CSQL.ds.Tables[0].DefaultView;
 
                 cb_BD.ValueMember = CSQL.ds.Tables[0].Columns[0].ColumnName;
@@ -374,6 +374,7 @@ Modificación:   implementación inicial
             }
 
             CSQL.conectarSQL.Close();
+            this.cb_BD.SelectedIndex++;
         }
 
         /***************************************************************
@@ -445,8 +446,7 @@ Modificación:   implementación inicial
         ***************************************************************/
         public void IniciarGestor()
         {
-            //if ((inControl_tabla_multi == 0) && (inControl_b == 1))
-            //{
+
 
                 String stValor_tabla = lt_Multi_funcion.SelectedItem.ToString();
                 stBase_de_datos = ""; stBase_de_datos = stBase_de_datos + stValor_tabla;
@@ -454,12 +454,7 @@ Modificación:   implementación inicial
                 lt_Multi_funcion.Items.Clear();
                 CargarBasesDeDatos();
                 CargarTablas();
-            //}
-            //if (inControl_tabla_multi == 1)// Es una tabla
-            //{
 
-
-            //}
         }
 
 
@@ -551,18 +546,18 @@ Modificación:   implementación inicial
         private void cb_BD_SelectedValueChanged(object sender, EventArgs e)
         {
             CSQL.conectarSQL.Close();
+            stBase_de_datos = this.cb_BD.Text;
             if (cb_BD.Visible)
-            {
+            {lt_Multi_funcion.Enabled = true;
                 CSQL.txConexGlobal = "Server=" + stHost +";Database=" + this.cb_BD.Text + ";Uid=" +stUsuario+";Port=3306";
 
-                CSQL.mostrar("Show tables");
+                CSQL.mostrar("Show tables", stHost, this.cb_BD.Text, stUsuario, stContrasena);
               
                 lt_Multi_funcion.DataSource = CSQL.ds.Tables[0].DefaultView;
 
                 lt_Multi_funcion.ValueMember = CSQL.ds.Tables[0].Columns[0].ColumnName;
                 
-                lt_Multi_funcion.Enabled = true;
-              // CargarTablas();
+             
             }
         }
 
@@ -579,30 +574,32 @@ Modificación:   implementación inicial
    Autor:          Jaime Pérez
    fecha:          18ago2013
    Detalle:        permitirá cambiar a DML y llenar el dataGrid al seleccionar una tabla
-   Modificación:   implementación inicial
+   Modificación:   Aislamiento de codigo division del mismo
     * 
    //--------------------------------------*/
 
         public void LlenarDatagrid(string stSQL)
         {
-                       // CSQL.mostrar(stSQL); //enviar consulta a clase común
-              //  dgTabla.DataSource = CSQL.ds.Tables[0]; //llenar datagrid
+            CSQL.mostrar(stSQL, stHost, this.cb_BD.Text, stUsuario, stContrasena); //enviar consulta a clase común
+              dgTabla.DataSource = CSQL.ds.Tables[0]; //llenar datagrid
 
-              //  this.ta_Consola_SQL.SelectedIndex = 2;  //cambiar a DML JP
-              //  this.lbTituloTabla.Text = "Contenido de tabla " + lt_Multi_funcion.Text; //colocar nombre de tabla en título JP
-              //  this.dgTabla.AutoResizeColumns(); //coloca el tamaño adecuado para lectura
+              this.ta_Consola_SQL.SelectedIndex = 2;  //cambiar a DML JP
+                this.lbTituloTabla.Text = "Contenido de tabla " + lt_Multi_funcion.Text; //colocar nombre de tabla en título JP
+             this.dgTabla.AutoResizeColumns(); //coloca el tamaño adecuado para lectura
         }
+
+
         private void lt_Multi_funcion_SelectedIndexChanged(object sender, EventArgs e)
         {
             
             if (cb_BD.Visible && lt_Multi_funcion.Enabled)
             {
-                //lt_Multi_funcion.SetSelected(0, true);
+              
                 CSQL.txConexGlobal = "Server="+stHost +";Database=" + this.cb_BD.Text + ";Uid=" + stUsuario +";Port=3306"; //string de conexion
 
                 string stSQL = "Select * from " + lt_Multi_funcion.Text; //string de consulta
                 Console.WriteLine("SQL: "+stSQL);
-                LlenarDatagrid(stSQL);
+                //LlenarDatagrid(stSQL);
             }
 
         }

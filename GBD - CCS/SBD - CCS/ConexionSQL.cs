@@ -26,7 +26,7 @@ namespace SBD___CCS
         
         try
             {
-                connectionString = "Server=" + HO + "; Database="+BD+";Uid=" + US + "; Pwd=" + CO + "";
+                connectionString = "Server=" + HO + "; Database=" + BD + ";Uid=" + US + "; Pwd=" + CO + ";Port=3306";
                 conectarSQL.ConnectionString = connectionString;
             }
         catch (MySqlException ex)
@@ -44,12 +44,13 @@ namespace SBD___CCS
             * 
            //--------------------------------------*/
 
-        public void mostrar(string sql) //version2
+        public void mostrar(string sql,string HO,string BD,string US,string CO) //version2
         {
-            cnn = new MySqlConnection(txConexGlobal);
+            string ls = "Server=" + HO + "; Database=" + BD + ";Uid=" + US + "; Pwd=" + CO + "";
+            cnn = new MySqlConnection(ls);
             try
             {
-                //cnn = new MySqlConnection(cnx);
+                Console.WriteLine("Esta "+ls);
                 cnn.Open();
                 MySqlDataAdapter da = new MySqlDataAdapter(sql, cnn);
                 ds = new DataSet();

@@ -323,6 +323,11 @@ namespace SBD___CCS
             CSQL.conectarSQL.Close();
         }
 
+        private void lt_B_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
       
       
 

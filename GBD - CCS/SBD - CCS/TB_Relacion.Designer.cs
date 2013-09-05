@@ -141,6 +141,7 @@
             this.lt_B.Name = "lt_B";
             this.lt_B.Size = new System.Drawing.Size(163, 108);
             this.lt_B.TabIndex = 13;
+            this.lt_B.SelectedIndexChanged += new System.EventHandler(this.lt_B_SelectedIndexChanged);
             // 
             // lb_Informacion
             // 
