@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.IO;
 using CrearBDSQLITE;
+using System.Data.SQLite;
 using MySql.Data.MySqlClient;
 using System.Resources;
 using ArchivoRuta;
@@ -38,38 +39,36 @@ namespace SBD___CCS
             stUsuario = stx;
             stContrasena = sty;
             stHost = stz;
-
+            string sentencia="Inicio de sesion";
             InitializeComponent();
             lt_Multi_funcion.SetSelected(0, true);
             tm_Estado_BD.Start();
+            RegistroDeActividadEnBitacora(stUsuario, sentencia);
             CargarBasesDeDatos();
         }
 
-
         /*--------------------------------------------
- Nombre:         Regresar formato a fila
- Autor:          Jaime Pérez
- fecha:          22ago2013
- Detalle:        vuelve el formato de la fila normal
- Modificación:   implementación inicial
-  * 
- //--------------------------------------*/
+         Nombre:         Regresar formato a fila
+         Autor:          Jaime Pérez
+         fecha:          22ago2013
+         Detalle:        vuelve el formato de la fila normal
+         Modificación:   implementación inicial
+          * 
+         //--------------------------------------*/
         public void RegresarFormatoFila()//int inTipo_transac)
         {
             this.dgTabla.CurrentRow.DefaultCellStyle.BackColor = System.Drawing.Color.White;
             this.dgTabla.CurrentRow.DefaultCellStyle.ForeColor = System.Drawing.Color.Black;
         }
 
-
-
         /*--------------------------------------------
-Nombre:         Manejar DML 
-Autor:          Jaime Pérez
-fecha:          20ago2013
-Detalle:        permitirá manejar las transacciones realizadas con los datagrid
-Modificación:   implementación inicial
- * 
-//--------------------------------------*/
+         Nombre:         Manejar DML 
+         Autor:          Jaime Pérez
+         fecha:          20ago2013
+         Detalle:        permitirá manejar las transacciones realizadas con los datagrid
+         Modificación:   implementación inicial
+          * 
+        //--------------------------------------*/
         public void ManejarDML()//int inTipo_transac)
         {
             int inColumnas = dgTabla.ColumnCount;
@@ -138,8 +137,6 @@ Modificación:   implementación inicial
 
 
         }
-
-
 
         private void modificarToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -213,8 +210,7 @@ Modificación:   implementación inicial
         {
             EliminarTabla();
         }
-
-
+        
         private void btn_EJECUTAR_Click(object sender, EventArgs e)
         {
             tb_Resultados.Text = ("");
@@ -235,12 +231,7 @@ Modificación:   implementación inicial
         {
          // stBase_de_datos = cb_BD.Text;
          // CargarTablas();
-
-
         }
-
-
-
 
         /***************************************************************
         NOMBRE:             VerificarEstado
@@ -269,7 +260,6 @@ Modificación:   implementación inicial
                 CSQL.conectarSQL.Close();
             }
         }
-
 
         public void ExaminarTabla()
         {
@@ -320,6 +310,66 @@ Modificación:   implementación inicial
         }
 
         /***************************************************************
+        NOMBRE:             RegistroDeActividadEnBitacora
+        FECHA:		        05-09-2013
+        CREADOR:     	    Zayda Hernandez          
+        DESCRIPCIÓN         
+        DETALLE:            
+        MODIFICACIÓN:       
+        ***************************************************************/
+        public void RegistroDeActividadEnBitacora(string usuario, string sentencia)
+        {
+            String archivobd;
+            archivobd = "C:/Users/Zayda/Dropbox/CCS - ADST/Bitacora/Bitacora";
+            string insercion;
+            string consulta;
+            int idb;
+            int ANUM=0;
+            SQLiteCommand sntc;
+            SQLiteCommand snt;
+            SQLiteConnection conexion;
+            SQLiteDataReader datos;
+            conexion = new SQLiteConnection("Data Source=" + archivobd + ".sqlite;Version=3;New=False;Compress=True;");
+            conexion.Open();
+                        
+            try
+            {
+                consulta = "SELECT * FROM BITACORA;";
+                sntc = new SQLiteCommand(consulta, conexion);
+                datos = sntc.ExecuteReader();
+                Console.WriteLine("UInicio de qhile");
+                while (datos.Read())
+                {
+
+                    idb = Convert.ToInt32(datos[0]);
+                    Console.WriteLine("----------------<<<< dcsdfcsdcf>>>>" + idb);
+                    while (ANUM <= idb)
+                    {
+                        if (ANUM < idb)
+                        {
+                            ANUM = idb;
+                            
+                        }
+                        ANUM++;
+                    }
+                }
+
+                insercion = "INSERT INTO BITACORA VALUES  (" + ANUM + ",'" + usuario + "',datetime('now','localtime'),'" + sentencia + "');";
+                Console.WriteLine("Query ejecutado: " + insercion);
+                snt=new SQLiteCommand(insercion,conexion);
+                snt.ExecuteNonQuery();
+                
+            }
+
+            catch (Exception e)
+            {
+                MessageBox.Show("No se ha podido registrar cambio en Bitacora", "Aviso");
+            }
+            
+            CSQL.conectarSQL.Close();
+        }
+
+        /***************************************************************
         NOMBRE:             CargarBasesDeDatos
         FECHA:		    24-08-2013
         CREADOR:     	    Zayda Hernandez          
@@ -363,8 +413,8 @@ Modificación:   implementación inicial
                         lt_Multi_funcion.Items.Add("No existen Bases de Datos");
                         inControl_b = 0;
                     }
-                
 
+                    RegistroDeActividadEnBitacora(stUsuario, stCadena);
             }
 
             catch (MySqlException ex)
@@ -423,6 +473,7 @@ Modificación:   implementación inicial
                     }
 
                 }
+                RegistroDeActividadEnBitacora(stUsuario, stCadena);
             }
 
             catch (MySqlException ex)
@@ -433,9 +484,7 @@ Modificación:   implementación inicial
 
             CSQL.conectarSQL.Close();
         }
-
-
-
+        
         /***************************************************************
         NOMBRE:             IniciarGestor
         FECHA:		    26-08-2013
@@ -456,7 +505,6 @@ Modificación:   implementación inicial
                 CargarTablas();
 
         }
-
 
         /***************************************************************
          NOMBRE:             EjecutarConsolaSQL
@@ -534,7 +582,7 @@ Modificación:   implementación inicial
                 }
 
                 CSQL.conectarSQL.Close();
-
+                RegistroDeActividadEnBitacora(stUsuario, cadena);
             }
             catch (MySqlException ex)
             {
@@ -556,28 +604,18 @@ Modificación:   implementación inicial
                 lt_Multi_funcion.DataSource = CSQL.ds.Tables[0].DefaultView;
 
                 lt_Multi_funcion.ValueMember = CSQL.ds.Tables[0].Columns[0].ColumnName;
-                
-             
+                RegistroDeActividadEnBitacora(stUsuario, "Show tables;");
             }
         }
-
-
-
-
-
-
-
-
-
+        
         /*--------------------------------------------
-   Nombre:         Cambio en valor de lista de tablas
-   Autor:          Jaime Pérez
-   fecha:          18ago2013
-   Detalle:        permitirá cambiar a DML y llenar el dataGrid al seleccionar una tabla
-   Modificación:   Aislamiento de codigo division del mismo
-    * 
-   //--------------------------------------*/
-
+           Nombre:         Cambio en valor de lista de tablas
+           Autor:          Jaime Pérez
+           fecha:          18ago2013
+           Detalle:        permitirá cambiar a DML y llenar el dataGrid al seleccionar una tabla
+           Modificación:   Aislamiento de codigo division del mismo
+            * 
+        //--------------------------------------*/
         public void LlenarDatagrid(string stSQL)
         {
             CSQL.mostrar(stSQL, stHost, this.cb_BD.Text, stUsuario, stContrasena); //enviar consulta a clase común
@@ -587,8 +625,7 @@ Modificación:   implementación inicial
                 this.lbTituloTabla.Text = "Contenido de tabla " + lt_Multi_funcion.Text; //colocar nombre de tabla en título JP
              this.dgTabla.AutoResizeColumns(); //coloca el tamaño adecuado para lectura
         }
-
-
+        
         private void lt_Multi_funcion_SelectedIndexChanged(object sender, EventArgs e)
         {
             
@@ -619,8 +656,7 @@ Modificación:   implementación inicial
         {
             inEstadoIns = 0;
         }
-
-
+        
         private void dgTabla_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
         {
             if (this.dgTabla.FirstDisplayedScrollingRowIndex >= 0)
@@ -685,20 +721,9 @@ Modificación:   implementación inicial
             if (this.dgTabla.IsCurrentRowDirty)
                 this.dgTabla.NotifyCurrentCellDirty(true);
         }
-
   
-
-  
-
-
-
-
-
-
-
     }
-
-
+    
 }
 
 

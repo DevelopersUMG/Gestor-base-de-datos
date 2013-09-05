@@ -102,3 +102,4 @@ C:\Users\Zayda\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\SBD - CCS\bin\Deb
 C:\Users\Zayda\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\SBD - CCS\bin\Debug\MySql.Data.dll
 C:\Users\Zayda\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\SBD - CCS\bin\Debug\ArchivoRuta.pdb
 C:\Users\Zayda\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\SBD - CCS\bin\Debug\CrearBDSQLITE.pdb
+C:\Users\Zayda\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\SBD - CCS\bin\Debug\System.Data.SQLite.dll
