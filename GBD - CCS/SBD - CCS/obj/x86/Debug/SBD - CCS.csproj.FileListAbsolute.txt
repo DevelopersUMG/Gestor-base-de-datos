@@ -104,3 +104,19 @@ C:\Users\i3nRiq\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\SBD - CCS\bin\De
 C:\Users\i3nRiq\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\SBD - CCS\bin\Debug\RegistroEnBitacora.pdb
 C:\Users\i3nRiq\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\SBD - CCS\obj\x86\Debug\SBD___CCS.fr_Inicio.resources
 C:\Users\i3nRiq\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\SBD - CCS\obj\x86\Debug\SBD___CCS.fr_Login.resources
+C:\Users\mario\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\SBD - CCS\obj\x86\Debug\SBD - CCS.exe
+C:\Users\mario\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\SBD - CCS\obj\x86\Debug\SBD - CCS.pdb
+C:\Users\mario\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\SBD - CCS\bin\Debug\SBD - CCS.exe
+C:\Users\mario\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\SBD - CCS\bin\Debug\SBD - CCS.pdb
+C:\Users\mario\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\SBD - CCS\bin\Debug\ArchivoRuta.dll
+C:\Users\mario\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\SBD - CCS\bin\Debug\CrearBDSQLITE.dll
+C:\Users\mario\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\SBD - CCS\bin\Debug\RegistroEnBitacora.dll
+C:\Users\mario\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\SBD - CCS\bin\Debug\ArchivoRuta.pdb
+C:\Users\mario\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\SBD - CCS\bin\Debug\CrearBDSQLITE.pdb
+C:\Users\mario\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\SBD - CCS\bin\Debug\RegistroEnBitacora.pdb
+C:\Users\mario\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\SBD - CCS\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\mario\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\SBD - CCS\obj\x86\Debug\SBD___CCS.fr_Inicio.resources
+C:\Users\mario\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\SBD - CCS\obj\x86\Debug\SBD___CCS.fr_Login.resources
+C:\Users\mario\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\SBD - CCS\obj\x86\Debug\SBD___CCS.Properties.Resources.resources
+C:\Users\mario\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\SBD - CCS\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\mario\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\SBD - CCS\obj\x86\Debug\GenerateResource.write.1.tlog

@@ -437,7 +437,7 @@ namespace SBD___CCS
         /***************************************************************
          NOMBRE:             EjecutarConsolaSQL
          FECHA:		         25-08-2013
-         CREADOR:     	     Mario Godoy
+         CREADOR:     	     Mario Godoy y Agusto Murga
          DESCRIPCIÓN         Realiza la manipulacion de consola en SQL directamente
          DETALLE:            Trabaja por Parametros
          MODIFICACIÓN:       
@@ -456,7 +456,7 @@ namespace SBD___CCS
                 CSQL.conectarSQL.Open();
                 cmd.Connection = CSQL.conectarSQL;
 
-                if ((vector[0] == "select") || (vector[0] == "show"))
+                if ((vector[0] == "select") || (vector[0] == "show") || (vector[0] == "SELECT"))
                 {
 
                     MySqlDataReader reader = cmd.ExecuteReader();
@@ -473,44 +473,88 @@ namespace SBD___CCS
                     }
 
                 }
+                else
+                {
+                    tb_Resultados.AppendText("Favor revisar sentencia sql select\n");
 
-
-
-                if ((vector[0] == "insert"))
+                }
+                if ((vector[0] == "insert") || (vector[0] == "INSERT"))
                 {
                     tb_Resultados.Text = ("Insercion realizada con exito");
                     cmd.ExecuteNonQuery();
                 }
-                if ((vector[0] == "alter"))
+                else
+                {
+                    tb_Resultados.AppendText("Favor revisar sentencia sql insert\n");
+
+                }
+                if ((vector[0] == "alter") || (vector[0] == "ALTER"))
                 {
                     tb_Resultados.Text = ("modificacion realizada con exito");
                     cmd.ExecuteNonQuery();
                 }
-                if ((vector[0] == "create"))
+                else
+                {
+                    tb_Resultados.AppendText("Favor revisar sentencia sql alter\n");
+
+                }
+                if ((vector[0] == "create") || (vector[0] == "CREATE"))
                 {
                     tb_Resultados.Text = ("Tabla creada con exito");
                     cmd.ExecuteNonQuery();
                 }
+                else
+                {
+                    tb_Resultados.AppendText("Favor revisar sentencia sql create\n");
+                    if ((vector[1] != "table") || (vector[1] != "TABLE"))
+                    {
+                        tb_Resultados.AppendText("Favor revisar la palabra table\n");
+                    }
+                    if ((vector[2] != ";") || (vector[2] != ";"))
+                    {
+                        tb_Resultados.AppendText("Favor revisar falta un punto y coma en la sentencia\n");
+                    }
 
-                if ((vector[0] == "delete"))
+                }
+                if ((vector[0] == "delete") || (vector[0] == "DELETE"))
                 {
                     tb_Resultados.Text = ("Eliminacion realizada con exito");
                     cmd.ExecuteNonQuery();
                 }
-                if ((vector[0] == "update"))
+                else
+                {
+                    tb_Resultados.AppendText("Favor revisar sentencia sql delete\n");
+
+                }
+                if ((vector[0] == "update") || (vector[0] == "UPDATE"))
                 {
                     tb_Resultados.Text = ("modificacion realizada con exito");
                     cmd.ExecuteNonQuery();
                 }
+                else
+                {
+                    tb_Resultados.AppendText("Favor revisar sentencia sql update\n");
 
-                if ((vector[0] == "drop"))
+                }
+                if ((vector[0] == "drop") || (vector[0] == "DROP"))
                 {
                     tb_Resultados.Text = ("Eliminacion realizada con exito");
                     cmd.ExecuteNonQuery();
                 }
-
+                else
+                {
+                    tb_Resultados.AppendText("Favor revisar sentencia sql drop\n");
+                    if ((vector[1] != "database") || (vector[1] != "DATABASE"))
+                    {
+                        tb_Resultados.AppendText("Favor revisar la palabra database\n");
+                    }
+                    if ((vector[2] != ";") || (vector[2] != ";"))
+                    {
+                        tb_Resultados.AppendText("Favor revisar falta un punto y coma en la sentencia\n");
+                    }
+                }
                 CSQL.conectarSQL.Close();
-                obBitacora.RegistroDeActividadEnBitacora(stUsuario, cadena);
+
             }
             catch (MySqlException ex)
             {
@@ -518,6 +562,7 @@ namespace SBD___CCS
                 CSQL.conectarSQL.Close();
             }
         }
+
 
         private void cb_BD_SelectedValueChanged(object sender, EventArgs e)
         {
@@ -1364,6 +1409,40 @@ namespace SBD___CCS
         private void btGuardar_Click(object sender, EventArgs e)
         {
             AgregarRegistro();
+        }
+
+        /*--------------------------------------------
+Nombre:         ayuda
+Autor:          Mario Godoy
+fecha:          04/agosto/2013
+Detalle:        permite la ejecucion de ayuda * 
+//--------------------------------------*/
+
+        private void ts_Acercade_Click(object sender, EventArgs e)
+        {
+            String ruta = System.IO.Directory.GetCurrentDirectory().ToString();
+
+            System.Diagnostics.Process.Start(ruta + "/ayuda1.chm");
+        }
+
+        private void bt_Eliminar_query_Click(object sender, EventArgs e)
+        {
+            tb_Consola_query.Clear();
+        }
+
+        private void bt_Guardar_query_Click(object sender, EventArgs e)
+        {
+            saveFileDialog1.ShowDialog();
+        }
+
+        private void saveFileDialog1_FileOk(object sender, CancelEventArgs e)
+        {
+            string filetosaveas = saveFileDialog1.FileName;
+
+            System.IO.StreamWriter objwrite = new System.IO.StreamWriter(filetosaveas);
+            objwrite.Write(tb_Consola_query);
+            objwrite.Close();
+            
         }
 
   

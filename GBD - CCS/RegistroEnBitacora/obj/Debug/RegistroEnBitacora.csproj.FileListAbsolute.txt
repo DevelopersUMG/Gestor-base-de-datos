@@ -9,3 +9,8 @@ C:\Users\i3nRiq\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\RegistroEnBitaco
 C:\Users\i3nRiq\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\RegistroEnBitacora\obj\Debug\RegistroEnBitacora.csprojResolveAssemblyReference.cache
 C:\Users\i3nRiq\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\RegistroEnBitacora\obj\Debug\RegistroEnBitacora.dll
 C:\Users\i3nRiq\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\RegistroEnBitacora\obj\Debug\RegistroEnBitacora.pdb
+C:\Users\mario\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\RegistroEnBitacora\bin\Debug\RegistroEnBitacora.dll
+C:\Users\mario\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\RegistroEnBitacora\bin\Debug\RegistroEnBitacora.pdb
+C:\Users\mario\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\RegistroEnBitacora\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\mario\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\RegistroEnBitacora\obj\Debug\RegistroEnBitacora.dll
+C:\Users\mario\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\RegistroEnBitacora\obj\Debug\RegistroEnBitacora.pdb

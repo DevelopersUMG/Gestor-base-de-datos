@@ -55,11 +55,12 @@ namespace RegistroEnBitacora
             SQLiteCommand snt;
             SQLiteConnection conexion;
             SQLiteDataReader datos;
-            conexion = new SQLiteConnection("Data Source=" + lstarchivobd + ".sqlite;Version=3;New=False;Compress=True;");
-            conexion.Open();
+            
 
             try
             {
+                conexion = new SQLiteConnection("Data Source=" + lstarchivobd + ".sqlite;Version=3;New=False;Compress=True;");
+                conexion.Open();
                 lstconsulta = "SELECT * FROM BITACORA;";
                 sntc = new SQLiteCommand(lstconsulta, conexion);
                 datos = sntc.ExecuteReader();

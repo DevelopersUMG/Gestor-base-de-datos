@@ -88,20 +88,6 @@
             this.cb_B = new System.Windows.Forms.ComboBox();
             this.lt_B = new System.Windows.Forms.ListBox();
             this.tp_Nueva = new System.Windows.Forms.TabPage();
-            this.bt_Eliminar_tabla = new System.Windows.Forms.Button();
-            this.tb_DML = new System.Windows.Forms.TabPage();
-            this.lbTituloTabla = new System.Windows.Forms.Label();
-            this.dgTabla = new System.Windows.Forms.DataGridView();
-            this.lb_Mensaje_error = new System.Windows.Forms.Label();
-            this.tm_Estado_BD = new System.Windows.Forms.Timer(this.components);
-            this.pb_Estado = new System.Windows.Forms.PictureBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.tx_Nombredetabla = new System.Windows.Forms.TextBox();
-            this.btGuardar = new System.Windows.Forms.Button();
-            this.dt_Embarc = new System.Windows.Forms.DataGridView();
-            this.Llave = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label4 = new System.Windows.Forms.Label();
             this.tx_Tamano = new System.Windows.Forms.TextBox();
@@ -111,6 +97,21 @@
             this.tx_Nombre = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.cb_Tipo = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.tx_Nombredetabla = new System.Windows.Forms.TextBox();
+            this.btGuardar = new System.Windows.Forms.Button();
+            this.dt_Embarc = new System.Windows.Forms.DataGridView();
+            this.Llave = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.bt_Eliminar_tabla = new System.Windows.Forms.Button();
+            this.tb_DML = new System.Windows.Forms.TabPage();
+            this.lbTituloTabla = new System.Windows.Forms.Label();
+            this.dgTabla = new System.Windows.Forms.DataGridView();
+            this.lb_Mensaje_error = new System.Windows.Forms.Label();
+            this.tm_Estado_BD = new System.Windows.Forms.Timer(this.components);
+            this.pb_Estado = new System.Windows.Forms.PictureBox();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.ts_BD.SuspendLayout();
             this.ms_Principal.SuspendLayout();
             this.tc_Panel_BD.ContentPanel.SuspendLayout();
@@ -125,11 +126,11 @@
             this.tp_Relacionar.SuspendLayout();
             this.gb_Crear.SuspendLayout();
             this.tp_Nueva.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dt_Embarc)).BeginInit();
             this.tb_DML.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgTabla)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Estado)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dt_Embarc)).BeginInit();
-            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // ts_BD
@@ -249,7 +250,7 @@
             this.ts_Modificar.Name = "ts_Modificar";
             this.ts_Modificar.Size = new System.Drawing.Size(125, 22);
             this.ts_Modificar.Text = "Modificar";
-// 
+            // 
             // ts_Ayuda
             // 
             this.ts_Ayuda.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -264,6 +265,7 @@
             this.ts_Acercade.Name = "ts_Acercade";
             this.ts_Acercade.Size = new System.Drawing.Size(126, 22);
             this.ts_Acercade.Text = "Acerca de";
+            this.ts_Acercade.Click += new System.EventHandler(this.ts_Acercade_Click);
             // 
             // ts_Manuales
             // 
@@ -467,6 +469,7 @@
             this.bt_Eliminar_query.TabIndex = 21;
             this.bt_Eliminar_query.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.bt_Eliminar_query.UseVisualStyleBackColor = true;
+            this.bt_Eliminar_query.Click += new System.EventHandler(this.bt_Eliminar_query_Click);
             // 
             // tb_Consola_query
             // 
@@ -487,6 +490,7 @@
             this.bt_Guardar_query.Size = new System.Drawing.Size(35, 35);
             this.bt_Guardar_query.TabIndex = 3;
             this.bt_Guardar_query.UseVisualStyleBackColor = true;
+            this.bt_Guardar_query.Click += new System.EventHandler(this.bt_Guardar_query_Click);
             // 
             // bt_Ejecutar_query
             // 
@@ -702,6 +706,154 @@
             this.tp_Nueva.Text = "Nueva";
             this.tp_Nueva.UseVisualStyleBackColor = true;
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.tx_Tamano);
+            this.groupBox1.Controls.Add(this.bt_Agregarregistro);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.cx_PrimaryKey);
+            this.groupBox1.Controls.Add(this.tx_Nombre);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.cb_Tipo);
+            this.groupBox1.Location = new System.Drawing.Point(459, 17);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(241, 251);
+            this.groupBox1.TabIndex = 16;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Campo";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(4, 98);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(52, 13);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "Tamaño";
+            // 
+            // tx_Tamano
+            // 
+            this.tx_Tamano.Location = new System.Drawing.Point(58, 95);
+            this.tx_Tamano.Name = "tx_Tamano";
+            this.tx_Tamano.Size = new System.Drawing.Size(75, 20);
+            this.tx_Tamano.TabIndex = 8;
+            // 
+            // bt_Agregarregistro
+            // 
+            this.bt_Agregarregistro.Location = new System.Drawing.Point(58, 121);
+            this.bt_Agregarregistro.Name = "bt_Agregarregistro";
+            this.bt_Agregarregistro.Size = new System.Drawing.Size(75, 23);
+            this.bt_Agregarregistro.TabIndex = 7;
+            this.bt_Agregarregistro.Text = "Agregar";
+            this.bt_Agregarregistro.UseVisualStyleBackColor = true;
+            this.bt_Agregarregistro.Click += new System.EventHandler(this.bt_Agregarregistro_Click);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 43);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(50, 13);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Nombre";
+            // 
+            // cx_PrimaryKey
+            // 
+            this.cx_PrimaryKey.AutoSize = true;
+            this.cx_PrimaryKey.Location = new System.Drawing.Point(58, 17);
+            this.cx_PrimaryKey.Name = "cx_PrimaryKey";
+            this.cx_PrimaryKey.Size = new System.Drawing.Size(112, 17);
+            this.cx_PrimaryKey.TabIndex = 6;
+            this.cx_PrimaryKey.Text = "Llave primaria?";
+            this.cx_PrimaryKey.UseVisualStyleBackColor = true;
+            // 
+            // tx_Nombre
+            // 
+            this.tx_Nombre.Location = new System.Drawing.Point(58, 40);
+            this.tx_Nombre.Name = "tx_Nombre";
+            this.tx_Nombre.Size = new System.Drawing.Size(121, 20);
+            this.tx_Nombre.TabIndex = 0;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 69);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(32, 13);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Tipo";
+            // 
+            // cb_Tipo
+            // 
+            this.cb_Tipo.FormattingEnabled = true;
+            this.cb_Tipo.Items.AddRange(new object[] {
+            "VARCHAR",
+            "INTEGER",
+            "DOUBLE"});
+            this.cb_Tipo.Location = new System.Drawing.Point(58, 66);
+            this.cb_Tipo.Name = "cb_Tipo";
+            this.cb_Tipo.Size = new System.Drawing.Size(121, 21);
+            this.cb_Tipo.TabIndex = 2;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(6, 17);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(114, 13);
+            this.label3.TabIndex = 15;
+            this.label3.Text = "Nombre de la tabla";
+            // 
+            // tx_Nombredetabla
+            // 
+            this.tx_Nombredetabla.Location = new System.Drawing.Point(203, 19);
+            this.tx_Nombredetabla.Name = "tx_Nombredetabla";
+            this.tx_Nombredetabla.Size = new System.Drawing.Size(169, 20);
+            this.tx_Nombredetabla.TabIndex = 14;
+            // 
+            // btGuardar
+            // 
+            this.btGuardar.Location = new System.Drawing.Point(378, 17);
+            this.btGuardar.Name = "btGuardar";
+            this.btGuardar.Size = new System.Drawing.Size(75, 23);
+            this.btGuardar.TabIndex = 13;
+            this.btGuardar.Text = "Guardar";
+            this.btGuardar.UseVisualStyleBackColor = true;
+            this.btGuardar.Click += new System.EventHandler(this.btGuardar_Click);
+            // 
+            // dt_Embarc
+            // 
+            this.dt_Embarc.AllowUserToAddRows = false;
+            this.dt_Embarc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dt_Embarc.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Llave,
+            this.Nombre,
+            this.Tipo});
+            this.dt_Embarc.Location = new System.Drawing.Point(9, 46);
+            this.dt_Embarc.Name = "dt_Embarc";
+            this.dt_Embarc.Size = new System.Drawing.Size(444, 222);
+            this.dt_Embarc.TabIndex = 12;
+            // 
+            // Llave
+            // 
+            this.Llave.HeaderText = "Llave";
+            this.Llave.Name = "Llave";
+            this.Llave.Width = 50;
+            // 
+            // Nombre
+            // 
+            this.Nombre.HeaderText = "Nombre";
+            this.Nombre.Name = "Nombre";
+            this.Nombre.Width = 200;
+            // 
+            // Tipo
+            // 
+            this.Tipo.HeaderText = "Tipo";
+            this.Tipo.Name = "Tipo";
+            this.Tipo.Width = 150;
+            // 
             // bt_Eliminar_tabla
             // 
             this.bt_Eliminar_tabla.Location = new System.Drawing.Point(6, 6);
@@ -799,155 +951,11 @@
             this.pb_Estado.TabIndex = 20;
             this.pb_Estado.TabStop = false;
             // 
-            // label3
+            // saveFileDialog1
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(6, 17);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(114, 13);
-            this.label3.TabIndex = 15;
-            this.label3.Text = "Nombre de la tabla";
+            this.saveFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.saveFileDialog1_FileOk);
             // 
-            // tx_Nombredetabla
-            // 
-            this.tx_Nombredetabla.Location = new System.Drawing.Point(203, 19);
-            this.tx_Nombredetabla.Name = "tx_Nombredetabla";
-            this.tx_Nombredetabla.Size = new System.Drawing.Size(169, 20);
-            this.tx_Nombredetabla.TabIndex = 14;
-            // 
-            // btGuardar
-            // 
-            this.btGuardar.Location = new System.Drawing.Point(378, 17);
-            this.btGuardar.Name = "btGuardar";
-            this.btGuardar.Size = new System.Drawing.Size(75, 23);
-            this.btGuardar.TabIndex = 13;
-            this.btGuardar.Text = "Guardar";
-            this.btGuardar.UseVisualStyleBackColor = true;
-            this.btGuardar.Click += new System.EventHandler(this.btGuardar_Click);
-            // 
-            // dt_Embarc
-            // 
-            this.dt_Embarc.AllowUserToAddRows = false;
-            this.dt_Embarc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dt_Embarc.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Llave,
-            this.Nombre,
-            this.Tipo});
-            this.dt_Embarc.Location = new System.Drawing.Point(9, 46);
-            this.dt_Embarc.Name = "dt_Embarc";
-            this.dt_Embarc.Size = new System.Drawing.Size(444, 222);
-            this.dt_Embarc.TabIndex = 12;
-            // 
-            // Llave
-            // 
-            this.Llave.HeaderText = "Llave";
-            this.Llave.Name = "Llave";
-            this.Llave.Width = 50;
-            // 
-            // Nombre
-            // 
-            this.Nombre.HeaderText = "Nombre";
-            this.Nombre.Name = "Nombre";
-            this.Nombre.Width = 200;
-            // 
-            // Tipo
-            // 
-            this.Tipo.HeaderText = "Tipo";
-            this.Tipo.Name = "Tipo";
-            this.Tipo.Width = 150;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.tx_Tamano);
-            this.groupBox1.Controls.Add(this.bt_Agregarregistro);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.cx_PrimaryKey);
-            this.groupBox1.Controls.Add(this.tx_Nombre);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.cb_Tipo);
-            this.groupBox1.Location = new System.Drawing.Point(459, 17);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(241, 251);
-            this.groupBox1.TabIndex = 16;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Campo";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(4, 98);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(52, 13);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Tamaño";
-            // 
-            // tx_Tamano
-            // 
-            this.tx_Tamano.Location = new System.Drawing.Point(58, 95);
-            this.tx_Tamano.Name = "tx_Tamano";
-            this.tx_Tamano.Size = new System.Drawing.Size(75, 20);
-            this.tx_Tamano.TabIndex = 8;
-            // 
-            // bt_Agregarregistro
-            // 
-            this.bt_Agregarregistro.Location = new System.Drawing.Point(58, 121);
-            this.bt_Agregarregistro.Name = "bt_Agregarregistro";
-            this.bt_Agregarregistro.Size = new System.Drawing.Size(75, 23);
-            this.bt_Agregarregistro.TabIndex = 7;
-            this.bt_Agregarregistro.Text = "Agregar";
-            this.bt_Agregarregistro.UseVisualStyleBackColor = true;
-            this.bt_Agregarregistro.Click += new System.EventHandler(this.bt_Agregarregistro_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 43);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 13);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Nombre";
-            // 
-            // cx_PrimaryKey
-            // 
-            this.cx_PrimaryKey.AutoSize = true;
-            this.cx_PrimaryKey.Location = new System.Drawing.Point(58, 17);
-            this.cx_PrimaryKey.Name = "cx_PrimaryKey";
-            this.cx_PrimaryKey.Size = new System.Drawing.Size(112, 17);
-            this.cx_PrimaryKey.TabIndex = 6;
-            this.cx_PrimaryKey.Text = "Llave primaria?";
-            this.cx_PrimaryKey.UseVisualStyleBackColor = true;
-            // 
-            // tx_Nombre
-            // 
-            this.tx_Nombre.Location = new System.Drawing.Point(58, 40);
-            this.tx_Nombre.Name = "tx_Nombre";
-            this.tx_Nombre.Size = new System.Drawing.Size(121, 20);
-            this.tx_Nombre.TabIndex = 0;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 69);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(32, 13);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Tipo";
-            // 
-            // cb_Tipo
-            // 
-            this.cb_Tipo.FormattingEnabled = true;
-            this.cb_Tipo.Items.AddRange(new object[] {
-            "VARCHAR",
-            "INTEGER",
-            "DOUBLE"});
-            this.cb_Tipo.Location = new System.Drawing.Point(58, 66);
-            this.cb_Tipo.Name = "cb_Tipo";
-            this.cb_Tipo.Size = new System.Drawing.Size(121, 21);
-            this.cb_Tipo.TabIndex = 2;
-            // 
-            // Inicio
+            // fr_Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -965,7 +973,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.IsMdiContainer = true;
             this.MaximizeBox = false;
-            this.Name = "Inicio";
+            this.Name = "fr_Inicio";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Administrador de Base de Datos";
             this.Load += new System.EventHandler(this.Inicio_Load);
@@ -993,13 +1001,13 @@
             this.gb_Crear.PerformLayout();
             this.tp_Nueva.ResumeLayout(false);
             this.tp_Nueva.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dt_Embarc)).EndInit();
             this.tb_DML.ResumeLayout(false);
             this.tb_DML.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgTabla)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Estado)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dt_Embarc)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1085,6 +1093,7 @@
         private System.Windows.Forms.TextBox tx_Nombre;
         private System.Windows.Forms.Label label2;
         public System.Windows.Forms.ComboBox cb_Tipo;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }
 
