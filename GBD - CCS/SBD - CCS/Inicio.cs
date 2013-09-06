@@ -7,18 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using System.IO;
-using CrearBDSQLITE;
-using System.Data.SQLite;
 using MySql.Data.MySqlClient;
 using System.Resources;
 using ArchivoRuta;
+using RegistroEnBitacora;
 
 
 namespace SBD___CCS
 {
     public partial class Inicio : Form
     {
-
+        clBitacorax obBitacora = new clBitacorax();
         int inControl_tabla_multi = 0;
         int inControl_b = 0;
         int inControl_t = 0;
@@ -48,7 +47,7 @@ namespace SBD___CCS
             InitializeComponent();
             lt_Multi_funcion.SetSelected(0, true);
             tm_Estado_BD.Start();
-            RegistroDeActividadEnBitacora(stUsuario, sentencia);
+            obBitacora.RegistroDeActividadEnBitacora(stUsuario, sentencia);
             CargarBasesDeDatos();
             CargarTablasR();
         }
@@ -314,66 +313,7 @@ namespace SBD___CCS
             }
 
         }
-
-        /***************************************************************
-        NOMBRE:             RegistroDeActividadEnBitacora
-        FECHA:		        05-09-2013
-        CREADOR:     	    Zayda Hernandez          
-        DESCRIPCIÓN         
-        DETALLE:            
-        MODIFICACIÓN:       
-        ***************************************************************/
-        public void RegistroDeActividadEnBitacora(string lstusuario, string lstsentencia)
-        {
-            String lstarchivobd;
-            lstarchivobd = "C:/Users/Zayda/Dropbox/CCS - ADST/Bitacora/Bitacora";
-            string lstinsercion;
-            string lstconsulta;
-            int linidb;
-            int linANUM = 0;
-            SQLiteCommand sntc;
-            SQLiteCommand snt;
-            SQLiteConnection conexion;
-            SQLiteDataReader datos;
-            conexion = new SQLiteConnection("Data Source=" + lstarchivobd + ".sqlite;Version=3;New=False;Compress=True;");
-            conexion.Open();
-
-            try
-            {
-                lstconsulta = "SELECT * FROM BITACORA;";
-                sntc = new SQLiteCommand(lstconsulta, conexion);
-                datos = sntc.ExecuteReader();
-                Console.WriteLine("UInicio de qhile");
-                while (datos.Read())
-                {
-
-                    linidb = Convert.ToInt32(datos[0]);
-                    while (linANUM <= linidb)
-                    {
-                        if (linANUM < linidb)
-                        {
-                            linANUM = linidb;
-
-                        }
-                        linANUM++;
-                    }
-                }
-
-                lstinsercion = "INSERT INTO BITACORA VALUES  (" + linANUM + ",'" + lstusuario + "',datetime('now','localtime'),'" + lstsentencia + "');";
-                Console.WriteLine("Query ejecutado: " + lstinsercion);
-                snt = new SQLiteCommand(lstinsercion, conexion);
-                snt.ExecuteNonQuery();
-
-            }
-
-            catch (Exception e)
-            {
-                MessageBox.Show("No se ha podido registrar cambio en Bitacora", "Aviso");
-            }
-
-            CSQL.conectarSQL.Close();
-        }
-
+        
         /***************************************************************
         NOMBRE:             CargarBasesDeDatos
         FECHA:		    24-08-2013
@@ -419,7 +359,7 @@ namespace SBD___CCS
                         inControl_b = 0;
                     }
 
-                    RegistroDeActividadEnBitacora(stUsuario, stCadena);
+                    obBitacora.RegistroDeActividadEnBitacora(stUsuario, stCadena);
             }
 
             catch (MySqlException ex)
@@ -478,7 +418,7 @@ namespace SBD___CCS
                     }
 
                 }
-                RegistroDeActividadEnBitacora(stUsuario, stCadena);
+                obBitacora.RegistroDeActividadEnBitacora(stUsuario, stCadena);
             }
 
             catch (MySqlException ex)
@@ -587,7 +527,7 @@ namespace SBD___CCS
                 }
 
                 CSQL.conectarSQL.Close();
-                RegistroDeActividadEnBitacora(stUsuario, cadena);
+                obBitacora.RegistroDeActividadEnBitacora(stUsuario, cadena);
             }
             catch (MySqlException ex)
             {
@@ -609,7 +549,7 @@ namespace SBD___CCS
                 lt_Multi_funcion.DataSource = CSQL.ds.Tables[0].DefaultView;
 
                 lt_Multi_funcion.ValueMember = CSQL.ds.Tables[0].Columns[0].ColumnName;
-                RegistroDeActividadEnBitacora(stUsuario, "Show tables;");
+                obBitacora.RegistroDeActividadEnBitacora(stUsuario, "Show tables;");
             }
             CargarTablasR();
         }

@@ -138,6 +138,10 @@
       <Project>{CF211F37-DDF6-4EEB-97F9-F817A5A6EFDA}</Project>
       <Name>CrearBDSQLITE</Name>
     </ProjectReference>
+    <ProjectReference Include="..\RegistroEnBitacora\RegistroEnBitacora.csproj">
+      <Project>{FDCD66E0-6277-4A37-9950-0A75BBAAA819}</Project>
+      <Name>RegistroEnBitacora</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="Iconos\png\gtk-media-play-ltr_3_256x256x32.png" />

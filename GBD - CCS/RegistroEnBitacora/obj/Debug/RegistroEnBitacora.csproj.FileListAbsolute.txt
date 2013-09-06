@@ -1,0 +1,6 @@
+C:\Users\Zayda\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\RegistroEnBitacora\bin\Debug\RegistroEnBitacora.dll
+C:\Users\Zayda\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\RegistroEnBitacora\bin\Debug\RegistroEnBitacora.pdb
+C:\Users\Zayda\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\RegistroEnBitacora\bin\Debug\System.Data.SQLite.dll
+C:\Users\Zayda\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\RegistroEnBitacora\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Zayda\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\RegistroEnBitacora\obj\Debug\RegistroEnBitacora.dll
+C:\Users\Zayda\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\RegistroEnBitacora\obj\Debug\RegistroEnBitacora.pdb
