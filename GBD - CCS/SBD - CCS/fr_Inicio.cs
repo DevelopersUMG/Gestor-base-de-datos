@@ -15,7 +15,7 @@ using RegistroEnBitacora;
 
 namespace SBD___CCS
 {
-    public partial class Inicio : Form
+    public partial class fr_Inicio : Form
     {
         clBitacorax obBitacora = new clBitacorax();
         int inControl_tabla_multi = 0;
@@ -38,7 +38,7 @@ namespace SBD___CCS
         ConexionSQL CSQL = new ConexionSQL();
 
 
-        public Inicio(string stx, string sty, string stz)
+        public fr_Inicio(string stx, string sty, string stz)
         {
             stUsuario = stx;
             stContrasena = sty;
@@ -50,6 +50,7 @@ namespace SBD___CCS
             obBitacora.RegistroDeActividadEnBitacora(stUsuario, sentencia);
             CargarBasesDeDatos();
             CargarTablasR();
+            cb_Tipo.SelectedIndex++;
         }
 
         /*--------------------------------------------
@@ -143,28 +144,14 @@ namespace SBD___CCS
 
         }
 
-        private void modificarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            TB_Examinar obX = new TB_Examinar();
-            obX.Show();
-        }
+
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             VerificarEstado();
         }
 
-        private void btn_NUEVATABLA_Click(object sender, EventArgs e)
-        {
-            TB_Crear obX = new TB_Crear();
-            obX.Show();
-        }
 
-        private void btn_RELACIONES_Click(object sender, EventArgs e)
-        {
-            TB_Relacion obX = new TB_Relacion(stHost, stBase_de_datos, stUsuario, stContrasena);
-            obX.Show();
-        }
 
         private void Inicio_Load(object sender, EventArgs e)
         {
@@ -202,14 +189,11 @@ namespace SBD___CCS
         private void desconectarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Login obX = new Login();
+            fr_Login obX = new fr_Login();
             obX.Show();
         }
 
-        private void btn_EXAMINAR_Click(object sender, EventArgs e)
-        {
-            ExaminarTabla();
-        }
+
 
         private void btn_ELIMINAR_Click(object sender, EventArgs e)
         {
@@ -234,8 +218,25 @@ namespace SBD___CCS
 
         private void cb_BD_SelectedIndexChanged(object sender, EventArgs e)
         {
-         // stBase_de_datos = cb_BD.Text;
-         // CargarTablas();
+
+        }
+
+        private void bt_AB_Click(object sender, EventArgs e)
+        {
+            CargarCampos(2, cb_B.Text);
+            CrearRelacion(1, cb_A.Text, cb_B.Text, lt_A.SelectedItem.ToString());
+            CargarCampos(1, cb_A.Text);
+            EjecutarRelacionSQL(cb_B.Text, lt_A.SelectedItem.ToString(), cb_A.Text, 2);
+            VerificarEstadodelquery();
+        }
+
+        private void bt_BA_Click(object sender, EventArgs e)
+        {
+            CargarCampos(1, cb_A.Text);
+            CrearRelacion(2, cb_B.Text, cb_A.Text, lt_B.SelectedItem.ToString());
+            CargarCampos(2, cb_B.Text);
+            EjecutarRelacionSQL(cb_A.Text, lt_B.SelectedItem.ToString(), cb_B.Text, 1);
+            VerificarEstadodelquery();
         }
 
         /***************************************************************
@@ -266,25 +267,7 @@ namespace SBD___CCS
             }
         }
 
-        public void ExaminarTabla()
-        {
-            String Tabla = lt_Multi_funcion.SelectedItem.ToString();
-            if (Tabla != "")
-            {
-
-                TB_Examinar obX = new TB_Examinar();
-                obX.Asignar(Tabla);
-                obX.Show();
-            }
-            else
-            {
-                lb_Mensaje_error.Text = ("Seleccione una tabla");
-
-
-
-            }
-
-        }
+     
 
         /***************************************************************
         NOMBRE:             EliminarTabla
@@ -1021,33 +1004,33 @@ namespace SBD___CCS
                 {
 
                     MySqlDataReader reader = cmd.ExecuteReader();
-                    //Console.WriteLine("PRUEBA: ");
+
                     int inRelacion = 0;
                     while (reader.Read())
                     {
-                        // string select = "";
+
                         if ((reader.GetString(0) == stllaveforanea) && (sttablaB != sttablaA))
                         {
                             tb_Query.Clear();
                             tb_Query.AppendText("Ya existe la relacion");
                             inRelacion = 1;
                         }
-                        //select = select + (reader.GetString(1)) + "\t";
+ 
 
 
 
                     }
                     if (inRelacion == 1)
                     {
-                        // Console.WriteLine("Ya existe la relacion");
-                        CargarCampos(inOp, sttablaB);//sttablaA,int inOp
+
+                        CargarCampos(inOp, sttablaB);
                     }
 
                 }
             }
             catch (MySqlException ex)
             {
-                // tb_Resultados.Text = ("Error de sintaxis" + "\n" + ex);
+ 
                 CSQL.conectarSQL.Close();
             }
         }
@@ -1088,8 +1071,7 @@ namespace SBD___CCS
             string stB = (tb_Query.Text);
             string stC = stAlter1;
 
-            Console.WriteLine("SQL/ " + stC);
-            Console.WriteLine("SQL/ " + stB);
+
             CSQL.conectarSQL.Close();
             try
             {
@@ -1120,26 +1102,269 @@ namespace SBD___CCS
 
         }
 
-        private void bt_AB_Click(object sender, EventArgs e)
+
+
+
+        /***************************************************************
+              NOMBRE:             InsertarTabla
+              FECHA:              05-08-2013 
+              CREADOR:            Enrique Magnani
+              DESCRIPCIÓN         Inserta la tabla en la BD
+              DETALLE:            
+              MODIFICACIÓN:       
+              ***************************************************************/
+        public void InsertarTabla(string stQuery)
         {
-            CargarCampos(2, cb_B.Text);
-            CrearRelacion(1, cb_A.Text, cb_B.Text, lt_A.SelectedItem.ToString());
-            CargarCampos(1, cb_A.Text);
-            EjecutarRelacionSQL(cb_B.Text, lt_A.SelectedItem.ToString(), cb_A.Text, 2);
-            VerificarEstadodelquery();
+
+            try
+            {
+                Console.WriteLine("SQL: " + stQuery);
+                CSQL.CONECTAR(stHost, stBase_de_datos, stUsuario, stContrasena);
+                CSQL.conectarSQL.Open();
+
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.CommandText = stQuery;
+                cmd.Connection = CSQL.conectarSQL;
+                cmd.ExecuteNonQuery();
+
+
+                MessageBox.Show("Tabla creada con exito", "Realizado");
+                obBitacora.RegistroDeActividadEnBitacora(stUsuario, stQuery);
+                CSQL.conectarSQL.Close();
+            }
+            catch (MySqlException ex)
+            {
+                MessageBox.Show("Creacion Fallida", "Error");
+                obBitacora.RegistroDeActividadEnBitacora(stUsuario, "Creacion de tabla Fallida");
+                CSQL.conectarSQL.Close();
+            }
+
+
         }
 
-        private void bt_BA_Click(object sender, EventArgs e)
+        /***************************************************************
+        NOMBRE:             VerificarTabla
+        FECHA:              05-08-2013 
+        CREADOR:            Enrique Magnani
+        DESCRIPCIÓN         Verifica si la tabla existe en la BD ya
+        DETALLE:            En proceso
+        MODIFICACIÓN:       
+        ***************************************************************/
+        public int VerificarTabla(string stTabla)
         {
-            CargarCampos(1, cb_A.Text);
-            CrearRelacion(2, cb_B.Text, cb_A.Text, lt_B.SelectedItem.ToString());
-            CargarCampos(2, cb_B.Text);
-            EjecutarRelacionSQL(cb_A.Text, lt_B.SelectedItem.ToString(), cb_B.Text, 1);
-            VerificarEstadodelquery();
+            int inBandera = 0;
+            string stCadena = "show tables;";
+            try
+            {
+                CSQL.CONECTAR(stHost, stBase_de_datos, stUsuario, stContrasena);
+                CSQL.conectarSQL.Open();
+
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.CommandText = stCadena;
+
+                cmd.Connection = CSQL.conectarSQL;
+
+
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    if (reader.GetString(0) == stTabla)
+                    {
+                        inBandera = 1;
+                    }
+                }
+
+            }
+
+            catch (MySqlException ex)
+            {
+                CSQL.conectarSQL.Close();
+            }
+
+            CSQL.conectarSQL.Close();
+            return inBandera;
         }
 
 
 
+        /***************************************************************
+        NOMBRE:             AgregarRegistro
+        FECHA:              28-08-2013 
+        CREADOR:            Enrique Magnani
+        DESCRIPCIÓN         Agrega el registro a dt_Embarc
+        DETALLE:            En proceso
+        MODIFICACIÓN:       
+        ***************************************************************/
+        public void AgregarRegistro()
+        {
+            string stquery = "CREATE TABLE " + tx_Nombredetabla.Text + "(";
+
+            int inquery = 0;
+            foreach (DataGridViewRow Fila in dt_Embarc.Rows)
+            {
+                string[] vector = (Convert.ToString(Fila.Cells[2].Value)).Split('(');
+                string stsubquery = "";
+
+                Console.WriteLine("Fila: " + (Convert.ToString(Fila.Cells[0].Value)));
+                if (inquery > 0)
+                {
+                    stsubquery = stsubquery + ",";
+                }
+                inquery++;
+                stsubquery = stsubquery + (Convert.ToString(Fila.Cells[1].Value)) + " ";
+                if ((vector[0]) == "VARCHAR")
+                {
+                    stsubquery = stsubquery + (Convert.ToString(Fila.Cells[2].Value));
+                    if ((Convert.ToString(Fila.Cells[0].Value) == "SI"))
+                    {
+
+                        stsubquery = stsubquery + " PRIMARY KEY NOT NULL";
+                    }
+                }
+
+                if (((vector[0]) == "INTEGER") || ((vector[0]) == "DOUBLE"))
+                {
+                    stsubquery = stsubquery + (Convert.ToString(Fila.Cells[2].Value));
+                    if ((Convert.ToString(Fila.Cells[0].Value) == "SI"))
+                    {
+
+                        stsubquery = stsubquery + "PRIMARY KEY";
+                    }
+                    stsubquery = stsubquery + " NOT NULL ";
+                }
+
+
+
+                stquery = stquery + stsubquery;
+
+            }
+            stquery = stquery + ");";
+            if (tx_Nombredetabla.Text == "")
+            {
+                MessageBox.Show("Se requiere el nombre de la tabla", "Error");
+            }
+            else
+            {
+                if (VerificarTabla(tx_Nombredetabla.Text) == 0)
+                {
+                    InsertarTabla(stquery);
+
+                }
+                else
+                {
+                    MessageBox.Show("Tabla Repetida", "Error");
+                    tx_Nombredetabla.Text = "";
+                }
+            }
+        }
+
+
+        /***************************************************************
+        NOMBRE:             VerificarAmbieguedad
+        FECHA:              28-08-2013 
+        CREADOR:            Enrique Magnani
+        DESCRIPCIÓN         Agrega el registro a dt_Embarc
+        DETALLE:            En proceso
+        MODIFICACIÓN:       
+        ***************************************************************/
+        public void VerificarAmbieguedad()
+        {
+            int inControl_pk = 0;
+            int inControl_cr = 0;
+
+            decimal number = 0;
+            bool canConvert = decimal.TryParse(tx_Tamano.Text, out number);
+            if (canConvert == true)
+            {
+
+                if (tx_Nombre.Text == "")
+                {
+
+                    MessageBox.Show("Necesita especificar el nombre del campo", "Error");
+                    tx_Nombre.Text = "";
+
+                }
+                else
+                {
+
+                    foreach (DataGridViewRow Fila in dt_Embarc.Rows)
+                    {
+
+
+                        Console.WriteLine("Fila: " + (Convert.ToString(Fila.Cells[0].Value)));
+                        if ((Convert.ToString(Fila.Cells[0].Value) == "SI"))
+                        {
+
+                            inControl_pk = 1;
+                        }
+                        if ((Convert.ToString(Fila.Cells[1].Value) == tx_Nombre.Text))
+                        {
+                            inControl_cr = 1;
+
+                        }
+
+
+                    }
+                    if (inControl_cr == 1)
+                    {
+
+                        MessageBox.Show("Es un campo repetido", "Error");
+                        tx_Nombre.Text = "";
+                    }
+                    else
+                    {
+                        if ((cx_PrimaryKey.Checked == false))
+                        {
+                            Console.WriteLine("No se selecciono  nada");
+                            this.dt_Embarc.Rows.Add("", tx_Nombre.Text, cb_Tipo.Text + "(" + tx_Tamano.Text + ")");
+                        }
+                        else
+                        {
+                            if (inControl_pk == 1)
+                            {
+                                MessageBox.Show("Ya existe una llave primaria", "Error");
+
+                            }
+                            else
+                            {
+
+                                this.dt_Embarc.Rows.Add("SI", tx_Nombre.Text, cb_Tipo.Text + "(" + tx_Tamano.Text + ")");
+                            }
+                            cx_PrimaryKey.Checked = false;
+                        }
+
+
+
+                    }
+                    //  
+                }
+            }
+            else
+            {
+
+                MessageBox.Show("En el campo tamaño debe especificar un valor entero", "Error");
+                tx_Tamano.Text = "";
+            }
+
+
+
+
+
+
+
+
+        }
+
+        private void bt_Agregarregistro_Click(object sender, EventArgs e)
+        {
+            VerificarAmbieguedad(); 
+        }
+
+        private void btGuardar_Click(object sender, EventArgs e)
+        {
+            AgregarRegistro();
+        }
 
   
     }

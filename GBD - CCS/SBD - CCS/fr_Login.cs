@@ -10,11 +10,11 @@ using MySql.Data.MySqlClient;
 
 namespace SBD___CCS
 {
-    public partial class Login : Form
+    public partial class fr_Login : Form
     {
 
         ConexionSQL CSQL = new ConexionSQL();
-        public Login()
+        public fr_Login()
         {
             InitializeComponent();
         }
@@ -26,7 +26,7 @@ namespace SBD___CCS
             {
                 Console.WriteLine("Existe conexion");
                 
-                Inicio x = new Inicio(tb_Usuario.Text, tb_Contrasena.Text, tb_Host.Text);
+                fr_Inicio x = new fr_Inicio(tb_Usuario.Text, tb_Contrasena.Text, tb_Host.Text);
                 x.Show();
                 this.Hide();
             }

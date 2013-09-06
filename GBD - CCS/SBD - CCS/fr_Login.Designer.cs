@@ -1,6 +1,6 @@
 ﻿namespace SBD___CCS
 {
-    partial class Login
+    partial class fr_Login
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fr_Login));
             this.tb_Usuario = new System.Windows.Forms.TextBox();
             this.tb_Contrasena = new System.Windows.Forms.TextBox();
             this.lb_Usuario = new System.Windows.Forms.Label();
