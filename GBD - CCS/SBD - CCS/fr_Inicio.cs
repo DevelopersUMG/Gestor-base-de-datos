@@ -196,8 +196,21 @@ namespace SBD___CCS
 
 
         private void btn_ELIMINAR_Click(object sender, EventArgs e)
-        {
-            EliminarTabla();
+        {//
+
+
+
+            ///
+            //EliminarTabla(lt_Multi_funcion.SelectedItem.ToString());
+            DataRowView rowView = lt_Multi_funcion.SelectedItem as DataRowView;
+            string x=rowView.ToString();
+            Console.WriteLine("VARIABLE: "+x);
+            if (null == rowView)
+            {
+                return;
+            }
+
+            rowView.Row.Delete();
         }
         
         private void btn_EJECUTAR_Click(object sender, EventArgs e)
@@ -277,9 +290,10 @@ namespace SBD___CCS
         DETALLE:            Trabaja por Parametros
         MODIFICACIÓN:       
         ***************************************************************/
-        public void EliminarTabla()
+        public void EliminarTabla(string stTabla)
         {
-            string stTabla = lt_Multi_funcion.SelectedItem.ToString();
+            
+            Console.WriteLine("Se eliminara: "+stTabla);
             DialogResult dialogResult = MessageBox.Show("Desea eliminar la tabla: " + stTabla + " de la base de datos?", "Eliminar Tabla", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
@@ -445,7 +459,7 @@ namespace SBD___CCS
         public void EjecutarConsolaSQL(string cadena)
         {
 
-
+            obBitacora.RegistroDeActividadEnBitacora(stUsuario, "Sentencia Consola: "+cadena);
             try
             {
                 MySqlCommand cmd = new MySqlCommand();
@@ -717,8 +731,8 @@ namespace SBD___CCS
 
         /***************************************************************
         NOMBRE:             VerificarPrimaryKey
-        FECHA:              
-        CREADOR:            
+        FECHA:              05-09-2013
+        CREADOR:            Enrique Magnani
         DESCRIPCIÓN         
         DETALLE:            
         MODIFICACIÓN:       
@@ -759,8 +773,8 @@ namespace SBD___CCS
 
         /***************************************************************
         NOMBRE:             CrearRelacion
-        FECHA:              
-        CREADOR:            
+        FECHA:              06-09-2013
+        CREADOR:            Enrique Magnani
         DESCRIPCIÓN         
         DETALLE:            
         MODIFICACIÓN:       
@@ -1130,8 +1144,10 @@ namespace SBD___CCS
                 MySqlCommand cmd2 = new MySqlCommand();
                 cmd2.CommandText = stB;
                 cmd2.Connection = CSQL.conectarSQL;
-
+                obBitacora.RegistroDeActividadEnBitacora(stUsuario, "Relacion " + stB);
+            
                 tb_Resultados.AppendText("Relacion creada con exito");
+                
                 cmd.ExecuteNonQuery();
                 cmd2.ExecuteNonQuery();
 
@@ -1392,14 +1408,13 @@ namespace SBD___CCS
                 tx_Tamano.Text = "";
             }
 
+}
 
 
 
 
 
-
-
-        }
+        
 
         private void bt_Agregarregistro_Click(object sender, EventArgs e)
         {
@@ -1442,6 +1457,11 @@ Detalle:        permite la ejecucion de ayuda *
             System.IO.StreamWriter objwrite = new System.IO.StreamWriter(filetosaveas);
             objwrite.Write(tb_Consola_query);
             objwrite.Close();
+            
+        }
+
+        private void bt_Actualizar_BD_Click(object sender, EventArgs e)
+        {
             
         }
 

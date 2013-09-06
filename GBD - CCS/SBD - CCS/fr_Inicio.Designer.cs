@@ -40,16 +40,9 @@
             this.ts_Nueva_BD = new System.Windows.Forms.ToolStripButton();
             this.ms_Principal = new System.Windows.Forms.MenuStrip();
             this.ts_Archivo = new System.Windows.Forms.ToolStripMenuItem();
-            this.ts_Abrir = new System.Windows.Forms.ToolStripMenuItem();
             this.ts_Salir = new System.Windows.Forms.ToolStripMenuItem();
-            this.ts_Query = new System.Windows.Forms.ToolStripMenuItem();
-            this.ts_Insertar = new System.Windows.Forms.ToolStripMenuItem();
-            this.ts_Crear = new System.Windows.Forms.ToolStripMenuItem();
-            this.ts_Nueva_tabla = new System.Windows.Forms.ToolStripMenuItem();
-            this.ts_Modificar = new System.Windows.Forms.ToolStripMenuItem();
             this.ts_Ayuda = new System.Windows.Forms.ToolStripMenuItem();
             this.ts_Acercade = new System.Windows.Forms.ToolStripMenuItem();
-            this.ts_Manuales = new System.Windows.Forms.ToolStripMenuItem();
             this.ss_Barra_inferior = new System.Windows.Forms.StatusStrip();
             this.ts_Panel = new System.Windows.Forms.ToolStrip();
             this.tc_Panel_BD = new System.Windows.Forms.ToolStripContainer();
@@ -186,7 +179,6 @@
             // 
             this.ms_Principal.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ts_Archivo,
-            this.ts_Query,
             this.ts_Ayuda});
             this.ms_Principal.Location = new System.Drawing.Point(0, 0);
             this.ms_Principal.Name = "ms_Principal";
@@ -197,65 +189,21 @@
             // ts_Archivo
             // 
             this.ts_Archivo.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ts_Abrir,
             this.ts_Salir});
             this.ts_Archivo.Name = "ts_Archivo";
             this.ts_Archivo.Size = new System.Drawing.Size(60, 20);
             this.ts_Archivo.Text = "Archivo";
             // 
-            // ts_Abrir
-            // 
-            this.ts_Abrir.Name = "ts_Abrir";
-            this.ts_Abrir.Size = new System.Drawing.Size(100, 22);
-            this.ts_Abrir.Text = "Abrir";
-            // 
             // ts_Salir
             // 
             this.ts_Salir.Name = "ts_Salir";
-            this.ts_Salir.Size = new System.Drawing.Size(100, 22);
+            this.ts_Salir.Size = new System.Drawing.Size(152, 22);
             this.ts_Salir.Text = "Salir";
-            // 
-            // ts_Query
-            // 
-            this.ts_Query.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ts_Insertar,
-            this.ts_Crear,
-            this.ts_Modificar});
-            this.ts_Query.Name = "ts_Query";
-            this.ts_Query.Size = new System.Drawing.Size(56, 20);
-            this.ts_Query.Text = "Querys";
-            // 
-            // ts_Insertar
-            // 
-            this.ts_Insertar.Name = "ts_Insertar";
-            this.ts_Insertar.Size = new System.Drawing.Size(125, 22);
-            this.ts_Insertar.Text = "Insertar";
-            // 
-            // ts_Crear
-            // 
-            this.ts_Crear.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ts_Nueva_tabla});
-            this.ts_Crear.Name = "ts_Crear";
-            this.ts_Crear.Size = new System.Drawing.Size(125, 22);
-            this.ts_Crear.Text = "Crear";
-            // 
-            // ts_Nueva_tabla
-            // 
-            this.ts_Nueva_tabla.Name = "ts_Nueva_tabla";
-            this.ts_Nueva_tabla.Size = new System.Drawing.Size(103, 22);
-            this.ts_Nueva_tabla.Text = "Tabla";
-            // 
-            // ts_Modificar
-            // 
-            this.ts_Modificar.Name = "ts_Modificar";
-            this.ts_Modificar.Size = new System.Drawing.Size(125, 22);
-            this.ts_Modificar.Text = "Modificar";
             // 
             // ts_Ayuda
             // 
             this.ts_Ayuda.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ts_Acercade,
-            this.ts_Manuales});
+            this.ts_Acercade});
             this.ts_Ayuda.Name = "ts_Ayuda";
             this.ts_Ayuda.Size = new System.Drawing.Size(53, 20);
             this.ts_Ayuda.Text = "Ayuda";
@@ -263,15 +211,9 @@
             // ts_Acercade
             // 
             this.ts_Acercade.Name = "ts_Acercade";
-            this.ts_Acercade.Size = new System.Drawing.Size(126, 22);
+            this.ts_Acercade.Size = new System.Drawing.Size(152, 22);
             this.ts_Acercade.Text = "Acerca de";
             this.ts_Acercade.Click += new System.EventHandler(this.ts_Acercade_Click);
-            // 
-            // ts_Manuales
-            // 
-            this.ts_Manuales.Name = "ts_Manuales";
-            this.ts_Manuales.Size = new System.Drawing.Size(126, 22);
-            this.ts_Manuales.Text = "Manuales";
             // 
             // ss_Barra_inferior
             // 
@@ -332,6 +274,7 @@
             this.bt_Actualizar_BD.TabIndex = 23;
             this.bt_Actualizar_BD.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
             this.bt_Actualizar_BD.UseVisualStyleBackColor = true;
+            this.bt_Actualizar_BD.Click += new System.EventHandler(this.bt_Actualizar_BD_Click);
             // 
             // bt_Seleccionar_BD
             // 
@@ -1019,7 +962,6 @@
         private System.Windows.Forms.ToolStripMenuItem ts_Status;
         private System.Windows.Forms.MenuStrip ms_Principal;
         private System.Windows.Forms.ToolStripMenuItem ts_Archivo;
-        private System.Windows.Forms.ToolStripMenuItem ts_Abrir;
         private System.Windows.Forms.ToolStripMenuItem ts_Salir;
         private System.Windows.Forms.ToolStripMenuItem ts_Desconectar;
         private System.Windows.Forms.ToolStripButton ts_Nueva_BD;
@@ -1034,11 +976,6 @@
         private System.Windows.Forms.ComboBox cb_BD;
         private System.Windows.Forms.PictureBox pb_Estado;
         private System.Windows.Forms.ListBox lt_Multi_funcion;
-        private System.Windows.Forms.ToolStripMenuItem ts_Query;
-        private System.Windows.Forms.ToolStripMenuItem ts_Insertar;
-        private System.Windows.Forms.ToolStripMenuItem ts_Crear;
-        private System.Windows.Forms.ToolStripMenuItem ts_Nueva_tabla;
-        private System.Windows.Forms.ToolStripMenuItem ts_Modificar;
         private System.Windows.Forms.TabControl ta_Consola_SQL;
         private System.Windows.Forms.TabPage tb_SQL;
         private System.Windows.Forms.TabPage tp_DDL;
@@ -1057,7 +994,6 @@
         private System.Windows.Forms.Button bt_Seleccionar_BD;
         private System.Windows.Forms.ToolStripMenuItem ts_Ayuda;
         private System.Windows.Forms.ToolStripMenuItem ts_Acercade;
-        private System.Windows.Forms.ToolStripMenuItem ts_Manuales;
         private System.Windows.Forms.TabPage tb_DML;
         private System.Windows.Forms.Label lbTituloTabla;
         private System.Windows.Forms.DataGridView dgTabla;
