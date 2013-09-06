@@ -43,7 +43,7 @@ namespace SBD___CCS
             stUsuario = stx;
             stContrasena = sty;
             stHost = stz;
-            string sentencia="Inicio de sesion";
+            string sentencia = "Inicio de sesion";
             InitializeComponent();
             lt_Multi_funcion.SetSelected(0, true);
             tm_Estado_BD.Start();
@@ -203,8 +203,8 @@ namespace SBD___CCS
             ///
             //EliminarTabla(lt_Multi_funcion.SelectedItem.ToString());
             DataRowView rowView = lt_Multi_funcion.SelectedItem as DataRowView;
-            string x=rowView.ToString();
-            Console.WriteLine("VARIABLE: "+x);
+            string x = rowView.ToString();
+            Console.WriteLine("VARIABLE: " + x);
             if (null == rowView)
             {
                 return;
@@ -212,7 +212,7 @@ namespace SBD___CCS
 
             rowView.Row.Delete();
         }
-        
+
         private void btn_EJECUTAR_Click(object sender, EventArgs e)
         {
             tb_Resultados.Text = ("");
@@ -280,7 +280,7 @@ namespace SBD___CCS
             }
         }
 
-     
+
 
         /***************************************************************
         NOMBRE:             EliminarTabla
@@ -292,8 +292,8 @@ namespace SBD___CCS
         ***************************************************************/
         public void EliminarTabla(string stTabla)
         {
-            
-            Console.WriteLine("Se eliminara: "+stTabla);
+
+            Console.WriteLine("Se eliminara: " + stTabla);
             DialogResult dialogResult = MessageBox.Show("Desea eliminar la tabla: " + stTabla + " de la base de datos?", "Eliminar Tabla", MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
@@ -310,7 +310,7 @@ namespace SBD___CCS
             }
 
         }
-        
+
         /***************************************************************
         NOMBRE:             CargarBasesDeDatos
         FECHA:		    24-08-2013
@@ -335,28 +335,28 @@ namespace SBD___CCS
 
                 MySqlDataReader reader = cmd.ExecuteReader();
 
-                    cb_BD.Items.Clear();
-                
+                cb_BD.Items.Clear();
+
 
                 while (reader.Read())
                 {
 
-                        cb_BD.Items.Add(reader.GetString(0));
-                   
+                    cb_BD.Items.Add(reader.GetString(0));
+
                     inControl_b = 1;
                 }
-               
-                    if (inControl_b == 1)
-                    {
-                        lt_Multi_funcion.SetSelected(0, true);
-                    }
-                    else
-                    {
-                        lt_Multi_funcion.Items.Add("No existen Bases de Datos");
-                        inControl_b = 0;
-                    }
 
-                    obBitacora.RegistroDeActividadEnBitacora(stUsuario, stCadena);
+                if (inControl_b == 1)
+                {
+                    lt_Multi_funcion.SetSelected(0, true);
+                }
+                else
+                {
+                    lt_Multi_funcion.Items.Add("No existen Bases de Datos");
+                    inControl_b = 0;
+                }
+
+                obBitacora.RegistroDeActividadEnBitacora(stUsuario, stCadena);
             }
 
             catch (MySqlException ex)
@@ -426,7 +426,7 @@ namespace SBD___CCS
 
             CSQL.conectarSQL.Close();
         }
-        
+
         /***************************************************************
         NOMBRE:             IniciarGestor
         FECHA:		    26-08-2013
@@ -439,12 +439,12 @@ namespace SBD___CCS
         {
 
 
-                String stValor_tabla = lt_Multi_funcion.SelectedItem.ToString();
-                stBase_de_datos = ""; stBase_de_datos = stBase_de_datos + stValor_tabla;
-                inControl_tabla_multi = 1;
-                lt_Multi_funcion.Items.Clear();
-                CargarBasesDeDatos();
-                CargarTablas();
+            String stValor_tabla = lt_Multi_funcion.SelectedItem.ToString();
+            stBase_de_datos = ""; stBase_de_datos = stBase_de_datos + stValor_tabla;
+            inControl_tabla_multi = 1;
+            lt_Multi_funcion.Items.Clear();
+            CargarBasesDeDatos();
+            CargarTablas();
 
         }
 
@@ -459,7 +459,6 @@ namespace SBD___CCS
         public void EjecutarConsolaSQL(string cadena)
         {
 
-            obBitacora.RegistroDeActividadEnBitacora(stUsuario, "Sentencia Consola: "+cadena);
             try
             {
                 MySqlCommand cmd = new MySqlCommand();
@@ -472,6 +471,7 @@ namespace SBD___CCS
 
                 if ((vector[0] == "select") || (vector[0] == "show") || (vector[0] == "SELECT"))
                 {
+                    obBitacora.RegistroDeActividadEnBitacora(stUsuario, "Sentencia Consola: " + cadena);
 
                     MySqlDataReader reader = cmd.ExecuteReader();
 
@@ -494,6 +494,8 @@ namespace SBD___CCS
                 }
                 if ((vector[0] == "insert") || (vector[0] == "INSERT"))
                 {
+                    obBitacora.RegistroDeActividadEnBitacora(stUsuario, "Sentencia Consola: " + cadena);
+
                     tb_Resultados.Text = ("Insercion realizada con exito");
                     cmd.ExecuteNonQuery();
                 }
@@ -504,6 +506,8 @@ namespace SBD___CCS
                 }
                 if ((vector[0] == "alter") || (vector[0] == "ALTER"))
                 {
+                    obBitacora.RegistroDeActividadEnBitacora(stUsuario, "Sentencia Consola: " + cadena);
+
                     tb_Resultados.Text = ("modificacion realizada con exito");
                     cmd.ExecuteNonQuery();
                 }
@@ -514,6 +518,8 @@ namespace SBD___CCS
                 }
                 if ((vector[0] == "create") || (vector[0] == "CREATE"))
                 {
+                    obBitacora.RegistroDeActividadEnBitacora(stUsuario, "Sentencia Consola: " + cadena);
+
                     tb_Resultados.Text = ("Tabla creada con exito");
                     cmd.ExecuteNonQuery();
                 }
@@ -532,6 +538,8 @@ namespace SBD___CCS
                 }
                 if ((vector[0] == "delete") || (vector[0] == "DELETE"))
                 {
+                    obBitacora.RegistroDeActividadEnBitacora(stUsuario, "Sentencia Consola: " + cadena);
+
                     tb_Resultados.Text = ("Eliminacion realizada con exito");
                     cmd.ExecuteNonQuery();
                 }
@@ -542,6 +550,8 @@ namespace SBD___CCS
                 }
                 if ((vector[0] == "update") || (vector[0] == "UPDATE"))
                 {
+                    obBitacora.RegistroDeActividadEnBitacora(stUsuario, "Sentencia Consola: " + cadena);
+
                     tb_Resultados.Text = ("modificacion realizada con exito");
                     cmd.ExecuteNonQuery();
                 }
@@ -552,6 +562,8 @@ namespace SBD___CCS
                 }
                 if ((vector[0] == "drop") || (vector[0] == "DROP"))
                 {
+                    obBitacora.RegistroDeActividadEnBitacora(stUsuario, "Sentencia Consola: " + cadena);
+
                     tb_Resultados.Text = ("Eliminacion realizada con exito");
                     cmd.ExecuteNonQuery();
                 }
@@ -583,11 +595,12 @@ namespace SBD___CCS
             CSQL.conectarSQL.Close();
             stBase_de_datos = this.cb_BD.Text;
             if (cb_BD.Visible)
-            {lt_Multi_funcion.Enabled = true;
-                CSQL.txConexGlobal = "Server=" + stHost +";Database=" + this.cb_BD.Text + ";Uid=" +stUsuario+";Port=3306";
+            {
+                lt_Multi_funcion.Enabled = true;
+                CSQL.txConexGlobal = "Server=" + stHost + ";Database=" + this.cb_BD.Text + ";Uid=" + stUsuario + ";Port=3306";
 
                 CSQL.mostrar("Show tables", stHost, this.cb_BD.Text, stUsuario, stContrasena);
-              
+
                 lt_Multi_funcion.DataSource = CSQL.ds.Tables[0].DefaultView;
 
                 lt_Multi_funcion.ValueMember = CSQL.ds.Tables[0].Columns[0].ColumnName;
@@ -595,7 +608,7 @@ namespace SBD___CCS
             }
             CargarTablasR();
         }
-        
+
         /*--------------------------------------------
            Nombre:         Cambio en valor de lista de tablas
            Autor:          Jaime Pérez
@@ -607,23 +620,23 @@ namespace SBD___CCS
         public void LlenarDatagrid(string stSQL)
         {
             CSQL.mostrar(stSQL, stHost, this.cb_BD.Text, stUsuario, stContrasena); //enviar consulta a clase común
-              dgTabla.DataSource = CSQL.ds.Tables[0]; //llenar datagrid
+            dgTabla.DataSource = CSQL.ds.Tables[0]; //llenar datagrid
 
-              this.ta_Consola_SQL.SelectedIndex = 2;  //cambiar a DML JP
-                this.lbTituloTabla.Text = "Contenido de tabla " + lt_Multi_funcion.Text; //colocar nombre de tabla en título JP
-             this.dgTabla.AutoResizeColumns(); //coloca el tamaño adecuado para lectura
+            this.ta_Consola_SQL.SelectedIndex = 2;  //cambiar a DML JP
+            this.lbTituloTabla.Text = "Contenido de tabla " + lt_Multi_funcion.Text; //colocar nombre de tabla en título JP
+            this.dgTabla.AutoResizeColumns(); //coloca el tamaño adecuado para lectura
         }
-        
+
         private void lt_Multi_funcion_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+
             if (cb_BD.Visible && lt_Multi_funcion.Enabled)
             {
-              
-                CSQL.txConexGlobal = "Server="+stHost +";Database=" + this.cb_BD.Text + ";Uid=" + stUsuario +";Port=3306"; //string de conexion
+
+                CSQL.txConexGlobal = "Server=" + stHost + ";Database=" + this.cb_BD.Text + ";Uid=" + stUsuario + ";Port=3306"; //string de conexion
 
                 string stSQL = "Select * from " + lt_Multi_funcion.Text; //string de consulta
-                Console.WriteLine("SQL: "+stSQL);
+                Console.WriteLine("SQL: " + stSQL);
                 //LlenarDatagrid(stSQL);
             }
 
@@ -644,7 +657,7 @@ namespace SBD___CCS
         {
             inEstadoIns = 0;
         }
-        
+
         private void dgTabla_UserDeletingRow(object sender, DataGridViewRowCancelEventArgs e)
         {
             if (this.dgTabla.FirstDisplayedScrollingRowIndex >= 0)
@@ -1074,7 +1087,7 @@ namespace SBD___CCS
                             tb_Query.AppendText("Ya existe la relacion");
                             inRelacion = 1;
                         }
- 
+
 
 
 
@@ -1089,7 +1102,7 @@ namespace SBD___CCS
             }
             catch (MySqlException ex)
             {
- 
+
                 CSQL.conectarSQL.Close();
             }
         }
@@ -1145,13 +1158,13 @@ namespace SBD___CCS
                 cmd2.CommandText = stB;
                 cmd2.Connection = CSQL.conectarSQL;
                 obBitacora.RegistroDeActividadEnBitacora(stUsuario, "Relacion " + stB);
-            
+
                 tb_Resultados.AppendText("Relacion creada con exito");
-                
+
                 cmd.ExecuteNonQuery();
                 cmd2.ExecuteNonQuery();
 
-               
+
                 CSQL.conectarSQL.Close();
             }
             catch (MySqlException ex)
@@ -1408,17 +1421,17 @@ namespace SBD___CCS
                 tx_Tamano.Text = "";
             }
 
-}
+        }
 
 
 
 
 
-        
+
 
         private void bt_Agregarregistro_Click(object sender, EventArgs e)
         {
-            VerificarAmbieguedad(); 
+            VerificarAmbieguedad();
         }
 
         private void btGuardar_Click(object sender, EventArgs e)
@@ -1457,17 +1470,22 @@ Detalle:        permite la ejecucion de ayuda *
             System.IO.StreamWriter objwrite = new System.IO.StreamWriter(filetosaveas);
             objwrite.Write(tb_Consola_query);
             objwrite.Close();
-            
+
         }
 
         private void bt_Actualizar_BD_Click(object sender, EventArgs e)
         {
-            
+
         }
 
-  
+        private void lt_Multi_funcion_MouseClick(object sender, MouseEventArgs e)
+        {
+
+
+        }
     }
-    
 }
+    
+
 
 

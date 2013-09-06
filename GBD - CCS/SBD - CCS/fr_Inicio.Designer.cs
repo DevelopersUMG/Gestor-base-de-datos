@@ -197,7 +197,7 @@
             // ts_Salir
             // 
             this.ts_Salir.Name = "ts_Salir";
-            this.ts_Salir.Size = new System.Drawing.Size(152, 22);
+            this.ts_Salir.Size = new System.Drawing.Size(96, 22);
             this.ts_Salir.Text = "Salir";
             // 
             // ts_Ayuda
@@ -211,7 +211,7 @@
             // ts_Acercade
             // 
             this.ts_Acercade.Name = "ts_Acercade";
-            this.ts_Acercade.Size = new System.Drawing.Size(152, 22);
+            this.ts_Acercade.Size = new System.Drawing.Size(126, 22);
             this.ts_Acercade.Text = "Acerca de";
             this.ts_Acercade.Click += new System.EventHandler(this.ts_Acercade_Click);
             // 
@@ -299,6 +299,7 @@
             this.lt_Multi_funcion.Name = "lt_Multi_funcion";
             this.lt_Multi_funcion.Size = new System.Drawing.Size(106, 342);
             this.lt_Multi_funcion.TabIndex = 6;
+            this.lt_Multi_funcion.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lt_Multi_funcion_MouseClick);
             this.lt_Multi_funcion.SelectedIndexChanged += new System.EventHandler(this.lt_Multi_funcion_SelectedIndexChanged);
             // 
             // lb_BD
