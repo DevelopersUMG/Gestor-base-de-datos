@@ -21,7 +21,7 @@ namespace SBD___CCS
         int inB = 0;
         int inControl_c = 0;
         int inControl_t = 0;
-
+        public String stAlter1 = "";
         ConexionSQL CSQL = new ConexionSQL();
 
 
@@ -41,6 +41,8 @@ namespace SBD___CCS
             CargarCampos(2, cb_B.Text);
             CrearRelacion(1, cb_A.Text, cb_B.Text, lt_A.SelectedItem.ToString());
             CargarCampos(1, cb_A.Text);
+            EjecutarRelacionSQL(cb_B.Text, lt_A.SelectedItem.ToString(), cb_A.Text, 2);
+            VerificarEstadodelquery();
         }
 
         private void btn_BA_Click(object sender, EventArgs e)
@@ -48,6 +50,8 @@ namespace SBD___CCS
             CargarCampos(1, cb_A.Text);
             CrearRelacion(2, cb_B.Text, cb_A.Text, lt_B.SelectedItem.ToString());
             CargarCampos(2, cb_B.Text);
+            EjecutarRelacionSQL(cb_A.Text, lt_B.SelectedItem.ToString(), cb_B.Text, 1);
+            VerificarEstadodelquery();
         }
 
         private void cmb_A_SelectedIndexChanged(object sender, EventArgs e)
@@ -55,6 +59,8 @@ namespace SBD___CCS
             CSQL.conectarSQL.Close();
             CargarCampos(1, cb_A.Text);
             CargarCampos(2, cb_B.Text);
+            tb_Query.Clear();
+            VerificarEstadodelquery();
         }
 
         private void cmb_B_SelectedIndexChanged_1(object sender, EventArgs e)
@@ -62,6 +68,8 @@ namespace SBD___CCS
             CSQL.conectarSQL.Close();
             CargarCampos(1, cb_A.Text);
             CargarCampos(2, cb_B.Text);
+            tb_Query.Clear();
+            VerificarEstadodelquery();
         }
 
         public void AsignarBase(string H, string B, string U, string C)
@@ -125,9 +133,7 @@ namespace SBD___CCS
             // validaciones pendientes no exista ya la relacion
             int f = (VerificarPrimaryKey(st_Tabla_destino));
 
-            if ((cb_A.Text) != (cb_B.Text))
-            {
-                Console.WriteLine("Evaluando");
+
 
                 string stCadena = "";
                 stCadena = "ALTER TABLE " + (st_Tabla_destino) + " ADD CONSTRAINT ADST FOREIGN KEY (" + stForeingkey + ") REFERENCES " + st_Tabla_origen + " (" + stForeingkey + ");";
@@ -167,16 +173,13 @@ namespace SBD___CCS
                         break;
                 }
 
-            }
-            else {
-                MessageBox.Show("No se puede crear dicha relacion","Error Fatal");
-            }
+
         }
-        
+
         /***************************************************************
         NOMBRE:             CargarCampos
-        FECHA:              
-        CREADOR:            
+        FECHA:              05-09-2013
+        CREADOR:            Enrique Magnani            
         DESCRIPCIÓN         
         DETALLE:            
         MODIFICACIÓN:       
@@ -194,8 +197,7 @@ namespace SBD___CCS
                
                 cmd.Connection = CSQL.conectarSQL;
                
-                    Console.WriteLine("SHOW TABLES");
-
+                   
                     MySqlDataReader reader = cmd.ExecuteReader();
 
                     switch (inOpc)
@@ -253,10 +255,10 @@ namespace SBD___CCS
 
         /***************************************************************
         NOMBRE:             CargarTablas
-        FECHA:              
-        CREADOR:            
-        DESCRIPCIÓN         
-        DETALLE:            
+        FECHA:              23-08-2013
+        CREADOR:            Enrique Magnani
+        DESCRIPCIÓN         Carga tablas en los combobox
+        DETALLE:            Su funcion es de suma importancia
         MODIFICACIÓN:       
         ***************************************************************/
         public void CargarTablas()
@@ -273,7 +275,7 @@ namespace SBD___CCS
                
                 cmd.Connection = CSQL.conectarSQL;
                
-                    Console.WriteLine("SHOW TABLES");
+
 
                     MySqlDataReader reader = cmd.ExecuteReader();
               
@@ -323,9 +325,186 @@ namespace SBD___CCS
             CSQL.conectarSQL.Close();
         }
 
+
+        /***************************************************************
+        NOMBRE:             VerificarDatos
+        FECHA:              05-09-2013
+        CREADOR:            Enrique Magnani            
+        DESCRIPCIÓN         
+        DETALLE:            
+        MODIFICACIÓN:       
+        ***************************************************************/
+        public string VerificarDatos(string stquery2, string stprimarykey)
+        {
+            string stDatos = "";
+
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.CommandText = stquery2;
+                string[] vector = stquery2.Split(' ');
+
+                CSQL.CONECTAR(stHost, stBase_de_datos, stUsuario, stContrasena);
+                CSQL.conectarSQL.Open();
+                cmd.Connection = CSQL.conectarSQL;
+
+                MySqlDataReader reader = cmd.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    if (reader.GetString(0) == stprimarykey)
+                    {
+                        stDatos = stDatos + reader.GetString(0) + " " + reader.GetString(1) + "    NOT NULL;";
+                        //Console.WriteLine("Query: " + stDatos);
+
+
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                // tb_Resultados.Text = ("Error de sintaxis" + "\n" + ex);
+                CSQL.conectarSQL.Close();
+            }
+            return stDatos;
+        }
+
+        /***************************************************************
+        NOMBRE:             EjecutarRelacionSQL
+        FECHA:              04-09-2013
+        CREADOR:            Enrique Magnani            
+        DESCRIPCIÓN         
+        DETALLE:            
+        MODIFICACIÓN:       
+        ***************************************************************/
+        public void EjecutarRelacionSQL(string sttablaB, string stllaveforanea, string sttablaA, int inOp)
+        {
+
+            string stquery = "DESCRIBE ";
+            stquery = stquery + sttablaB;
+
+            string stquery2 = "DESCRIBE ";
+            stquery2 = stquery2 + sttablaA;
+            string stDatos = "ALTER TABLE " + sttablaB + " ADD ";
+            stDatos = stDatos + (VerificarDatos(stquery2, stllaveforanea));
+            stAlter1 = "";
+            stAlter1 = stAlter1 + stDatos;
+            CSQL.conectarSQL.Close();
+            //Console.WriteLine("SQL/ "+stDatos);
+            try
+            {
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.CommandText = stquery;
+                string[] vector = stquery.Split(' ');
+
+                CSQL.CONECTAR(stHost, stBase_de_datos, stUsuario, stContrasena);
+                CSQL.conectarSQL.Open();
+                cmd.Connection = CSQL.conectarSQL;
+
+
+
+
+
+                if ((vector[0] == "DESCRIBE") || (vector[0] == "show"))
+                {
+
+                    MySqlDataReader reader = cmd.ExecuteReader();
+                    //Console.WriteLine("PRUEBA: ");
+                    int inRelacion = 0;
+                    while (reader.Read())
+                    {
+                        // string select = "";
+                        if ((reader.GetString(0) == stllaveforanea) && (sttablaB != sttablaA))
+                        {
+                            tb_Query.Clear();
+                            tb_Query.AppendText("Ya existe la relacion");
+                            inRelacion = 1;
+                        }
+                        //select = select + (reader.GetString(1)) + "\t";
+
+
+
+                    }
+                    if (inRelacion == 1)
+                    {
+                        // Console.WriteLine("Ya existe la relacion");
+                        CargarCampos(inOp, sttablaB);//sttablaA,int inOp
+                    }
+
+                }
+            }
+            catch (MySqlException ex)
+            {
+                // tb_Resultados.Text = ("Error de sintaxis" + "\n" + ex);
+                CSQL.conectarSQL.Close();
+            }
+        }
+
+        /***************************************************************
+        NOMBRE:             VerificarEstadodelquery
+        FECHA:              04-09-2013
+        CREADOR:            Enrique Magnani            
+        DESCRIPCIÓN         
+        DETALLE:            
+        MODIFICACIÓN:       
+        ***************************************************************/
+        public void VerificarEstadodelquery()
+        {
+
+            if ((tb_Query.Text == "Ya existe la relacion") || (tb_Query.Text == ""))
+            {
+                bt_Ejecutar.Enabled = false;
+            }
+            else
+            {
+                bt_Ejecutar.Enabled = true;
+            }
+        }
+        public void EjecutarQuery()
+        {
+            string stB = (tb_Query.Text);
+            string stC = stAlter1;
+
+            Console.WriteLine("SQL/ " + stC);
+            Console.WriteLine("SQL/ " + stB);
+            CSQL.conectarSQL.Close();
+            try
+            {
+                CSQL.CONECTAR(stHost, stBase_de_datos, stUsuario, stContrasena);
+                CSQL.conectarSQL.Open();
+
+                MySqlCommand cmd = new MySqlCommand();
+                cmd.CommandText = stC;
+                cmd.Connection = CSQL.conectarSQL;
+
+                MySqlCommand cmd2 = new MySqlCommand();
+                cmd2.CommandText = stB;
+                cmd2.Connection = CSQL.conectarSQL;
+
+
+                cmd.ExecuteNonQuery();
+                cmd2.ExecuteNonQuery();
+                CSQL.conectarSQL.Close();
+                MessageBox.Show("COn exito", "Realizado con exito");
+
+            }
+            catch (MySqlException ex)
+            {
+                CSQL.conectarSQL.Close();
+            }
+
+
+
+        }
+
         private void lt_B_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void bt_Ejecutar_Click(object sender, EventArgs e)
+        {
+            EjecutarQuery();
         }
 
       

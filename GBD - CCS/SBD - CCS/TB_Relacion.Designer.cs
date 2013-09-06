@@ -84,6 +84,7 @@
             this.bt_Ejecutar.TabIndex = 7;
             this.bt_Ejecutar.Text = "Ejecutar";
             this.bt_Ejecutar.UseVisualStyleBackColor = true;
+            this.bt_Ejecutar.Click += new System.EventHandler(this.bt_Ejecutar_Click);
             // 
             // tb_Query
             // 

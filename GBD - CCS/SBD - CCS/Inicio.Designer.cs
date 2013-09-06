@@ -72,10 +72,23 @@
             this.bt_Ejecutar_query = new System.Windows.Forms.Button();
             this.ts_Consola_SQL = new System.Windows.Forms.ToolStrip();
             this.tp_DDL = new System.Windows.Forms.TabPage();
-            this.bt_Examinar_tabla = new System.Windows.Forms.Button();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tp_Relacionar = new System.Windows.Forms.TabPage();
+            this.lb_Query = new System.Windows.Forms.Label();
+            this.tb_Query = new System.Windows.Forms.TextBox();
+            this.bt_Ejecutar = new System.Windows.Forms.Button();
+            this.gb_Crear = new System.Windows.Forms.GroupBox();
+            this.cb_A = new System.Windows.Forms.ComboBox();
+            this.lb_B = new System.Windows.Forms.Label();
+            this.lt_A = new System.Windows.Forms.ListBox();
+            this.lb_A = new System.Windows.Forms.Label();
+            this.bt_BA = new System.Windows.Forms.Button();
+            this.lb_Informacion = new System.Windows.Forms.Label();
+            this.bt_AB = new System.Windows.Forms.Button();
+            this.cb_B = new System.Windows.Forms.ComboBox();
+            this.lt_B = new System.Windows.Forms.ListBox();
+            this.tp_Nueva = new System.Windows.Forms.TabPage();
             this.bt_Eliminar_tabla = new System.Windows.Forms.Button();
-            this.bt_Relacionar_tabla = new System.Windows.Forms.Button();
-            this.bt_Nueva_tabla = new System.Windows.Forms.Button();
             this.tb_DML = new System.Windows.Forms.TabPage();
             this.lbTituloTabla = new System.Windows.Forms.Label();
             this.dgTabla = new System.Windows.Forms.DataGridView();
@@ -92,6 +105,9 @@
             this.ta_Consola_SQL.SuspendLayout();
             this.tb_SQL.SuspendLayout();
             this.tp_DDL.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tp_Relacionar.SuspendLayout();
+            this.gb_Crear.SuspendLayout();
             this.tb_DML.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgTabla)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pb_Estado)).BeginInit();
@@ -321,7 +337,6 @@
             this.lt_Multi_funcion.Size = new System.Drawing.Size(106, 342);
             this.lt_Multi_funcion.TabIndex = 6;
             this.lt_Multi_funcion.SelectedIndexChanged += new System.EventHandler(this.lt_Multi_funcion_SelectedIndexChanged);
-     
             // 
             // lb_BD
             // 
@@ -332,7 +347,6 @@
             this.lb_BD.Size = new System.Drawing.Size(96, 13);
             this.lb_BD.TabIndex = 4;
             this.lb_BD.Text = "Bases de Datos";
-            this.lb_BD.Visible = false;
             // 
             // cb_BD
             // 
@@ -480,10 +494,8 @@
             // tp_DDL
             // 
             this.tp_DDL.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.tp_DDL.Controls.Add(this.bt_Examinar_tabla);
+            this.tp_DDL.Controls.Add(this.tabControl1);
             this.tp_DDL.Controls.Add(this.bt_Eliminar_tabla);
-            this.tp_DDL.Controls.Add(this.bt_Relacionar_tabla);
-            this.tp_DDL.Controls.Add(this.bt_Nueva_tabla);
             this.tp_DDL.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tp_DDL.Location = new System.Drawing.Point(23, 4);
             this.tp_DDL.Name = "tp_DDL";
@@ -492,45 +504,190 @@
             this.tp_DDL.TabIndex = 1;
             this.tp_DDL.Text = "DDL";
             // 
-            // bt_Examinar_tabla
+            // tabControl1
             // 
-            this.bt_Examinar_tabla.Location = new System.Drawing.Point(294, 13);
-            this.bt_Examinar_tabla.Name = "bt_Examinar_tabla";
-            this.bt_Examinar_tabla.Size = new System.Drawing.Size(90, 37);
-            this.bt_Examinar_tabla.TabIndex = 4;
-            this.bt_Examinar_tabla.Text = "Examinar";
-            this.bt_Examinar_tabla.UseVisualStyleBackColor = true;
-            this.bt_Examinar_tabla.Click += new System.EventHandler(this.btn_EXAMINAR_Click);
+            this.tabControl1.Controls.Add(this.tp_Relacionar);
+            this.tabControl1.Controls.Add(this.tp_Nueva);
+            this.tabControl1.Location = new System.Drawing.Point(6, 28);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(714, 300);
+            this.tabControl1.TabIndex = 5;
+            // 
+            // tp_Relacionar
+            // 
+            this.tp_Relacionar.Controls.Add(this.lb_Query);
+            this.tp_Relacionar.Controls.Add(this.tb_Query);
+            this.tp_Relacionar.Controls.Add(this.bt_Ejecutar);
+            this.tp_Relacionar.Controls.Add(this.gb_Crear);
+            this.tp_Relacionar.Location = new System.Drawing.Point(4, 22);
+            this.tp_Relacionar.Name = "tp_Relacionar";
+            this.tp_Relacionar.Padding = new System.Windows.Forms.Padding(3);
+            this.tp_Relacionar.Size = new System.Drawing.Size(706, 274);
+            this.tp_Relacionar.TabIndex = 0;
+            this.tp_Relacionar.Text = "Relacionar";
+            this.tp_Relacionar.UseVisualStyleBackColor = true;
+            // 
+            // lb_Query
+            // 
+            this.lb_Query.AutoSize = true;
+            this.lb_Query.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lb_Query.Location = new System.Drawing.Point(422, 25);
+            this.lb_Query.Name = "lb_Query";
+            this.lb_Query.Size = new System.Drawing.Size(44, 13);
+            this.lb_Query.TabIndex = 23;
+            this.lb_Query.Text = "Query:";
+            // 
+            // tb_Query
+            // 
+            this.tb_Query.Font = new System.Drawing.Font("Consolas", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tb_Query.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.tb_Query.Location = new System.Drawing.Point(422, 45);
+            this.tb_Query.Multiline = true;
+            this.tb_Query.Name = "tb_Query";
+            this.tb_Query.Size = new System.Drawing.Size(272, 171);
+            this.tb_Query.TabIndex = 22;
+            // 
+            // bt_Ejecutar
+            // 
+            this.bt_Ejecutar.Location = new System.Drawing.Point(619, 222);
+            this.bt_Ejecutar.Name = "bt_Ejecutar";
+            this.bt_Ejecutar.Size = new System.Drawing.Size(75, 23);
+            this.bt_Ejecutar.TabIndex = 21;
+            this.bt_Ejecutar.Text = "Ejecutar";
+            this.bt_Ejecutar.UseVisualStyleBackColor = true;
+            this.bt_Ejecutar.Click += new System.EventHandler(this.bt_Ejecutar_Click);
+            // 
+            // gb_Crear
+            // 
+            this.gb_Crear.Controls.Add(this.cb_A);
+            this.gb_Crear.Controls.Add(this.lb_B);
+            this.gb_Crear.Controls.Add(this.lt_A);
+            this.gb_Crear.Controls.Add(this.lb_A);
+            this.gb_Crear.Controls.Add(this.bt_BA);
+            this.gb_Crear.Controls.Add(this.lb_Informacion);
+            this.gb_Crear.Controls.Add(this.bt_AB);
+            this.gb_Crear.Controls.Add(this.cb_B);
+            this.gb_Crear.Controls.Add(this.lt_B);
+            this.gb_Crear.Location = new System.Drawing.Point(6, 17);
+            this.gb_Crear.Name = "gb_Crear";
+            this.gb_Crear.Size = new System.Drawing.Size(410, 251);
+            this.gb_Crear.TabIndex = 20;
+            this.gb_Crear.TabStop = false;
+            this.gb_Crear.Text = "Crear Relacion";
+            // 
+            // cb_A
+            // 
+            this.cb_A.FormattingEnabled = true;
+            this.cb_A.Items.AddRange(new object[] {
+            "Clientes",
+            "Proveedores",
+            "Productos"});
+            this.cb_A.Location = new System.Drawing.Point(15, 26);
+            this.cb_A.Name = "cb_A";
+            this.cb_A.Size = new System.Drawing.Size(163, 21);
+            this.cb_A.TabIndex = 10;
+            this.cb_A.SelectedIndexChanged += new System.EventHandler(this.cb_A_SelectedIndexChanged);
+            // 
+            // lb_B
+            // 
+            this.lb_B.AutoSize = true;
+            this.lb_B.Location = new System.Drawing.Point(222, 148);
+            this.lb_B.Name = "lb_B";
+            this.lb_B.Size = new System.Drawing.Size(0, 13);
+            this.lb_B.TabIndex = 18;
+            // 
+            // lt_A
+            // 
+            this.lt_A.Enabled = false;
+            this.lt_A.FormattingEnabled = true;
+            this.lt_A.Items.AddRange(new object[] {
+            "Seleccione una tabla..."});
+            this.lt_A.Location = new System.Drawing.Point(15, 53);
+            this.lt_A.Name = "lt_A";
+            this.lt_A.Size = new System.Drawing.Size(163, 186);
+            this.lt_A.TabIndex = 0;
+            // 
+            // lb_A
+            // 
+            this.lb_A.AutoSize = true;
+            this.lb_A.Location = new System.Drawing.Point(184, 148);
+            this.lb_A.Name = "lb_A";
+            this.lb_A.Size = new System.Drawing.Size(0, 13);
+            this.lb_A.TabIndex = 17;
+            // 
+            // bt_BA
+            // 
+            this.bt_BA.Location = new System.Drawing.Point(184, 82);
+            this.bt_BA.Name = "bt_BA";
+            this.bt_BA.Size = new System.Drawing.Size(47, 23);
+            this.bt_BA.TabIndex = 5;
+            this.bt_BA.Text = "<<";
+            this.bt_BA.UseVisualStyleBackColor = true;
+            this.bt_BA.Click += new System.EventHandler(this.bt_BA_Click);
+            // 
+            // lb_Informacion
+            // 
+            this.lb_Informacion.AutoSize = true;
+            this.lb_Informacion.Location = new System.Drawing.Point(203, 148);
+            this.lb_Informacion.Name = "lb_Informacion";
+            this.lb_Informacion.Size = new System.Drawing.Size(14, 13);
+            this.lb_Informacion.TabIndex = 16;
+            this.lb_Informacion.Text = "a";
+            // 
+            // bt_AB
+            // 
+            this.bt_AB.Location = new System.Drawing.Point(184, 53);
+            this.bt_AB.Name = "bt_AB";
+            this.bt_AB.Size = new System.Drawing.Size(47, 23);
+            this.bt_AB.TabIndex = 6;
+            this.bt_AB.Text = ">>";
+            this.bt_AB.UseVisualStyleBackColor = true;
+            this.bt_AB.Click += new System.EventHandler(this.bt_AB_Click);
+            // 
+            // cb_B
+            // 
+            this.cb_B.FormattingEnabled = true;
+            this.cb_B.Items.AddRange(new object[] {
+            "Clientes",
+            "Proveedores",
+            "Productos"});
+            this.cb_B.Location = new System.Drawing.Point(237, 28);
+            this.cb_B.Name = "cb_B";
+            this.cb_B.Size = new System.Drawing.Size(163, 21);
+            this.cb_B.TabIndex = 14;
+            this.cb_B.SelectedIndexChanged += new System.EventHandler(this.cb_B_SelectedIndexChanged);
+            // 
+            // lt_B
+            // 
+            this.lt_B.Enabled = false;
+            this.lt_B.FormattingEnabled = true;
+            this.lt_B.Items.AddRange(new object[] {
+            "Seleccione una tabla..."});
+            this.lt_B.Location = new System.Drawing.Point(237, 53);
+            this.lt_B.Name = "lt_B";
+            this.lt_B.Size = new System.Drawing.Size(163, 186);
+            this.lt_B.TabIndex = 13;
+            // 
+            // tp_Nueva
+            // 
+            this.tp_Nueva.Location = new System.Drawing.Point(4, 22);
+            this.tp_Nueva.Name = "tp_Nueva";
+            this.tp_Nueva.Padding = new System.Windows.Forms.Padding(3);
+            this.tp_Nueva.Size = new System.Drawing.Size(706, 274);
+            this.tp_Nueva.TabIndex = 1;
+            this.tp_Nueva.Text = "Nueva";
+            this.tp_Nueva.UseVisualStyleBackColor = true;
             // 
             // bt_Eliminar_tabla
             // 
-            this.bt_Eliminar_tabla.Location = new System.Drawing.Point(198, 13);
+            this.bt_Eliminar_tabla.Location = new System.Drawing.Point(6, 6);
             this.bt_Eliminar_tabla.Name = "bt_Eliminar_tabla";
-            this.bt_Eliminar_tabla.Size = new System.Drawing.Size(90, 37);
+            this.bt_Eliminar_tabla.Size = new System.Drawing.Size(77, 22);
             this.bt_Eliminar_tabla.TabIndex = 3;
             this.bt_Eliminar_tabla.Text = "Eliminar";
             this.bt_Eliminar_tabla.UseVisualStyleBackColor = true;
             this.bt_Eliminar_tabla.Click += new System.EventHandler(this.btn_ELIMINAR_Click);
-            // 
-            // bt_Relacionar_tabla
-            // 
-            this.bt_Relacionar_tabla.Location = new System.Drawing.Point(102, 13);
-            this.bt_Relacionar_tabla.Name = "bt_Relacionar_tabla";
-            this.bt_Relacionar_tabla.Size = new System.Drawing.Size(90, 37);
-            this.bt_Relacionar_tabla.TabIndex = 2;
-            this.bt_Relacionar_tabla.Text = "Relaciones";
-            this.bt_Relacionar_tabla.UseVisualStyleBackColor = true;
-            this.bt_Relacionar_tabla.Click += new System.EventHandler(this.btn_RELACIONES_Click);
-            // 
-            // bt_Nueva_tabla
-            // 
-            this.bt_Nueva_tabla.Location = new System.Drawing.Point(6, 13);
-            this.bt_Nueva_tabla.Name = "bt_Nueva_tabla";
-            this.bt_Nueva_tabla.Size = new System.Drawing.Size(90, 37);
-            this.bt_Nueva_tabla.TabIndex = 1;
-            this.bt_Nueva_tabla.Text = "Nueva Tabla";
-            this.bt_Nueva_tabla.UseVisualStyleBackColor = true;
-            this.bt_Nueva_tabla.Click += new System.EventHandler(this.btn_NUEVATABLA_Click);
             // 
             // tb_DML
             // 
@@ -658,6 +815,11 @@
             this.tb_SQL.ResumeLayout(false);
             this.tb_SQL.PerformLayout();
             this.tp_DDL.ResumeLayout(false);
+            this.tabControl1.ResumeLayout(false);
+            this.tp_Relacionar.ResumeLayout(false);
+            this.tp_Relacionar.PerformLayout();
+            this.gb_Crear.ResumeLayout(false);
+            this.gb_Crear.PerformLayout();
             this.tb_DML.ResumeLayout(false);
             this.tb_DML.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgTabla)).EndInit();
@@ -700,10 +862,7 @@
         private System.Windows.Forms.Button bt_Guardar_query;
         private System.Windows.Forms.Button bt_Ejecutar_query;
         private System.Windows.Forms.ToolStrip ts_Consola_SQL;
-        private System.Windows.Forms.Button bt_Examinar_tabla;
         private System.Windows.Forms.Button bt_Eliminar_tabla;
-        private System.Windows.Forms.Button bt_Relacionar_tabla;
-        private System.Windows.Forms.Button bt_Nueva_tabla;
         private System.Windows.Forms.TextBox tb_Resultados;
         private System.Windows.Forms.TextBox tb_Errores;
         private System.Windows.Forms.Label lb_Mensaje_error;
@@ -718,6 +877,22 @@
         private System.Windows.Forms.TabPage tb_DML;
         private System.Windows.Forms.Label lbTituloTabla;
         private System.Windows.Forms.DataGridView dgTabla;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tp_Relacionar;
+        private System.Windows.Forms.TabPage tp_Nueva;
+        private System.Windows.Forms.GroupBox gb_Crear;
+        private System.Windows.Forms.ComboBox cb_A;
+        private System.Windows.Forms.Label lb_B;
+        private System.Windows.Forms.ListBox lt_A;
+        private System.Windows.Forms.Label lb_A;
+        private System.Windows.Forms.Button bt_BA;
+        private System.Windows.Forms.Label lb_Informacion;
+        private System.Windows.Forms.Button bt_AB;
+        private System.Windows.Forms.ComboBox cb_B;
+        private System.Windows.Forms.ListBox lt_B;
+        private System.Windows.Forms.Label lb_Query;
+        private System.Windows.Forms.TextBox tb_Query;
+        private System.Windows.Forms.Button bt_Ejecutar;
     }
 }
 

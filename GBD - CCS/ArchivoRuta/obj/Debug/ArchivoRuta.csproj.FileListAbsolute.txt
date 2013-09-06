@@ -15,3 +15,7 @@ C:\Users\Zayda\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\ArchivoRuta\bin\D
 C:\Users\Zayda\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\ArchivoRuta\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Zayda\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\ArchivoRuta\obj\Debug\ArchivoRuta.dll
 C:\Users\Zayda\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\ArchivoRuta\obj\Debug\ArchivoRuta.pdb
+C:\Users\i3nRiq\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\ArchivoRuta\bin\Debug\ArchivoRuta.dll
+C:\Users\i3nRiq\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\ArchivoRuta\bin\Debug\ArchivoRuta.pdb
+C:\Users\i3nRiq\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\ArchivoRuta\obj\Debug\ArchivoRuta.dll
+C:\Users\i3nRiq\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\ArchivoRuta\obj\Debug\ArchivoRuta.pdb
