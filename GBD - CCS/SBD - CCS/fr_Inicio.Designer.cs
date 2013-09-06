@@ -297,7 +297,7 @@
             "Sin Conexion"});
             this.lt_Multi_funcion.Location = new System.Drawing.Point(4, 91);
             this.lt_Multi_funcion.Name = "lt_Multi_funcion";
-            this.lt_Multi_funcion.Size = new System.Drawing.Size(106, 342);
+            this.lt_Multi_funcion.Size = new System.Drawing.Size(114, 342);
             this.lt_Multi_funcion.TabIndex = 6;
             this.lt_Multi_funcion.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lt_Multi_funcion_MouseClick);
             this.lt_Multi_funcion.SelectedIndexChanged += new System.EventHandler(this.lt_Multi_funcion_SelectedIndexChanged);
@@ -322,7 +322,6 @@
             this.cb_BD.Size = new System.Drawing.Size(115, 21);
             this.cb_BD.TabIndex = 3;
             this.cb_BD.Visible = false;
-            this.cb_BD.SelectedIndexChanged += new System.EventHandler(this.cb_BD_SelectedIndexChanged);
             this.cb_BD.SelectedValueChanged += new System.EventHandler(this.cb_BD_SelectedValueChanged);
             // 
             // ta_Panel_inferior

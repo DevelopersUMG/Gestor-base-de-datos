@@ -99,8 +99,8 @@ namespace SBD___CCS
                     stSQLins1 += ") ";
                     stSQLins2 += "')";
                     inEstadoIns = 0;
-                    MessageBox.Show("Resultado: " + stSQLins1 + "\n" + stSQLins2);
-
+                   // MessageBox.Show("Resultado: " + stSQLins1 + "\n" + stSQLins2);
+                    this.tb_Resultados.Text += "Sentencia: " + stSQLins1 + " " + stSQLins2 + "\r\n";
                     // dgDatos.txConexGlobal = "Server=localhost;Database=" + this.cmb_BD.Text + ";Uid=root;Port=3306";
 
                     CSQL.mostrar(stSQLins1 + " " + stSQLins2, stHost, stBase_de_datos, stUsuario, stContrasena);
@@ -119,8 +119,8 @@ namespace SBD___CCS
                     stSQLins1 += " where " + dgTabla.Columns[0].HeaderText + " = '" + dgTabla.CurrentRow.Cells[0].Value + "'";
 
                     inEstadoIns = 0;
-                    MessageBox.Show("Resultado: " + stSQLins1);
-
+                    //MessageBox.Show("Resultado: " + stSQLins1);
+                    this.tb_Resultados.Text += "\nSentencia: " + stSQLins1 + "\r\n";
                     // dgDatos.txConexGlobal = "Server=localhost;Database=" + this.cmb_BD.Text + ";Uid=root;Port=3306";
 
                     CSQL.mostrar(stSQLins1, stHost, stBase_de_datos, stUsuario, stContrasena);
@@ -130,8 +130,9 @@ namespace SBD___CCS
                     break;
 
                 case 3:
-                    stSQLins1 = "delete from " + lt_Multi_funcion.Text + " where " + dgTabla.Columns[0].HeaderText + " = '" + dgTabla.CurrentRow.Cells[0].Value + "'"; ;
-                    MessageBox.Show(stSQLins1);
+                    stSQLins1 = "delete from " + lt_Multi_funcion.Text + " where " + dgTabla.Columns[0].HeaderText + " = '" + dgTabla.CurrentRow.Cells[0].Value + "'";
+                    this.tb_Resultados.Text += "\nSentencia: " + stSQLins1 + "\r\n";  
+                //MessageBox.Show(stSQLins1);
                     CSQL.mostrar(stSQLins1, stHost, stBase_de_datos, stUsuario, stContrasena);
                     RegresarFormatoFila();
                     break;
@@ -200,7 +201,7 @@ namespace SBD___CCS
 
 
 
-            ///
+            
             //EliminarTabla(lt_Multi_funcion.SelectedItem.ToString());
             DataRowView rowView = lt_Multi_funcion.SelectedItem as DataRowView;
             string x = rowView.ToString();
@@ -229,11 +230,7 @@ namespace SBD___CCS
             CargarBasesDeDatos();
         }
 
-        private void cb_BD_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
+        
         private void bt_AB_Click(object sender, EventArgs e)
         {
             CargarCampos(2, cb_B.Text);
@@ -594,9 +591,11 @@ namespace SBD___CCS
         {
             CSQL.conectarSQL.Close();
             stBase_de_datos = this.cb_BD.Text;
+            this.lt_Multi_funcion.Enabled = false; //deshabilita control mientras carga
+
             if (cb_BD.Visible)
             {
-                lt_Multi_funcion.Enabled = true;
+                
                 CSQL.txConexGlobal = "Server=" + stHost + ";Database=" + this.cb_BD.Text + ";Uid=" + stUsuario + ";Port=3306";
 
                 CSQL.mostrar("Show tables", stHost, this.cb_BD.Text, stUsuario, stContrasena);
@@ -605,6 +604,7 @@ namespace SBD___CCS
 
                 lt_Multi_funcion.ValueMember = CSQL.ds.Tables[0].Columns[0].ColumnName;
                 obBitacora.RegistroDeActividadEnBitacora(stUsuario, "Show tables;");
+                lt_Multi_funcion.Enabled = true;
             }
             CargarTablasR();
         }
@@ -637,7 +637,8 @@ namespace SBD___CCS
 
                 string stSQL = "Select * from " + lt_Multi_funcion.Text; //string de consulta
                 Console.WriteLine("SQL: " + stSQL);
-                //LlenarDatagrid(stSQL);
+            //    this.lt_Multi_funcion.Enabled = false;
+                LlenarDatagrid(stSQL);
             }
 
         }

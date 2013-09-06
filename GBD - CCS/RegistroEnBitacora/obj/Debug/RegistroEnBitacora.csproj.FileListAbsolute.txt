@@ -14,3 +14,8 @@ C:\Users\mario\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\RegistroEnBitacor
 C:\Users\mario\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\RegistroEnBitacora\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\mario\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\RegistroEnBitacora\obj\Debug\RegistroEnBitacora.dll
 C:\Users\mario\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\RegistroEnBitacora\obj\Debug\RegistroEnBitacora.pdb
+C:\Users\win\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\RegistroEnBitacora\bin\Debug\RegistroEnBitacora.dll
+C:\Users\win\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\RegistroEnBitacora\bin\Debug\RegistroEnBitacora.pdb
+C:\Users\win\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\RegistroEnBitacora\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\win\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\RegistroEnBitacora\obj\Debug\RegistroEnBitacora.dll
+C:\Users\win\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\RegistroEnBitacora\obj\Debug\RegistroEnBitacora.pdb
