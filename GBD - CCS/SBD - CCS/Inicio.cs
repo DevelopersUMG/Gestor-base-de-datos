@@ -323,63 +323,54 @@ namespace SBD___CCS
         DETALLE:            
         MODIFICACIÓN:       
         ***************************************************************/
-        public void RegistroDeActividadEnBitacora(string usuario, string sentencia)
+        public void RegistroDeActividadEnBitacora(string lstusuario, string lstsentencia)
         {
-            String archivobd;
-            string obtenerutactual = AppDomain.CurrentDomain.BaseDirectory;// La ruta donde tengo el ejecutable
-            
-            
-            
-            string h = "\\";
-            char a = h[0];
-            string[] vector = obtenerutactual.Split(h[0]);
-
-           
-            archivobd = "C:/Users/" + vector[2] + "/Dropbox/CCS - ADST/Bitacora/Bitacora";
-
-            string insercion;
-            string consulta;
-            int idb;
-            int ANUM=0;
+            String lstarchivobd;
+            lstarchivobd = "C:/Users/Zayda/Dropbox/CCS - ADST/Bitacora/Bitacora";
+            string lstinsercion;
+            string lstconsulta;
+            int linidb;
+            int linANUM = 0;
             SQLiteCommand sntc;
             SQLiteCommand snt;
             SQLiteConnection conexion;
             SQLiteDataReader datos;
+            conexion = new SQLiteConnection("Data Source=" + lstarchivobd + ".sqlite;Version=3;New=False;Compress=True;");
+            conexion.Open();
 
-                        
             try
-            { 
-                conexion = new SQLiteConnection("Data Source=" + archivobd + ".sqlite;Version=3;New=False;Compress=True;");
-                conexion.Open();
-                consulta = "SELECT * FROM BITACORA;";
-                sntc = new SQLiteCommand(consulta, conexion);
+            {
+                lstconsulta = "SELECT * FROM BITACORA;";
+                sntc = new SQLiteCommand(lstconsulta, conexion);
                 datos = sntc.ExecuteReader();
+                Console.WriteLine("UInicio de qhile");
                 while (datos.Read())
                 {
 
-                    idb = Convert.ToInt32(datos[0]);
-                    while (ANUM <= idb)
+                    linidb = Convert.ToInt32(datos[0]);
+                    while (linANUM <= linidb)
                     {
-                        if (ANUM < idb)
+                        if (linANUM < linidb)
                         {
-                            ANUM = idb;
-                            
+                            linANUM = linidb;
+
                         }
-                        ANUM++;
+                        linANUM++;
                     }
                 }
 
-                insercion = "INSERT INTO BITACORA VALUES  (" + ANUM + ",'" + usuario + "',datetime('now','localtime'),'" + sentencia + "');";
-                snt=new SQLiteCommand(insercion,conexion);
+                lstinsercion = "INSERT INTO BITACORA VALUES  (" + linANUM + ",'" + lstusuario + "',datetime('now','localtime'),'" + lstsentencia + "');";
+                Console.WriteLine("Query ejecutado: " + lstinsercion);
+                snt = new SQLiteCommand(lstinsercion, conexion);
                 snt.ExecuteNonQuery();
-                
+
             }
 
             catch (Exception e)
             {
                 MessageBox.Show("No se ha podido registrar cambio en Bitacora", "Aviso");
             }
-            
+
             CSQL.conectarSQL.Close();
         }
 
