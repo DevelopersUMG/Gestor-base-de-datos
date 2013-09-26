@@ -456,6 +456,7 @@ namespace SBD___CCS
         public void EjecutarConsolaSQL(string cadena)
         {
 
+
             try
             {
                 MySqlCommand cmd = new MySqlCommand();
@@ -466,9 +467,8 @@ namespace SBD___CCS
                 CSQL.conectarSQL.Open();
                 cmd.Connection = CSQL.conectarSQL;
 
-                if ((vector[0] == "select") || (vector[0] == "show") || (vector[0] == "SELECT"))
+                if ((vector[0] == "select") || (vector[0] == "show"))
                 {
-                    obBitacora.RegistroDeActividadEnBitacora(stUsuario, "Sentencia Consola: " + cadena);
 
                     MySqlDataReader reader = cmd.ExecuteReader();
 
@@ -484,98 +484,42 @@ namespace SBD___CCS
                     }
 
                 }
-                else
-                {
-                    tb_Resultados.AppendText("Favor revisar sentencia sql select\n");
 
-                }
-                if ((vector[0] == "insert") || (vector[0] == "INSERT"))
-                {
-                    obBitacora.RegistroDeActividadEnBitacora(stUsuario, "Sentencia Consola: " + cadena);
 
+
+                if ((vector[0] == "insert"))
+                {
                     tb_Resultados.Text = ("Insercion realizada con exito");
                     cmd.ExecuteNonQuery();
                 }
-                else
+                if ((vector[0] == "alter"))
                 {
-                    tb_Resultados.AppendText("Favor revisar sentencia sql insert\n");
-
-                }
-                if ((vector[0] == "alter") || (vector[0] == "ALTER"))
-                {
-                    obBitacora.RegistroDeActividadEnBitacora(stUsuario, "Sentencia Consola: " + cadena);
-
                     tb_Resultados.Text = ("modificacion realizada con exito");
                     cmd.ExecuteNonQuery();
                 }
-                else
+                if ((vector[0] == "create"))
                 {
-                    tb_Resultados.AppendText("Favor revisar sentencia sql alter\n");
-
-                }
-                if ((vector[0] == "create") || (vector[0] == "CREATE"))
-                {
-                    obBitacora.RegistroDeActividadEnBitacora(stUsuario, "Sentencia Consola: " + cadena);
-
                     tb_Resultados.Text = ("Tabla creada con exito");
                     cmd.ExecuteNonQuery();
                 }
-                else
-                {
-                    tb_Resultados.AppendText("Favor revisar sentencia sql create\n");
-                    if ((vector[1] != "table") || (vector[1] != "TABLE"))
-                    {
-                        tb_Resultados.AppendText("Favor revisar la palabra table\n");
-                    }
-                    if ((vector[2] != ";") || (vector[2] != ";"))
-                    {
-                        tb_Resultados.AppendText("Favor revisar falta un punto y coma en la sentencia\n");
-                    }
 
-                }
-                if ((vector[0] == "delete") || (vector[0] == "DELETE"))
+                if ((vector[0] == "delete"))
                 {
-                    obBitacora.RegistroDeActividadEnBitacora(stUsuario, "Sentencia Consola: " + cadena);
-
                     tb_Resultados.Text = ("Eliminacion realizada con exito");
                     cmd.ExecuteNonQuery();
                 }
-                else
+                if ((vector[0] == "update"))
                 {
-                    tb_Resultados.AppendText("Favor revisar sentencia sql delete\n");
-
-                }
-                if ((vector[0] == "update") || (vector[0] == "UPDATE"))
-                {
-                    obBitacora.RegistroDeActividadEnBitacora(stUsuario, "Sentencia Consola: " + cadena);
-
                     tb_Resultados.Text = ("modificacion realizada con exito");
                     cmd.ExecuteNonQuery();
                 }
-                else
-                {
-                    tb_Resultados.AppendText("Favor revisar sentencia sql update\n");
 
-                }
-                if ((vector[0] == "drop") || (vector[0] == "DROP"))
+                if ((vector[0] == "drop"))
                 {
-                    obBitacora.RegistroDeActividadEnBitacora(stUsuario, "Sentencia Consola: " + cadena);
-
                     tb_Resultados.Text = ("Eliminacion realizada con exito");
                     cmd.ExecuteNonQuery();
                 }
-                else
-                {
-                    tb_Resultados.AppendText("Favor revisar sentencia sql drop\n");
-                    if ((vector[1] != "database") || (vector[1] != "DATABASE"))
-                    {
-                        tb_Resultados.AppendText("Favor revisar la palabra database\n");
-                    }
-                    if ((vector[2] != ";") || (vector[2] != ";"))
-                    {
-                        tb_Resultados.AppendText("Favor revisar falta un punto y coma en la sentencia\n");
-                    }
-                }
+
                 CSQL.conectarSQL.Close();
 
             }

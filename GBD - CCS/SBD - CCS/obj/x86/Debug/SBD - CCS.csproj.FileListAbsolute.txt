@@ -119,3 +119,4 @@ C:\Users\win\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\SBD - CCS\bin\Debug
 C:\Users\win\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\SBD - CCS\bin\Debug\RegistroEnBitacora.pdb
 C:\Users\win\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\SBD - CCS\obj\x86\Debug\SBD___CCS.fr_Inicio.resources
 C:\Users\win\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\SBD - CCS\obj\x86\Debug\SBD___CCS.fr_Login.resources
+C:\Users\mario\Documents\GitHub\Gestor-base-de-datos\GBD - CCS\SBD - CCS\bin\Debug\MySql.Data.dll
